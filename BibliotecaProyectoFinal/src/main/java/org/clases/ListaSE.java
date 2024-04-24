@@ -1,4 +1,3 @@
-package org.example;
 
 public class ListaSE<T> implements IMetodos<T>{
     private NodoSE<T> cabeza;
