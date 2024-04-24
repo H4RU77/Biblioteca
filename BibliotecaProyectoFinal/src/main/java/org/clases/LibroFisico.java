@@ -16,6 +16,6 @@ public class LibroFisico extends Libro{
     }
 
     public String mostrar(){
-        return "Libro Digital - [Titulo: "+getTitulo()+", Autor: "+getAutor()+", Genero: "+getGenero()+", Idioma: "+getIdioma()+", Cantidad: "+getCantidad()+""\n"+getDesc()+"]";
+        return "Libro Fisico - [Titulo: "+getTitulo()+", Autor: "+getAutor()+", Genero: "+getGenero()+", Idioma: "+getIdioma()+", Cantidad: "+getCantidad()+"\n"+getDesc()+"]";
     }
 }
