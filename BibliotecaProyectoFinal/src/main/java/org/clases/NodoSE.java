@@ -1,4 +1,4 @@
-
+package org.clases;
 
 public class NodoSE<T> {
     private T dato;

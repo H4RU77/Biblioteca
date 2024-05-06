@@ -1,4 +1,4 @@
-
+package org.clases;
 
 public interface IMetodos<T> {
     public int tamanio();

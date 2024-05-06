@@ -1,3 +1,4 @@
+package org.clases;
 public class Prestamo {
 
     private Libro libro;

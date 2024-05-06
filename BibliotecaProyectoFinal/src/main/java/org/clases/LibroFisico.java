@@ -1,3 +1,5 @@
+package org.clases;
+
 public class LibroFisico extends Libro{
     private int cantidad;
 

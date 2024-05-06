@@ -1,3 +1,4 @@
+package org.clases;
 public class  Miembro{
     private String ID;
     private String nombre;

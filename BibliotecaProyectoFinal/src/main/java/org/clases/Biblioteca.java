@@ -1,3 +1,4 @@
+package org.clases;
 public class Biblioteca {
     protected Catalogo catalogo;
     protected ListaSE<Miembro> miembroLista;
