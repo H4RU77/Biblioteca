@@ -4,6 +4,8 @@
  */
 package org.gui;
 
+import java.awt.Color;
+
 /**
  *
  * @author Keloc
@@ -50,9 +52,9 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setMinimumSize(new java.awt.Dimension(800, 500));
-        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         seccionContenedor.setBackground(new java.awt.Color(204, 204, 204));
+        seccionContenedor.setMinimumSize(new java.awt.Dimension(620, 500));
 
         javax.swing.GroupLayout seccionContenedorLayout = new javax.swing.GroupLayout(seccionContenedor);
         seccionContenedor.setLayout(seccionContenedorLayout);
@@ -65,7 +67,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
-        bg.add(seccionContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 620, 500));
+        menuPanel.setMinimumSize(new java.awt.Dimension(175, 500));
 
         menuOpciones.setBackground(new java.awt.Color(204, 204, 204));
         menuOpciones.setPreferredSize(new java.awt.Dimension(175, 500));
@@ -73,14 +75,24 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         contenedorOpt.setBackground(new java.awt.Color(102, 153, 255));
         contenedorOpt.setMaximumSize(new java.awt.Dimension(350, 600));
         contenedorOpt.setMinimumSize(new java.awt.Dimension(175, 300));
+        contenedorOpt.setPreferredSize(new java.awt.Dimension(175, 300));
         contenedorOpt.setLayout(new javax.swing.BoxLayout(contenedorOpt, javax.swing.BoxLayout.PAGE_AXIS));
 
         principalOptP.setBackground(new java.awt.Color(102, 153, 255));
         principalOptP.setMaximumSize(new java.awt.Dimension(350, 100));
         principalOptP.setMinimumSize(new java.awt.Dimension(175, 50));
         principalOptP.setPreferredSize(new java.awt.Dimension(175, 50));
+        principalOptP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                principalOptPMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                principalOptPMouseExited(evt);
+            }
+        });
 
         principalL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        principalL.setForeground(new java.awt.Color(255, 255, 255));
         principalL.setText("Principal");
 
         javax.swing.GroupLayout principalOptPLayout = new javax.swing.GroupLayout(principalOptP);
@@ -105,8 +117,17 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         prestamosOptP.setBackground(new java.awt.Color(102, 153, 255));
         prestamosOptP.setMaximumSize(new java.awt.Dimension(350, 100));
         prestamosOptP.setMinimumSize(new java.awt.Dimension(175, 50));
+        prestamosOptP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                prestamosOptPMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                prestamosOptPMouseExited(evt);
+            }
+        });
 
         prestamosL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        prestamosL.setForeground(new java.awt.Color(255, 255, 255));
         prestamosL.setText("Prestamos");
 
         javax.swing.GroupLayout prestamosOptPLayout = new javax.swing.GroupLayout(prestamosOptP);
@@ -131,8 +152,17 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         devolucionesOptP.setBackground(new java.awt.Color(102, 153, 255));
         devolucionesOptP.setMaximumSize(new java.awt.Dimension(350, 100));
         devolucionesOptP.setMinimumSize(new java.awt.Dimension(175, 50));
+        devolucionesOptP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                devolucionesOptPMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                devolucionesOptPMouseExited(evt);
+            }
+        });
 
         devolucionesL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        devolucionesL.setForeground(new java.awt.Color(255, 255, 255));
         devolucionesL.setText("Devoluciones");
 
         javax.swing.GroupLayout devolucionesOptPLayout = new javax.swing.GroupLayout(devolucionesOptP);
@@ -157,8 +187,17 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         miembrosOptP.setBackground(new java.awt.Color(102, 153, 255));
         miembrosOptP.setMaximumSize(new java.awt.Dimension(350, 100));
         miembrosOptP.setMinimumSize(new java.awt.Dimension(175, 50));
+        miembrosOptP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                miembrosOptPMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                miembrosOptPMouseExited(evt);
+            }
+        });
 
         miembrosL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        miembrosL.setForeground(new java.awt.Color(255, 255, 255));
         miembrosL.setText("Miembros");
 
         javax.swing.GroupLayout miembrosOptPLayout = new javax.swing.GroupLayout(miembrosOptP);
@@ -183,8 +222,17 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         catalogoOptP.setBackground(new java.awt.Color(102, 153, 255));
         catalogoOptP.setMaximumSize(new java.awt.Dimension(350, 100));
         catalogoOptP.setMinimumSize(new java.awt.Dimension(175, 50));
+        catalogoOptP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                catalogoOptPMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                catalogoOptPMouseExited(evt);
+            }
+        });
 
         catalogoL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        catalogoL.setForeground(new java.awt.Color(255, 255, 255));
         catalogoL.setText("Catalogo");
 
         javax.swing.GroupLayout catalogoOptPLayout = new javax.swing.GroupLayout(catalogoOptP);
@@ -209,8 +257,17 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         logsOptP.setBackground(new java.awt.Color(102, 153, 255));
         logsOptP.setMaximumSize(new java.awt.Dimension(350, 100));
         logsOptP.setMinimumSize(new java.awt.Dimension(175, 50));
+        logsOptP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logsOptPMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logsOptPMouseExited(evt);
+            }
+        });
 
         logsL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        logsL.setForeground(new java.awt.Color(255, 255, 255));
         logsL.setText("Logs");
 
         javax.swing.GroupLayout logsOptPLayout = new javax.swing.GroupLayout(logsOptP);
@@ -240,7 +297,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         menuOpcionesLayout.setHorizontalGroup(
             menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuOpcionesLayout.createSequentialGroup()
-                .addComponent(contenedorOpt, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(contenedorOpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(menuOpcionesLayout.createSequentialGroup()
                 .addContainerGap()
@@ -268,7 +325,20 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             .addComponent(menuOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        bg.add(menuPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
+        bg.setLayout(bgLayout);
+        bgLayout.setHorizontalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgLayout.createSequentialGroup()
+                .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(seccionContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        bgLayout.setVerticalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(seccionContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -286,6 +356,54 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void principalOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalOptPMouseEntered
+        principalOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_principalOptPMouseEntered
+
+    private void principalOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalOptPMouseExited
+        principalOptP.setBackground(new Color(102,153,255));
+    }//GEN-LAST:event_principalOptPMouseExited
+
+    private void prestamosOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosOptPMouseEntered
+        prestamosOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_prestamosOptPMouseEntered
+
+    private void devolucionesOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesOptPMouseEntered
+        devolucionesOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_devolucionesOptPMouseEntered
+
+    private void miembrosOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosOptPMouseEntered
+        miembrosOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_miembrosOptPMouseEntered
+
+    private void catalogoOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoOptPMouseEntered
+        catalogoOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_catalogoOptPMouseEntered
+
+    private void prestamosOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosOptPMouseExited
+        prestamosOptP.setBackground(new Color(102,153,255));
+    }//GEN-LAST:event_prestamosOptPMouseExited
+
+    private void devolucionesOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesOptPMouseExited
+        devolucionesOptP.setBackground(new Color(102,153,255));
+    }//GEN-LAST:event_devolucionesOptPMouseExited
+
+    private void miembrosOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosOptPMouseExited
+        miembrosOptP.setBackground(new Color(102,153,255));
+    }//GEN-LAST:event_miembrosOptPMouseExited
+
+    private void catalogoOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoOptPMouseExited
+        catalogoOptP.setBackground(new Color(102,153,255));
+    }//GEN-LAST:event_catalogoOptPMouseExited
+
+    private void logsOptPMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsOptPMouseEntered
+        logsOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_logsOptPMouseEntered
+
+    private void logsOptPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsOptPMouseExited
+        logsOptP.setBackground(new Color(102,153,255));
+    }//GEN-LAST:event_logsOptPMouseExited
 
     /**
      * @param args the command line arguments

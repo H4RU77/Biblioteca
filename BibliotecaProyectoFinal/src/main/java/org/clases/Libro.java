@@ -1,6 +1,6 @@
 package org.clases;
 
-public abstract class Libro(){
+public abstract class Libro {
     protected final String titulo;
     protected final String autor;
     protected final String genero;
