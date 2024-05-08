@@ -1,5 +1,9 @@
 package org.clases;
 
+/**
+ *
+ * @author Keloc
+ */
 public class Catalogo () {
     protected ListaSE<Libro> listaLibros;
 
