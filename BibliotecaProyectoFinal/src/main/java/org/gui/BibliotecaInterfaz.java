@@ -28,6 +28,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     private Image miembrosImage = new ImageIcon("src/main/resources/miembrosImg.png").getImage();
     private Image catalogoImage = new ImageIcon("src/main/resources/catalogoImg.png").getImage();
     private Image logsImage = new ImageIcon("src/main/resources/logsImg.png").getImage();
+    private Image logoImage = new ImageIcon("src/main/resources/logo.png").getImage();
     public BibliotecaInterfaz() {
         initComponents();
         initStyles();
@@ -38,6 +39,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         miembrosImgL.setIcon(resizeImage(miembrosImage, miembrosImgL));
         catalogoImgL.setIcon(resizeImage(catalogoImage, catalogoImgL));
         logsImgL.setIcon(resizeImage(logsImage, logsImgL));
+        logoL.setIcon(resizeImage(logoImage, logoL));
     }
 
     /**
@@ -71,7 +73,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         logsOptP = new javax.swing.JPanel();
         logsL = new javax.swing.JLabel();
         logsImgL = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        logoL = new javax.swing.JLabel();
         barraP = new javax.swing.JPanel();
         contentP = new javax.swing.JPanel();
 
@@ -395,8 +397,8 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
 
         contenedorOpt.add(logsOptP);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        logoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen.jpg"))); // NOI18N
+        logoL.setText("jLabel1");
 
         javax.swing.GroupLayout menuOpcionesLayout = new javax.swing.GroupLayout(menuOpciones);
         menuOpciones.setLayout(menuOpcionesLayout);
@@ -404,7 +406,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuOpcionesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(logoL, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(menuOpcionesLayout.createSequentialGroup()
                 .addComponent(contenedorOpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -414,7 +416,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuOpcionesLayout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoL, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(contenedorOpt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(70, 70, 70))
@@ -650,7 +652,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel devolucionesImgL;
     private javax.swing.JLabel devolucionesL;
     private javax.swing.JPanel devolucionesOptP;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel logoL;
     private javax.swing.JLabel logsImgL;
     private javax.swing.JLabel logsL;
     private javax.swing.JPanel logsOptP;
