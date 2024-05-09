@@ -590,7 +590,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     
     private void initContent(){
         Principal p1 = new Principal();
-        p1.setSize(611, 362);
+        p1.setSize(contentP.getWidth(), contentP.getHeight());
         p1.setLocation(0, 0);
         contentP.removeAll();
         contentP.add(p1, BorderLayout.CENTER);
@@ -599,7 +599,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }
     
     private void changeContent(JPanel panel){
-        panel.setSize(611, 362);
+        panel.setSize(contentP.getWidth(), contentP.getHeight());
         panel.setLocation(0,0);
         contentP.removeAll();
         contentP.add(panel, BorderLayout.CENTER);

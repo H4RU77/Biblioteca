@@ -29,7 +29,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="bg" max="32767" attributes="0"/>
+          <Component id="bg" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -40,26 +40,34 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ayudaL" pref="564" max="32767" attributes="0"/>
-                      <Component id="textoL" pref="564" max="32767" attributes="0"/>
                       <Component id="bienvenidoL" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel1" pref="543" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="ayudaL" max="32767" attributes="0"/>
+                                  <EmptySpace min="281" pref="281" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                  <Component id="bienvenidoL" pref="19" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="textoL" pref="19" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                  <Component id="ayudaL" pref="19" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="bienvenidoL" pref="30" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" pref="82" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="ayudaL" pref="135" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -67,17 +75,20 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="bienvenidoL">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&#xa1;Bienvenido!"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="ayudaL">
           <Properties>
-            <Property name="text" type="java.lang.String" value="No se que poner :P"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;Operaciones:&#xa;&lt;ul&gt;&#xa;&lt;li&gt;Pr&#xe9;stamos&lt;/li&gt;&#xa;&lt;li&gt;Devoluciones&lt;/li&gt;&#xa;&lt;li&gt;Registro y Edici&#xf3;n de Miembros&lt;/li&gt;&#xa;&lt;li&gt;Registro y Edici&#xf3;n de Libros&lt;/li&gt;&#xa;&lt;li&gt;Eliminar todo tipo de Registros&lt;/li&gt;&#xa;&lt;li&gt;Registrar y Consultar logs&lt;/li&gt;&#xa;&lt;/ul&gt;&#xa;&lt;/html&gt;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="textoL">
+        <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Biblioteca {nombreBiblio} presenta sus sistema de gestion."/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;Biblioteca {nombreBiblio} presenta sus sistema de gestion, que facilita el proceso de prestamo &lt;br&gt;&lt;/br&gt;&#xa;y devoluci&#xf3;n de libros y su registro en una base de datos. &lt;br&gt;&lt;/br&gt;&#xa;&lt;br&gt;&lt;/br&gt;&#xa;Este Sistema permite el manejo del catalogo en una manera &#xf3;ptima y sencilla,  con una interfaz &lt;br&gt;&lt;/br&gt;&#xa;llamativa y amigable con el usuario.&#xa;&lt;/html&gt;"/>
           </Properties>
         </Component>
       </SubComponents>
