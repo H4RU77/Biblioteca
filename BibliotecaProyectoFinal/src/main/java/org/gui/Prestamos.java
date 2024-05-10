@@ -29,6 +29,11 @@ public class Prestamos extends javax.swing.JPanel {
         prestamosIP = new javax.swing.JPanel();
         prestamosTextL = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(611, 362));
+
+        prestamosIP.setMinimumSize(new java.awt.Dimension(611, 362));
+        prestamosIP.setPreferredSize(new java.awt.Dimension(611, 362));
+
         prestamosTextL.setText("Aqui van los prestamos y asi");
 
         javax.swing.GroupLayout prestamosIPLayout = new javax.swing.GroupLayout(prestamosIP);
@@ -37,7 +42,7 @@ public class Prestamos extends javax.swing.JPanel {
             prestamosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(prestamosIPLayout.createSequentialGroup()
                 .addGap(99, 99, 99)
-                .addComponent(prestamosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                .addComponent(prestamosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(337, 337, 337))
         );
         prestamosIPLayout.setVerticalGroup(

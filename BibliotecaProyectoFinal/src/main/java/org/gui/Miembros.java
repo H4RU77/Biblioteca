@@ -4,6 +4,8 @@
  */
 package org.gui;
 
+import java.awt.Color;
+
 /**
  *
  * @author Keloc
@@ -35,10 +37,13 @@ public class Miembros extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         nuevoBtn = new javax.swing.JPanel();
         nuevoL = new javax.swing.JLabel();
-        ediatBtn = new javax.swing.JPanel();
+        editarBtn = new javax.swing.JPanel();
         editL = new javax.swing.JLabel();
         borrarBtn = new javax.swing.JPanel();
         borrarL = new javax.swing.JLabel();
+
+        miembrosIP.setMinimumSize(new java.awt.Dimension(620, 360));
+        miembrosIP.setPreferredSize(new java.awt.Dimension(620, 360));
 
         miembrosTextL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         miembrosTextL.setText("Miembros");
@@ -46,24 +51,40 @@ public class Miembros extends javax.swing.JPanel {
         buscadorTF.setBackground(new java.awt.Color(255, 255, 255));
         buscadorTF.setForeground(new java.awt.Color(153, 153, 153));
         buscadorTF.setText("Ingrese un dato de búsqueda...");
+        buscadorTF.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buscadorTFMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                buscadorTFMouseExited(evt);
+            }
+        });
 
         buscarBtn.setBackground(new java.awt.Color(51, 153, 255));
+        buscarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buscarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buscarBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                buscarBtnMouseExited(evt);
+            }
+        });
 
         buscarL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         buscarL.setForeground(new java.awt.Color(255, 255, 255));
         buscarL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         buscarL.setText("Buscar");
-        buscarL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
 
         javax.swing.GroupLayout buscarBtnLayout = new javax.swing.GroupLayout(buscarBtn);
         buscarBtn.setLayout(buscarBtnLayout);
         buscarBtnLayout.setHorizontalGroup(
             buscarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(buscarL, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+            .addComponent(buscarL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
         buscarBtnLayout.setVerticalGroup(
             buscarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(buscarL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buscarL)
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -88,6 +109,15 @@ public class Miembros extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         nuevoBtn.setBackground(new java.awt.Color(51, 153, 255));
+        nuevoBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nuevoBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                nuevoBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                nuevoBtnMouseExited(evt);
+            }
+        });
 
         nuevoL.setBackground(new java.awt.Color(51, 153, 255));
         nuevoL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -100,14 +130,23 @@ public class Miembros extends javax.swing.JPanel {
         nuevoBtn.setLayout(nuevoBtnLayout);
         nuevoBtnLayout.setHorizontalGroup(
             nuevoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(nuevoL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+            .addComponent(nuevoL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         nuevoBtnLayout.setVerticalGroup(
             nuevoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(nuevoL, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+            .addComponent(nuevoL, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        ediatBtn.setBackground(new java.awt.Color(0, 153, 255));
+        editarBtn.setBackground(new java.awt.Color(0, 153, 255));
+        editarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editarBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editarBtnMouseExited(evt);
+            }
+        });
 
         editL.setBackground(new java.awt.Color(51, 153, 255));
         editL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -116,18 +155,27 @@ public class Miembros extends javax.swing.JPanel {
         editL.setText("Editar");
         editL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
 
-        javax.swing.GroupLayout ediatBtnLayout = new javax.swing.GroupLayout(ediatBtn);
-        ediatBtn.setLayout(ediatBtnLayout);
-        ediatBtnLayout.setHorizontalGroup(
-            ediatBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(editL, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+        javax.swing.GroupLayout editarBtnLayout = new javax.swing.GroupLayout(editarBtn);
+        editarBtn.setLayout(editarBtnLayout);
+        editarBtnLayout.setHorizontalGroup(
+            editarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(editL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        ediatBtnLayout.setVerticalGroup(
-            ediatBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(editL, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+        editarBtnLayout.setVerticalGroup(
+            editarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(editL, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         borrarBtn.setBackground(new java.awt.Color(51, 153, 255));
+        borrarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        borrarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                borrarBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                borrarBtnMouseExited(evt);
+            }
+        });
 
         borrarL.setBackground(new java.awt.Color(51, 153, 255));
         borrarL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -140,11 +188,11 @@ public class Miembros extends javax.swing.JPanel {
         borrarBtn.setLayout(borrarBtnLayout);
         borrarBtnLayout.setHorizontalGroup(
             borrarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(borrarL, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+            .addComponent(borrarL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         borrarBtnLayout.setVerticalGroup(
             borrarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(borrarL, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+            .addComponent(borrarL, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout miembrosIPLayout = new javax.swing.GroupLayout(miembrosIP);
@@ -154,42 +202,41 @@ public class Miembros extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, miembrosIPLayout.createSequentialGroup()
                 .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(miembrosIPLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(nuevoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(361, 361, 361)
+                        .addComponent(nuevoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ediatBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(borrarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(miembrosIPLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, miembrosIPLayout.createSequentialGroup()
-                                .addComponent(miembrosTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(borrarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, miembrosIPLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(miembrosIPLayout.createSequentialGroup()
+                                .addComponent(miembrosTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, miembrosIPLayout.createSequentialGroup()
-                                .addComponent(buscadorTF, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, miembrosIPLayout.createSequentialGroup()
+                                .addComponent(buscadorTF)
                                 .addGap(18, 18, 18)
-                                .addComponent(buscarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(21, 21, 21))
         );
         miembrosIPLayout.setVerticalGroup(
             miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, miembrosIPLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(miembrosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(miembrosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buscarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buscadorTF))
+                    .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscadorTF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(nuevoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(borrarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(ediatBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nuevoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(borrarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
         );
 
@@ -197,13 +244,56 @@ public class Miembros extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(miembrosIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(miembrosIP, javax.swing.GroupLayout.PREFERRED_SIZE, 611, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(miembrosIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(miembrosIP, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nuevoBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nuevoBtnMouseEntered
+        nuevoBtn.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_nuevoBtnMouseEntered
+
+    private void editarBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarBtnMouseEntered
+        editarBtn.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_editarBtnMouseEntered
+
+    private void borrarBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarBtnMouseEntered
+        borrarBtn.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_borrarBtnMouseEntered
+
+    private void buscadorTFMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscadorTFMouseExited
+        
+    }//GEN-LAST:event_buscadorTFMouseExited
+
+    private void buscarBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarBtnMouseExited
+        buscarBtn.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_buscarBtnMouseExited
+
+    private void nuevoBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nuevoBtnMouseExited
+       nuevoBtn.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_nuevoBtnMouseExited
+
+    private void editarBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarBtnMouseExited
+        editarBtn.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_editarBtnMouseExited
+
+    private void borrarBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarBtnMouseExited
+        borrarBtn.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_borrarBtnMouseExited
+
+    private void buscarBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarBtnMouseEntered
+        buscarBtn.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_buscarBtnMouseEntered
+
+    private void buscadorTFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscadorTFMouseClicked
+        if (buscadorTF.getText().equals("Ingrese un dato de búsqueda...")){
+            buscadorTF.setText("");
+            buscadorTF.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_buscadorTFMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -212,8 +302,8 @@ public class Miembros extends javax.swing.JPanel {
     private javax.swing.JTextField buscadorTF;
     private javax.swing.JPanel buscarBtn;
     private javax.swing.JLabel buscarL;
-    private javax.swing.JPanel ediatBtn;
     private javax.swing.JLabel editL;
+    private javax.swing.JPanel editarBtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel miembrosIP;

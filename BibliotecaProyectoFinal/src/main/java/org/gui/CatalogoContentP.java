@@ -29,6 +29,10 @@ public class CatalogoContentP extends javax.swing.JPanel {
         catalogoIP = new javax.swing.JPanel();
         catalogoTextL = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(611, 362));
+
+        catalogoIP.setPreferredSize(new java.awt.Dimension(611, 362));
+
         catalogoTextL.setText("Panel de los Catalogos :D");
 
         javax.swing.GroupLayout catalogoIPLayout = new javax.swing.GroupLayout(catalogoIP);
@@ -52,7 +56,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(catalogoIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(catalogoIP, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

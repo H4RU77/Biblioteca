@@ -29,6 +29,12 @@ public class Devoluciones extends javax.swing.JPanel {
         devolucionesIP = new javax.swing.JPanel();
         devolucionesTextL = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(611, 362));
+        setPreferredSize(new java.awt.Dimension(611, 362));
+
+        devolucionesIP.setMinimumSize(new java.awt.Dimension(611, 362));
+        devolucionesIP.setPreferredSize(new java.awt.Dimension(611, 362));
+
         devolucionesTextL.setText("Panel de las devoluciones");
 
         javax.swing.GroupLayout devolucionesIPLayout = new javax.swing.GroupLayout(devolucionesIP);
@@ -38,14 +44,14 @@ public class Devoluciones extends javax.swing.JPanel {
             .addGroup(devolucionesIPLayout.createSequentialGroup()
                 .addGap(90, 90, 90)
                 .addComponent(devolucionesTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(366, Short.MAX_VALUE))
+                .addContainerGap(357, Short.MAX_VALUE))
         );
         devolucionesIPLayout.setVerticalGroup(
             devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(devolucionesIPLayout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addComponent(devolucionesTextL)
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

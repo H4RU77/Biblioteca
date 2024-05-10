@@ -459,7 +459,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         );
         contentPLayout.setVerticalGroup(
             contentPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 362, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
