@@ -11,6 +11,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import org.clases.Biblioteca;
 
 /**
  *
@@ -29,7 +30,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     private Image catalogoImage = new ImageIcon("src/main/resources/catalogoImg.png").getImage();
     private Image logsImage = new ImageIcon("src/main/resources/logsImg.png").getImage();
     private Image logoImage = new ImageIcon("src/main/resources/logo.png").getImage();
-    public BibliotecaInterfaz() {
+    public BibliotecaInterfaz(Biblioteca biblio) {
         initComponents();
         initStyles();
         initContent();
@@ -614,6 +615,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        Biblioteca biblio = new Biblioteca(null, null);
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -635,7 +637,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BibliotecaInterfaz().setVisible(true);
+                new BibliotecaInterfaz(biblio).setVisible(true);
             }
         });
     }
