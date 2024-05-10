@@ -77,11 +77,12 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         logoL = new javax.swing.JLabel();
         barraP = new javax.swing.JPanel();
         contentP = new javax.swing.JPanel();
+        textoL = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 500));
 
-        bg.setBackground(new java.awt.Color(204, 204, 204));
+        bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setMinimumSize(new java.awt.Dimension(800, 500));
         bg.setPreferredSize(new java.awt.Dimension(800, 500));
 
@@ -129,22 +130,21 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             principalOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalOptPLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(principalImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(principalImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(principalL, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         principalOptPLayout.setVerticalGroup(
             principalOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(principalOptPLayout.createSequentialGroup()
-                .addGroup(principalOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(principalOptPLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(principalL))
-                    .addGroup(principalOptPLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(principalImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(principalL)
+                .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(principalOptPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(principalImgL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         contenedorOpt.add(principalOptP);
@@ -179,22 +179,21 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             prestamosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, prestamosOptPLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(prestamosImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(prestamosImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(prestamosL, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         prestamosOptPLayout.setVerticalGroup(
             prestamosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(prestamosOptPLayout.createSequentialGroup()
-                .addGroup(prestamosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(prestamosOptPLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(prestamosL))
-                    .addGroup(prestamosOptPLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(prestamosImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addComponent(prestamosL)
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(prestamosOptPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(prestamosImgL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         contenedorOpt.add(prestamosOptP);
@@ -228,22 +227,22 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         devolucionesOptPLayout.setHorizontalGroup(
             devolucionesOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, devolucionesOptPLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(devolucionesImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
+                .addComponent(devolucionesImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(devolucionesL)
                 .addContainerGap())
         );
         devolucionesOptPLayout.setVerticalGroup(
             devolucionesOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(devolucionesOptPLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(devolucionesL)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(devolucionesImgL, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, devolucionesOptPLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(devolucionesImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(devolucionesL)
+                .addGap(15, 15, 15))
         );
 
         contenedorOpt.add(devolucionesOptP);
@@ -277,23 +276,22 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         miembrosOptPLayout.setHorizontalGroup(
             miembrosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, miembrosOptPLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(miembrosImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(miembrosImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(miembrosL)
                 .addGap(29, 29, 29))
         );
         miembrosOptPLayout.setVerticalGroup(
             miembrosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(miembrosOptPLayout.createSequentialGroup()
-                .addGroup(miembrosOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(miembrosOptPLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(miembrosL))
-                    .addGroup(miembrosOptPLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(miembrosImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addComponent(miembrosL)
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(miembrosOptPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(miembrosImgL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         contenedorOpt.add(miembrosOptP);
@@ -328,22 +326,21 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             catalogoOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, catalogoOptPLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(catalogoImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(catalogoImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(catalogoL, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(25, 25, 25))
         );
         catalogoOptPLayout.setVerticalGroup(
             catalogoOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(catalogoOptPLayout.createSequentialGroup()
-                .addGroup(catalogoOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(catalogoOptPLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(catalogoL))
-                    .addGroup(catalogoOptPLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(catalogoImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(catalogoImgL, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, catalogoOptPLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(catalogoL)
+                .addGap(15, 15, 15))
         );
 
         contenedorOpt.add(catalogoOptP);
@@ -377,23 +374,22 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         logsOptPLayout.setHorizontalGroup(
             logsOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logsOptPLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(logsImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addComponent(logsImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addComponent(logsL)
-                .addGap(63, 63, 63))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         logsOptPLayout.setVerticalGroup(
             logsOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(logsOptPLayout.createSequentialGroup()
-                .addGroup(logsOptPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(logsOptPLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(logsL))
-                    .addGroup(logsOptPLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(logsImgL, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(logsImgL, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(logsOptPLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(logsL)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         contenedorOpt.add(logsOptP);
@@ -449,6 +445,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             .addGap(0, 86, Short.MAX_VALUE)
         );
 
+        contentP.setBackground(new java.awt.Color(255, 255, 255));
         contentP.setMinimumSize(new java.awt.Dimension(620, 360));
         contentP.setPreferredSize(new java.awt.Dimension(620, 360));
 
@@ -463,13 +460,18 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             .addGap(0, 362, Short.MAX_VALUE)
         );
 
+        textoL.setForeground(new java.awt.Color(51, 51, 51));
+        textoL.setText("un texto bonito");
+
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 616, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textoL, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(bgLayout.createSequentialGroup()
                 .addGap(180, 180, 180)
                 .addComponent(barraP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -481,7 +483,9 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(29, 29, 29)
+                .addComponent(textoL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(barraP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(contentP, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE))
@@ -586,16 +590,11 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         miembrosL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         catalogoL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         logsL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
+        textoL.putClientProperty( "FlatLaf.style", "font: medium $medium.font" );
     }
     
     private void initContent(){
-        Principal p1 = new Principal();
-        p1.setSize(contentP.getWidth(), contentP.getHeight());
-        p1.setLocation(0, 0);
-        contentP.removeAll();
-        contentP.add(p1, BorderLayout.CENTER);
-        contentP.revalidate();
-        contentP.repaint();
+        changeContent(new Principal());
     }
     
     private void changeContent(JPanel panel){
@@ -668,5 +667,6 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel principalImgL;
     private javax.swing.JLabel principalL;
     private javax.swing.JPanel principalOptP;
+    private javax.swing.JLabel textoL;
     // End of variables declaration//GEN-END:variables
 }

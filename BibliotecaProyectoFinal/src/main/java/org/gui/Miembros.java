@@ -17,6 +17,7 @@ public class Miembros extends javax.swing.JPanel {
      */
     public Miembros() {
         initComponents();
+        initStyles();
     }
 
     /**
@@ -75,6 +76,8 @@ public class Miembros extends javax.swing.JPanel {
         buscarL.setForeground(new java.awt.Color(255, 255, 255));
         buscarL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         buscarL.setText("Buscar");
+        buscarL.setMaximumSize(new java.awt.Dimension(100, 27));
+        buscarL.setMinimumSize(new java.awt.Dimension(100, 25));
 
         javax.swing.GroupLayout buscarBtnLayout = new javax.swing.GroupLayout(buscarBtn);
         buscarBtn.setLayout(buscarBtnLayout);
@@ -84,7 +87,7 @@ public class Miembros extends javax.swing.JPanel {
         );
         buscarBtnLayout.setVerticalGroup(
             buscarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(buscarL)
+            .addComponent(buscarL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -130,7 +133,7 @@ public class Miembros extends javax.swing.JPanel {
         nuevoBtn.setLayout(nuevoBtnLayout);
         nuevoBtnLayout.setHorizontalGroup(
             nuevoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(nuevoL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(nuevoL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
         );
         nuevoBtnLayout.setVerticalGroup(
             nuevoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +162,7 @@ public class Miembros extends javax.swing.JPanel {
         editarBtn.setLayout(editarBtnLayout);
         editarBtnLayout.setHorizontalGroup(
             editarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(editL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(editL, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
         );
         editarBtnLayout.setVerticalGroup(
             editarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +191,7 @@ public class Miembros extends javax.swing.JPanel {
         borrarBtn.setLayout(borrarBtnLayout);
         borrarBtnLayout.setHorizontalGroup(
             borrarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(borrarL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(borrarL, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
         );
         borrarBtnLayout.setVerticalGroup(
             borrarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,28 +214,28 @@ public class Miembros extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, miembrosIPLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(miembrosIPLayout.createSequentialGroup()
-                                .addComponent(miembrosTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, miembrosIPLayout.createSequentialGroup()
                                 .addComponent(buscadorTF)
                                 .addGap(18, 18, 18)
                                 .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(miembrosIPLayout.createSequentialGroup()
+                                .addComponent(miembrosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(392, 392, 392)))))
                 .addGap(21, 21, 21))
         );
         miembrosIPLayout.setVerticalGroup(
             miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, miembrosIPLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(miembrosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(8, 8, 8)
+                .addComponent(miembrosTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscadorTF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nuevoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(borrarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -295,7 +298,14 @@ public class Miembros extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buscadorTFMouseClicked
 
-
+    private void initStyles(){
+        miembrosTextL.putClientProperty( "FlatLaf.style", "font: h1 $h1.font" );
+        buscarL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
+        nuevoL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
+        editL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
+        borrarL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
+        buscadorTF.putClientProperty( "FlatLaf.style", "font: medium $medium.font" );
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel borrarBtn;
     private javax.swing.JLabel borrarL;
