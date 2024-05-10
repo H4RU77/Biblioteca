@@ -677,6 +677,9 @@
               <Dimension value="[620, 360]"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="BibliotecaInterfaz_contentP"/>
+          </AuxValues>
 
           <Layout>
             <DimensionLayout dim="0">
