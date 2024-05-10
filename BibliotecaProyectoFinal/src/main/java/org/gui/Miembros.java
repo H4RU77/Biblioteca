@@ -60,6 +60,11 @@ public class Miembros extends javax.swing.JPanel {
                 buscadorTFMouseExited(evt);
             }
         });
+        buscadorTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscadorTFActionPerformed(evt);
+            }
+        });
 
         buscarBtn.setBackground(new java.awt.Color(51, 153, 255));
         buscarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -133,7 +138,7 @@ public class Miembros extends javax.swing.JPanel {
         nuevoBtn.setLayout(nuevoBtnLayout);
         nuevoBtnLayout.setHorizontalGroup(
             nuevoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(nuevoL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+            .addComponent(nuevoL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         nuevoBtnLayout.setVerticalGroup(
             nuevoBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +167,7 @@ public class Miembros extends javax.swing.JPanel {
         editarBtn.setLayout(editarBtnLayout);
         editarBtnLayout.setHorizontalGroup(
             editarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(editL, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+            .addComponent(editL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         editarBtnLayout.setVerticalGroup(
             editarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +196,7 @@ public class Miembros extends javax.swing.JPanel {
         borrarBtn.setLayout(borrarBtnLayout);
         borrarBtnLayout.setHorizontalGroup(
             borrarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(borrarL, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
+            .addComponent(borrarL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         borrarBtnLayout.setVerticalGroup(
             borrarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,6 +302,10 @@ public class Miembros extends javax.swing.JPanel {
             buscadorTF.setForeground(Color.black);
         }
     }//GEN-LAST:event_buscadorTFMouseClicked
+
+    private void buscadorTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscadorTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscadorTFActionPerformed
 
     private void initStyles(){
         miembrosTextL.putClientProperty( "FlatLaf.style", "font: h1 $h1.font" );

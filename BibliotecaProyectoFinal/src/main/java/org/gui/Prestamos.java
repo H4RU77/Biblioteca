@@ -4,6 +4,8 @@
  */
 package org.gui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Keloc
@@ -28,29 +30,83 @@ public class Prestamos extends javax.swing.JPanel {
 
         prestamosIP = new javax.swing.JPanel();
         prestamosTextL = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        prestamosTextL1 = new javax.swing.JLabel();
+        prestamosTextL2 = new javax.swing.JLabel();
+        usuario = new javax.swing.JTextField();
+        libro = new javax.swing.JTextField();
+        prestar = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(611, 362));
 
+        prestamosIP.setBackground(new java.awt.Color(255, 255, 255));
         prestamosIP.setMinimumSize(new java.awt.Dimension(611, 362));
         prestamosIP.setPreferredSize(new java.awt.Dimension(611, 362));
 
-        prestamosTextL.setText("Aqui van los prestamos y asi");
+        prestamosTextL.setText("Nuevo préstamo");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librosPrestamo.jpg"))); // NOI18N
+
+        prestamosTextL1.setText("ID de usuario");
+
+        prestamosTextL2.setText("ISBN del libro:");
+
+        libro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                libroActionPerformed(evt);
+            }
+        });
+
+        prestar.setBackground(new java.awt.Color(51, 51, 255));
+        prestar.setText("Prestar");
+        prestar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prestarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout prestamosIPLayout = new javax.swing.GroupLayout(prestamosIP);
         prestamosIP.setLayout(prestamosIPLayout);
         prestamosIPLayout.setHorizontalGroup(
             prestamosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(prestamosIPLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(prestamosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(337, 337, 337))
+                .addGap(25, 25, 25)
+                .addGroup(prestamosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(prestamosIPLayout.createSequentialGroup()
+                        .addComponent(prestamosTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(prestamosIPLayout.createSequentialGroup()
+                        .addGroup(prestamosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(prestamosTextL2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(prestamosTextL1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(prestar, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(libro, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(188, Short.MAX_VALUE))))
         );
         prestamosIPLayout.setVerticalGroup(
             prestamosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(prestamosIPLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(prestamosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(277, 277, 277))
+                .addGap(27, 27, 27)
+                .addComponent(prestamosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                .addGroup(prestamosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(prestamosIPLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(prestamosTextL1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(prestamosTextL2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(libro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(prestar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(prestamosIPLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -65,9 +121,32 @@ public class Prestamos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void libroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_libroActionPerformed
+
+    private void prestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prestarActionPerformed
+        String IDlibro = libro.getText();
+        String IDusuario = usuario.getText();
+        
+        if(libro.getText().isEmpty()||usuario.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Por favor ingrese los datos de los campos anteriores para continuar");
+            
+        }else{
+            
+        }
+            
+    }//GEN-LAST:event_prestarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField libro;
     private javax.swing.JPanel prestamosIP;
     private javax.swing.JLabel prestamosTextL;
+    private javax.swing.JLabel prestamosTextL1;
+    private javax.swing.JLabel prestamosTextL2;
+    private javax.swing.JButton prestar;
+    private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }

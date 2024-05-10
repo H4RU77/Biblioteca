@@ -77,6 +77,18 @@ public class ListaSE<T> implements IMetodos<T>{
             System.out.println("Posición inválida");
         }
     }
+    
+     public int Buscar(T pInfo){
+         NodoSE<T> nodoActual = new NodoSE<>(pInfo);
+         nodoActual= cabeza;
+         for(int i=0;i<tamano;i++){
+             if(nodoActual.getDato()==pInfo){
+                 return i;
+             }
+             nodoActual = nodoActual.getSiguiente();
+         }
+         return -1;
+     }
 
 
 }

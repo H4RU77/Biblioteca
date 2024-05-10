@@ -6,6 +6,7 @@ public interface IMetodos<T> {
     public T Obtener(int i);
     public void Agregar(T x);
     public void Eliminar (int i);
+    public int Buscar(T x);
 
 
 }

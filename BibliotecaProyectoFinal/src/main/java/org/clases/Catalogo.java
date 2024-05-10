@@ -7,51 +7,51 @@ package org.clases;
 public class Catalogo {
     protected ListaSE<Libro> listaLibros;
 
-    public Catalogo() {
-        this.listaLibros = new ListaSE();
-    }
-/*
-    public void mostrarPorAutor (String autor) {
-        for (Libro libro : listaLibros) {
-            if (libro.getAutor().equalsIgnoreCase(autor)) {
-                System.out.println(libro);
-            }
-        }
+    public Catalogo(ListaSE<Libro> listaLibros) {
+        this.listaLibros = listaLibros;
     }
 
-    public void mostrarPorCategoria (String categoria) {
-        for (Libro libro : listaLibros) {
-            if (libro.getAutor().equalsIgnoreCase(categoria)) {
-                System.out.println(libro);
+    public ListaSE<Libro> mostrarPorAutor (String autor) {
+        ListaSE<Libro> librosEncontrados = new ListaSE<Libro>(); ;
+        for (int i=0;i<listaLibros.tamanio();i++) {
+            if (autor==listaLibros.Obtener(i).getAutor()) {
+                librosEncontrados.Agregar(listaLibros.Obtener(i));
             }
         }
+        return librosEncontrados;
     }
 
-    public void mostrarPorGenero (String genero) {
-        for (Libro libro : listaLibros) {
-            if (libro.getAutor().equalsIgnoreCase(genero)) {
-                System.out.println(libro);
+
+
+    public ListaSE<Libro> mostrarPorGenero (String genero) {
+        ListaSE<Libro> librosEncontrados = new ListaSE<Libro>(); ;
+        for (int i=0;i<listaLibros.tamanio();i++) {
+            if (genero==listaLibros.Obtener(i).getGenero()) {
+                librosEncontrados.Agregar(listaLibros.Obtener(i));
             }
         }
+        return librosEncontrados;
     }
 
-    public void mostrarPorTitulo (String titulo) {
-        for (Libro libro : listaLibros) {
-            if (libro.getAutor().equalsIgnoreCase(titulo)) {
-                System.out.println(libro);
+    public ListaSE<Libro> mostrarPorTitulo (String titulo) {
+        ListaSE<Libro> librosEncontrados = new ListaSE<Libro>(); ;
+        for (int i=0;i<listaLibros.tamanio();i++) {
+            if (titulo==listaLibros.Obtener(i).getTitulo()) {
+                librosEncontrados.Agregar(listaLibros.Obtener(i));
             }
         }
+        return librosEncontrados;
     }
 
     public void adicionarLibro (Libro libro) {
-        listaLibros.Agregar(libro);
+        listaLibros.Agregar(listaLibros.Obtener(listaLibros.Buscar(libro)));
     }
 
     public void eliminarLibro(Libro libro) {
-        listaLibros.Eliminar(libro);
+        listaLibros.Eliminar(listaLibros.Buscar(libro));
     }
 
-    public void modificarLibro(Libro libroViejo, Libro libroNuevo) {
+    /* public void modificarLibro(Libro libroViejo, Libro libroNuevo) {
         int index = listaLibros.indexOf(libroViejo);
         if (index != -1) {
             listaLibros.set(index, libroNuevo);

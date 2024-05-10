@@ -11,7 +11,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import org.clases.Biblioteca;
+import org.clases.*;
 
 /**
  *
@@ -614,7 +614,10 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        Biblioteca biblio = new Biblioteca(null, null);
+        ListaSE<Libro> listaLibros = new ListaSE<Libro>();
+        ListaSE<Miembro> listaMiembros = new ListaSE<Miembro>();
+        Catalogo catalogo = new Catalogo(listaLibros);
+        Biblioteca biblio = new Biblioteca(catalogo, listaMiembros);
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
