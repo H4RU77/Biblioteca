@@ -403,11 +403,11 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuOpcionesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(logoL, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(logoL, javax.swing.GroupLayout.PREFERRED_SIZE, 175, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(menuOpcionesLayout.createSequentialGroup()
                 .addComponent(contenedorOpt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         menuOpcionesLayout.setVerticalGroup(
             menuOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -446,8 +446,8 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         );
 
         contentP.setBackground(new java.awt.Color(255, 255, 255));
-        contentP.setMinimumSize(new java.awt.Dimension(620, 360));
-        contentP.setPreferredSize(new java.awt.Dimension(620, 360));
+        contentP.setMinimumSize(new java.awt.Dimension(0, 0));
+        contentP.setPreferredSize(new java.awt.Dimension(605, 360));
 
         javax.swing.GroupLayout contentPLayout = new javax.swing.GroupLayout(contentP);
         contentP.setLayout(contentPLayout);
@@ -457,7 +457,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         );
         contentPLayout.setVerticalGroup(
             contentPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 362, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         textoL.setForeground(new java.awt.Color(51, 51, 51));
@@ -470,25 +470,25 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             .addGroup(bgLayout.createSequentialGroup()
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textoL, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addComponent(textoL, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(507, Short.MAX_VALUE))
+                    .addComponent(contentP, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)))
             .addGroup(bgLayout.createSequentialGroup()
                 .addGap(180, 180, 180)
                 .addComponent(barraP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(bgLayout.createSequentialGroup()
-                .addGap(189, 189, 189)
-                .addComponent(contentP, javax.swing.GroupLayout.PREFERRED_SIZE, 611, Short.MAX_VALUE))
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
+            .addGroup(bgLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(textoL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(barraP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(contentP, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(contentP, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -600,6 +600,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     private void changeContent(JPanel panel){
         panel.setSize(contentP.getWidth(), contentP.getHeight());
         panel.setLocation(0,0);
+        
         contentP.removeAll();
         contentP.add(panel, BorderLayout.CENTER);
         contentP.revalidate();

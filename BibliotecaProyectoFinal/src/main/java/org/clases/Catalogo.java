@@ -51,10 +51,10 @@ public class Catalogo {
         listaLibros.Eliminar(listaLibros.Buscar(libro));
     }
 
-    /* public void modificarLibro(Libro libroViejo, Libro libroNuevo) {
-        int index = listaLibros.indexOf(libroViejo);
+    public void modificarLibro(Libro libroViejo, Libro libroNuevo) {
+        int index = listaLibros.Buscar(libroViejo);
         if (index != -1) {
-            listaLibros.set(index, libroNuevo);
+            //listaLibros.set(index, libroNuevo);
         }
-    }*/
+    }
 }

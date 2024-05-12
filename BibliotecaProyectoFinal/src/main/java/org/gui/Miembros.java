@@ -43,6 +43,9 @@ public class Miembros extends javax.swing.JPanel {
         borrarBtn = new javax.swing.JPanel();
         borrarL = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        miembrosIP.setBackground(new java.awt.Color(255, 255, 255));
         miembrosIP.setMinimumSize(new java.awt.Dimension(620, 360));
         miembrosIP.setPreferredSize(new java.awt.Dimension(620, 360));
 

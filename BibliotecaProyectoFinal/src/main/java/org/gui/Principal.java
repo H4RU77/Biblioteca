@@ -32,11 +32,12 @@ public class Principal extends javax.swing.JPanel {
         ayudaL = new javax.swing.JLabel();
         descL = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(611, 362));
-        setPreferredSize(new java.awt.Dimension(620, 362));
+        setMinimumSize(new java.awt.Dimension(607, 347));
+        setPreferredSize(new java.awt.Dimension(607, 347));
 
-        bg.setMinimumSize(new java.awt.Dimension(611, 362));
-        bg.setPreferredSize(new java.awt.Dimension(611, 362));
+        bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setMinimumSize(new java.awt.Dimension(607, 347));
+        bg.setPreferredSize(new java.awt.Dimension(607, 347));
 
         bienvenidoL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bienvenidoL.setText("¡Bienvenido!");
@@ -52,7 +53,7 @@ public class Principal extends javax.swing.JPanel {
             .addGroup(bgLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(descL, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+                    .addComponent(descL, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(ayudaL)
                         .addGap(215, 215, 215)))
@@ -78,7 +79,7 @@ public class Principal extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -29,8 +29,10 @@ public class Logs extends javax.swing.JPanel {
         logsIP = new javax.swing.JPanel();
         logsTextL = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(611, 362));
 
+        logsIP.setBackground(new java.awt.Color(255, 255, 255));
         logsIP.setMinimumSize(new java.awt.Dimension(611, 362));
         logsIP.setPreferredSize(new java.awt.Dimension(611, 362));
 

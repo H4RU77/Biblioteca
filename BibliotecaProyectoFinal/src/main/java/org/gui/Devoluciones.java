@@ -29,9 +29,11 @@ public class Devoluciones extends javax.swing.JPanel {
         devolucionesIP = new javax.swing.JPanel();
         devolucionesTextL = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(611, 362));
         setPreferredSize(new java.awt.Dimension(611, 362));
 
+        devolucionesIP.setBackground(new java.awt.Color(255, 255, 255));
         devolucionesIP.setMinimumSize(new java.awt.Dimension(611, 362));
         devolucionesIP.setPreferredSize(new java.awt.Dimension(611, 362));
 

@@ -29,8 +29,10 @@ public class CatalogoContentP extends javax.swing.JPanel {
         catalogoIP = new javax.swing.JPanel();
         catalogoTextL = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(611, 362));
 
+        catalogoIP.setBackground(new java.awt.Color(255, 255, 255));
         catalogoIP.setPreferredSize(new java.awt.Dimension(611, 362));
 
         catalogoTextL.setText("Panel de los Catalogos :D");
