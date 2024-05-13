@@ -5,6 +5,8 @@
 package org.gui;
 
 import javax.swing.JOptionPane;
+import org.clases.Libro;
+import org.clases.Miembro;
 
 /**
  *
@@ -118,11 +120,13 @@ public class Devoluciones extends javax.swing.JPanel {
         
         if (folioid <= 0 || bookid <= 0) {
             JOptionPane.showMessageDialog(this, "Los IDs deben de ser mayores que 0", "AVISO", JOptionPane.ERROR_MESSAGE);
+            folioTxt.requestFocus();
             return;
         }
         
         try {
-            devo
+            Miembro miembro = new Miembro();
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al devolver el libro: " + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
