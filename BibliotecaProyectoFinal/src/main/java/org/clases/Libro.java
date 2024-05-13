@@ -1,25 +1,27 @@
 package org.clases;
 
 public abstract class Libro {
-    protected final String titulo;
-    protected final String autor;
-    protected final String genero;
-    protected final String idioma;
+    protected String titulo;
+    protected String autor;
+    protected String genero;
+    protected String idioma;
     protected String desc;
-    protected boolean prestado;
-    protected final String ISBN;
+    protected String ISBN;
 
     public Libro(String titulo, String autor, String genero,
-                 String idioma, String desc, boolean prestado, String ISBN){
+                 String idioma, String desc, String ISBN){
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
         this.idioma = idioma;
         this.desc = desc;
-        this.prestado = prestado;
         this.ISBN = ISBN;
+
+        
     }
 
+  
+    
     public String getTitulo() {
         return titulo;
     }
@@ -40,10 +42,7 @@ public abstract class Libro {
         return desc;
     }
 
-    public boolean isPrestado() {
-        return prestado;
-    }
-
+ 
     public String getISBN() {
         return ISBN;
     }
@@ -52,9 +51,28 @@ public abstract class Libro {
         this.desc = desc;
     }
 
-    public void setPrestado(boolean prestado) {
-        this.prestado = prestado;
+ 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
+    }
+
+   
 
     public abstract String mostrar();
 }

@@ -22,7 +22,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     /**
      * Creates new form BibliotecaInterfaz
      */
-    
+    private Biblioteca biblio;
     private Image principalImage = new ImageIcon("src/main/resources/principalImg.png").getImage();
     private Image prestamoImage = new ImageIcon("src/main/resources/prestamoImg.png").getImage();
     private Image devolucionImage = new ImageIcon("src/main/resources/devolucionImg.png").getImage();
@@ -32,6 +32,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     private Image logoImage = new ImageIcon("src/main/resources/logo.png").getImage();
     public BibliotecaInterfaz(Biblioteca biblio) {
         initComponents();
+        this.biblio = biblio;
         initStyles();
         initContent();
         principalImgL.setIcon(resizeImage(principalImage, principalImgL));
@@ -559,7 +560,9 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_principalOptPMouseClicked
 
     private void prestamosOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosOptPMouseClicked
-        changeContent(new Prestamos());
+        Prestamos prestamosP = new Prestamos();
+        prestamosP.setBiblio(biblio);
+        changeContent(prestamosP);
     }//GEN-LAST:event_prestamosOptPMouseClicked
 
     private void devolucionesOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesOptPMouseClicked
@@ -567,7 +570,10 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_devolucionesOptPMouseClicked
 
     private void miembrosOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosOptPMouseClicked
-        changeContent(new Miembros());
+        Miembros m = new Miembros();
+        m.setListaMiembros(biblio.getMiembroLista());
+        m.setTable();
+        changeContent(m);
     }//GEN-LAST:event_miembrosOptPMouseClicked
 
     private void catalogoOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoOptPMouseClicked
@@ -617,6 +623,9 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
          */
         ListaSE<Libro> listaLibros = new ListaSE<Libro>();
         ListaSE<Miembro> listaMiembros = new ListaSE<Miembro>();
+        Miembro miembro = new Miembro("M0001", "Angel Rogelio", "Camacho Romero", "kelo.camachoromero@gmail.com", null, null, EstadoCuenta.ACTIVA);
+        listaMiembros.Agregar(miembro);
+        System.out.println(listaMiembros.Obtener(0).toString());
         Catalogo catalogo = new Catalogo(listaLibros);
         Biblioteca biblio = new Biblioteca(catalogo, listaMiembros);
         try {

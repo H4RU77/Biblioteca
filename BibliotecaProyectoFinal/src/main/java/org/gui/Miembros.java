@@ -5,16 +5,30 @@
 package org.gui;
 
 import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
+import org.clases.ListaSE;
+import org.clases.Miembro;
 
 /**
  *
  * @author Keloc
  */
+
 public class Miembros extends javax.swing.JPanel {
 
     /**
      * Creates new form Miembros
      */
+    private ListaSE<Miembro> listaMiembros;
+
+    public ListaSE<Miembro> getListaMiembros() {
+        return listaMiembros;
+    }
+
+    public void setListaMiembros(ListaSE<Miembro> listaMiembros) {
+        this.listaMiembros = listaMiembros;
+    }
+    
     public Miembros() {
         initComponents();
         initStyles();
@@ -35,7 +49,7 @@ public class Miembros extends javax.swing.JPanel {
         buscarBtn = new javax.swing.JPanel();
         buscarL = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaMiembros = new javax.swing.JTable();
         nuevoBtn = new javax.swing.JPanel();
         nuevoL = new javax.swing.JLabel();
         editarBtn = new javax.swing.JPanel();
@@ -98,26 +112,23 @@ public class Miembros extends javax.swing.JPanel {
             .addComponent(buscarL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaMiembros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Nombre", "Apellidos", "Email", "Estado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaMiembros);
 
         nuevoBtn.setBackground(new java.awt.Color(51, 153, 255));
         nuevoBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -318,6 +329,17 @@ public class Miembros extends javax.swing.JPanel {
         borrarL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         buscadorTF.putClientProperty( "FlatLaf.style", "font: medium $medium.font" );
     }
+    
+    public void setTable(){
+        String[] tblH = {"ID", "Nombre", "Apellidos", "Email", "Estado Cuenta"};
+        DefaultTableModel model = new DefaultTableModel(tblH, 0);
+        for (int i = 0; i < listaMiembros.tamanio(); i++){
+            Miembro miembro = listaMiembros.Obtener(i);
+            Object[] row = {miembro.getID(), miembro.getNombre(), miembro.getApellidos(), miembro.getEmail(), miembro.getEstado()};
+            model.addRow(row);
+        }
+        tablaMiembros.setModel(model);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel borrarBtn;
     private javax.swing.JLabel borrarL;
@@ -327,10 +349,10 @@ public class Miembros extends javax.swing.JPanel {
     private javax.swing.JLabel editL;
     private javax.swing.JPanel editarBtn;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel miembrosIP;
     private javax.swing.JLabel miembrosTextL;
     private javax.swing.JPanel nuevoBtn;
     private javax.swing.JLabel nuevoL;
+    private javax.swing.JTable tablaMiembros;
     // End of variables declaration//GEN-END:variables
 }

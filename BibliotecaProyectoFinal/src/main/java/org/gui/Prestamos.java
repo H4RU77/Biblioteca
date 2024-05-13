@@ -5,6 +5,12 @@
 package org.gui;
 
 import javax.swing.JOptionPane;
+import org.clases.Biblioteca;
+import org.clases.Libro;
+import org.clases.LibroDigital;
+import org.clases.LibroFisico;
+import org.clases.Miembro;
+import org.clases.Prestamo;
 
 /**
  *
@@ -15,6 +21,15 @@ public class Prestamos extends javax.swing.JPanel {
     /**
      * Creates new form Prestamos
      */
+    private Biblioteca biblio;
+
+    public Biblioteca getBiblio() {
+        return biblio;
+    }
+
+    public void setBiblio(Biblioteca biblio) {
+        this.biblio = biblio;
+    }
     public Prestamos() {
         initComponents();
     }
@@ -128,12 +143,62 @@ public class Prestamos extends javax.swing.JPanel {
     private void prestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prestarActionPerformed
         String IDlibro = libro.getText();
         String IDusuario = usuario.getText();
+        int indexLibro=0;
+        int indexMiembro=0;
         
         if(libro.getText().isEmpty()||usuario.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Por favor ingrese los datos de los campos anteriores para continuar");
+            
             
         }else{
+            if(usuario.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Por favor ingrese su ID de usuario, si aún no tiene uno, favor de generarlo en la pestaña 'Usuarios'");
+            }else{
+                String usuarioActual="";
+                //buscar usuario por ID
+                for(int i=0;i<biblio.getMiembroLista().tamanio(); i++){
+                    if(IDusuario==biblio.getMiembroLista().Obtener(i).getID()){
+                        usuarioActual=IDusuario;
+                        indexMiembro = i;
+                    }
+                }
+                if(usuarioActual!=""){
+                    String ISBNactual="";
+                    
+                //buscar libro por ISBN
+                for(int i=0;i<biblio.getMiembroLista().tamanio(); i++){
+                    if(IDlibro==biblio.getCatalogo().getListaLibros().Obtener(i).getISBN()){
+                        ISBNactual=IDlibro;
+                        indexLibro=i;
+                    }
+                }
+                if(ISBNactual!=""){
+                    
+                    if(biblio.getCatalogo().getListaLibros().Obtener(indexLibro) instanceof LibroFisico){
+                        //verificar disponibilidad
+                        LibroFisico libro = (LibroFisico) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
+                        if(libro.getCantidad()>0){
+                            //hacer prestamo
+                            libro.setCantidad(libro.getCantidad()-1);
+                            Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
+                            miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
+                        }
+                    }else{
+                        //hacer préstamo
+                        LibroDigital libro = (LibroDigital) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
+                        Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
+                        miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null,"Libro no encontardo, verifique que ingresó el ISBN correctamente");
             
+                }
+                }else{
+                    JOptionPane.showMessageDialog(null,"Usuario no encontardo, si aún no tiene ID, favor de generarlo en la pestaña 'Usuarios'");
+            
+                }
+                    
+            }
+                
         }
             
     }//GEN-LAST:event_prestarActionPerformed

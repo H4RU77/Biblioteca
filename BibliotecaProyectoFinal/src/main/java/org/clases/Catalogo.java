@@ -11,6 +11,14 @@ public class Catalogo {
         this.listaLibros = listaLibros;
     }
 
+    public ListaSE<Libro> getListaLibros() {
+        return listaLibros;
+    }
+
+    public void setListaLibros(ListaSE<Libro> listaLibros) {
+        this.listaLibros = listaLibros;
+    }
+    
     public ListaSE<Libro> mostrarPorAutor (String autor) {
         ListaSE<Libro> librosEncontrados = new ListaSE<Libro>(); ;
         for (int i=0;i<listaLibros.tamanio();i++) {
@@ -51,10 +59,51 @@ public class Catalogo {
         listaLibros.Eliminar(listaLibros.Buscar(libro));
     }
 
-    public void modificarLibro(Libro libroViejo, Libro libroNuevo) {
-        int index = listaLibros.Buscar(libroViejo);
+    public void modificarTitulo(Libro libroACambiar, String titulo) {
+        int index = listaLibros.Buscar(libroACambiar);
+
         if (index != -1) {
-            //listaLibros.set(index, libroNuevo);
+            libroACambiar.setTitulo(titulo);
+            
+        }
+    }
+    public void modificarAutor(Libro libroACambiar, String autor) {
+        int index = listaLibros.Buscar(libroACambiar);
+
+        if (index != -1) {
+            libroACambiar.setAutor(autor);
+            
+        }
+    }
+    public void modificarGenero(Libro libroACambiar, String genero) {
+        int index = listaLibros.Buscar(libroACambiar);
+
+        if (index != -1) {
+            libroACambiar.setGenero(genero);
+            
+        }
+    }
+    public void modificarIdioma(Libro libroACambiar, String idioma) {
+        int index = listaLibros.Buscar(libroACambiar);
+
+        if (index != -1) {
+            libroACambiar.setIdioma(idioma);
+            
+        }
+    }
+    public void modificarDesc(Libro libroACambiar, String desc) {
+        int index = listaLibros.Buscar(libroACambiar);
+        if (index != -1) {
+            libroACambiar.setDesc(desc);
+            
+        }
+    }
+ 
+    public void modificarISBN(Libro libroACambiar, String ISBN) {
+        int index = listaLibros.Buscar(libroACambiar);
+        if (index != -1) {
+            libroACambiar.setISBN(ISBN);
+            
         }
     }
 }

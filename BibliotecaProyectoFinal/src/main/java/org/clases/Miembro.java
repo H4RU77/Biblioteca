@@ -73,6 +73,11 @@ public class  Miembro{
     public void setEstado(EstadoCuenta estado) {
         this.estado = estado;
     }
+    
+    @Override
+     public String toString(){
+         return "[Id: "+getID()+", Nombre: "+getNombre()+", Apellidos: "+getApellidos()+"]";
+     }
 }
 
 
