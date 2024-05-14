@@ -4,7 +4,9 @@
  */
 package org.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import org.clases.ListaSE;
 import org.clases.Miembro;
@@ -58,6 +60,7 @@ public class Miembros extends javax.swing.JPanel {
         borrarL = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setMinimumSize(new java.awt.Dimension(611, 362));
 
         miembrosIP.setBackground(new java.awt.Color(255, 255, 255));
         miembrosIP.setMinimumSize(new java.awt.Dimension(620, 360));
@@ -133,6 +136,9 @@ public class Miembros extends javax.swing.JPanel {
         nuevoBtn.setBackground(new java.awt.Color(51, 153, 255));
         nuevoBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         nuevoBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nuevoBtnMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 nuevoBtnMouseEntered(evt);
             }
@@ -321,6 +327,19 @@ public class Miembros extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_buscadorTFActionPerformed
 
+    private void nuevoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nuevoBtnMouseClicked
+        changePanel(new Registro(listaMiembros));
+    }//GEN-LAST:event_nuevoBtnMouseClicked
+    
+    private void changePanel(JPanel p){
+        p.setSize(this.getWidth(), this.getHeight());
+        p.setLocation(0,0);
+        
+        this.removeAll();
+        this.add(p, BorderLayout.CENTER);
+        this.revalidate();
+        this.repaint();
+    }
     private void initStyles(){
         miembrosTextL.putClientProperty( "FlatLaf.style", "font: h1 $h1.font" );
         buscarL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
