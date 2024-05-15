@@ -67,11 +67,8 @@ public class ListaSE<T> implements IMetodos<T>{
                     nodoAnterior.setSiguiente(nodoAEliminar.getSiguiente()); //apuntar el anterior al nodo que sigue despues del nodo a eliminar
                     nodoAEliminar.setSiguiente(null);//terminar de desconectar el nodo
                 }
-
             }
             tamano--;
-
-
         }
         else{
             System.out.println("Posición inválida");
@@ -89,7 +86,41 @@ public class ListaSE<T> implements IMetodos<T>{
          }
          return -1;
      }
-     
     
-
+    public void insertar(T nuevaInfo, int pos){
+        NodoSE<T> nuevoNodo= new NodoSE<>(nuevaInfo);
+        NodoSE<T> nodoActual = cabeza;
+        NodoSE<T> nodoAnterior = cabeza;
+        if (pos >= tamano){
+            System.out.println("Out of Bounds");
+        } else {
+            for (int i = 0; i<tamano; i++){
+                if (nodoActual == nodoAnterior){
+                    cabeza = nuevoNodo;
+                    cabeza.setSiguiente(nodoActual);
+                } else {
+                    if (i == pos){
+                        nuevoNodo.setSiguiente(nodoActual);
+                        nodoAnterior.setSiguiente(nuevoNodo);
+                    }
+                    nodoAnterior = nodoActual;
+                    nodoActual = nodoActual.getSiguiente();
+                }
+            }
+        }
+        tamano++;
+    }
+    
+    public void editar(T nuevaInfo, int pos){
+        insertar(nuevaInfo, pos);
+        Eliminar(pos+1);
+        show();
+    }
+    
+    public void show(){
+        NodoSE<T> nodoActual = cabeza;
+        for (int i = 0; i<tamano; i++){
+            System.out.println(nodoActual.getDato().toString());
+        }
+    }
 }

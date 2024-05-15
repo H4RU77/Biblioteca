@@ -76,7 +76,7 @@ public class  Miembro{
     
     @Override
      public String toString(){
-         return "[Id: "+getID()+", Nombre: "+getNombre()+", Apellidos: "+getApellidos()+"]";
+         return "[Id: "+getID()+", Nombre: "+getNombre()+", Apellidos: "+getApellidos()+", Estado: "+getEstado()+"]";
      }
 }
 

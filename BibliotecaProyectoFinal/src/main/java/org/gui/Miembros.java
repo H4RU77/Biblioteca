@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import org.clases.EstadoCuenta;
 import org.clases.ListaSE;
 import org.clases.Miembro;
 
@@ -46,6 +47,17 @@ public class Miembros extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        editP = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        editNombre = new javax.swing.JTextField();
+        editApeP = new javax.swing.JTextField();
+        editApeM = new javax.swing.JTextField();
+        editEmail = new javax.swing.JTextField();
+        editEstado = new javax.swing.JComboBox<>();
         miembrosIP = new javax.swing.JPanel();
         miembrosTextL = new javax.swing.JLabel();
         buscadorTF = new javax.swing.JTextField();
@@ -59,6 +71,79 @@ public class Miembros extends javax.swing.JPanel {
         editL = new javax.swing.JLabel();
         borrarBtn = new javax.swing.JPanel();
         borrarL = new javax.swing.JLabel();
+
+        editP.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setText("Nombre:");
+
+        jLabel2.setText("Apellido Paterno");
+
+        jLabel3.setText("Apellido Materno:");
+
+        jLabel4.setText("Correo Electrónico:");
+
+        jLabel5.setText("Estado de Membresia:");
+
+        editApeP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editApePActionPerformed(evt);
+            }
+        });
+
+        editEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVA", "CONGELADA", "CERRADA" }));
+
+        javax.swing.GroupLayout editPLayout = new javax.swing.GroupLayout(editP);
+        editP.setLayout(editPLayout);
+        editPLayout.setHorizontalGroup(
+            editPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editPLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(editPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(editPLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(editEmail))
+                    .addGroup(editPLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(editEstado, 0, 185, Short.MAX_VALUE))
+                    .addGroup(editPLayout.createSequentialGroup()
+                        .addGroup(editPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(19, 19, 19)
+                        .addGroup(editPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(editApeM, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(editNombre)
+                            .addComponent(editApeP))))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        editPLayout.setVerticalGroup(
+            editPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editPLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(editPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(editNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(editPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(editApeP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(editPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(editApeM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(editPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(editEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(editPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(editEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(67, Short.MAX_VALUE))
+        );
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(611, 362));
@@ -342,12 +427,36 @@ public class Miembros extends javax.swing.JPanel {
         // getSelectedRow() | getSelectedColumn() --> returns index
         // getValueAt(row, col) --> returns value 
         try {
-            
+            int row = tablaMiembros.getSelectedRow();
+            String id = (String) tablaMiembros.getValueAt(row, 0);
+            String nom = (String) tablaMiembros.getValueAt(row, 1);
+            String ape = (String) tablaMiembros.getValueAt(row, 2);
+            String email = (String) tablaMiembros.getValueAt(row, 3);
+            editNombre.setText(nom);
+            editApeP.setText(ape.substring(0, ape.indexOf(" ")));
+            editApeM.setText(ape.substring(ape.indexOf(" ")));
+            editEmail.setText(email);
+            int res = JOptionPane.showConfirmDialog(null, editP, "Edición de datos de un Miembro", JOptionPane.OK_CANCEL_OPTION);
+            if (res == JOptionPane.OK_OPTION){
+                nom = editNombre.getText();
+                ape = editApeP.getText().concat(" "+editApeM.getText());
+                email = editEmail.getText();
+                EstadoCuenta estado = EstadoCuenta.valueOf(editEstado.getSelectedItem().toString());
+                int pos = buscarPorId(id);
+                Miembro anterior = listaMiembros.Obtener(pos);
+                Miembro editado = new Miembro(id, nom, ape, email, anterior.getPrestamosActivos(), anterior.getHistorialPrestamos(), estado);
+                listaMiembros.editar(editado, pos);
+                setTable();
+            }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
         
     }//GEN-LAST:event_editarBtnMouseClicked
+
+    private void editApePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editApePActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editApePActionPerformed
     
     private void changePanel(JPanel p){
         p.setSize(this.getWidth(), this.getHeight());
@@ -377,14 +486,35 @@ public class Miembros extends javax.swing.JPanel {
         }
         tablaMiembros.setModel(model);
     }
+    
+    public int buscarPorId(String id){
+        for (int i = 0; i < listaMiembros.tamanio(); i++){
+            if (listaMiembros.Obtener(i).getID() == id){
+                System.out.println(i);
+                return i;
+            }
+        }
+        return -1;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel borrarBtn;
     private javax.swing.JLabel borrarL;
     private javax.swing.JTextField buscadorTF;
     private javax.swing.JPanel buscarBtn;
     private javax.swing.JLabel buscarL;
+    private javax.swing.JTextField editApeM;
+    private javax.swing.JTextField editApeP;
+    private javax.swing.JTextField editEmail;
+    private javax.swing.JComboBox<String> editEstado;
     private javax.swing.JLabel editL;
+    private javax.swing.JTextField editNombre;
+    private javax.swing.JPanel editP;
     private javax.swing.JPanel editarBtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel miembrosIP;
     private javax.swing.JLabel miembrosTextL;
