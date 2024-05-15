@@ -4,6 +4,7 @@
  */
 package org.gui;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import org.clases.EstadoCuenta;
 import org.clases.ListaSE;
@@ -21,6 +22,7 @@ public class Registro extends javax.swing.JPanel {
     ListaSE<Miembro> listaM;
     public Registro(ListaSE<Miembro> listaM) {
         initComponents();
+        initStyles();
         this.listaM = listaM;
     }
 
@@ -65,13 +67,21 @@ public class Registro extends javax.swing.JPanel {
 
         emailL.setText("Correo Electrónico:");
 
+        registroBtn.setBackground(new java.awt.Color(51, 153, 255));
         registroBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registroBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registroBtnMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registroBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registroBtnMouseExited(evt);
+            }
         });
 
+        btnName.setForeground(new java.awt.Color(255, 255, 255));
         btnName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnName.setText("Registrar");
 
@@ -79,11 +89,11 @@ public class Registro extends javax.swing.JPanel {
         registroBtn.setLayout(registroBtnLayout);
         registroBtnLayout.setHorizontalGroup(
             registroBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnName, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+            .addComponent(btnName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         registroBtnLayout.setVerticalGroup(
             registroBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnName, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addComponent(btnName, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
@@ -93,25 +103,34 @@ public class Registro extends javax.swing.JPanel {
             .addGroup(bgLayout.createSequentialGroup()
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(titleL, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(bgLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombreL)
-                            .addComponent(nombreTF, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(apeP, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(apeML)
-                            .addComponent(apeM, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(apePL))
+                            .addGroup(bgLayout.createSequentialGroup()
+                                .addComponent(nombreL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(179, 179, 179))
+                            .addComponent(nombreTF)
+                            .addComponent(apeP)
+                            .addGroup(bgLayout.createSequentialGroup()
+                                .addComponent(apeML, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(129, 129, 129))
+                            .addComponent(apeM)
+                            .addGroup(bgLayout.createSequentialGroup()
+                                .addComponent(apePL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(135, 135, 135)))
                         .addGap(43, 43, 43)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(emailL)
+                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(bgLayout.createSequentialGroup()
+                                .addComponent(emailL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(124, 124, 124))
                             .addComponent(emailTF)
-                            .addComponent(registroBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(registroBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(titleL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(97, 97, 97)))
+                .addGap(38, 38, 38))
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,14 +150,14 @@ public class Registro extends javax.swing.JPanel {
                         .addComponent(apeML)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(apeM, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                     .addGroup(bgLayout.createSequentialGroup()
                         .addComponent(emailL)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(emailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(103, 103, 103)
                         .addComponent(registroBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 66, Short.MAX_VALUE))
+                .addGap(66, 66, 66))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -165,9 +184,22 @@ public class Registro extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_registroBtnMouseClicked
+
+    private void registroBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroBtnMouseEntered
+        registroBtn.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_registroBtnMouseEntered
+
+    private void registroBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroBtnMouseExited
+        registroBtn.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_registroBtnMouseExited
     
     private void initStyles(){
-        
+        titleL.putClientProperty( "FlatLaf.style", "font: h1 $h1.font" );
+        btnName.putClientProperty( "FlatLaf.style", "font: large $large.font" );
+        nombreL.putClientProperty( "FlatLaf.style", "font: medium $medium.font" );
+        apePL.putClientProperty( "FlatLaf.style", "font: medium $medium.font" );
+        apeML.putClientProperty( "FlatLaf.style", "font: medium $medium.font" );
+        emailL.putClientProperty( "FlatLaf.style", "font: medium $medium.font" );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

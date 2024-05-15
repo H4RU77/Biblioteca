@@ -46,31 +46,44 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="titleL" min="-2" pref="260" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="nombreL" min="-2" max="-2" attributes="0"/>
-                              <Component id="nombreTF" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="apeP" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="apeML" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="apeM" alignment="0" min="-2" pref="225" max="-2" attributes="0"/>
-                              <Component id="apePL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="nombreL" max="32767" attributes="0"/>
+                                  <EmptySpace min="179" pref="179" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="nombreTF" alignment="0" max="32767" attributes="0"/>
+                              <Component id="apeP" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="apeML" max="32767" attributes="0"/>
+                                  <EmptySpace min="129" pref="129" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="apeM" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="apePL" max="32767" attributes="0"/>
+                                  <EmptySpace min="135" pref="135" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="jSeparator1" min="-2" pref="20" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="emailL" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="emailL" max="32767" attributes="0"/>
+                                  <EmptySpace min="124" pref="124" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="emailTF" max="32767" attributes="0"/>
-                              <Component id="registroBtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="registroBtn" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Component id="titleL" max="32767" attributes="0"/>
+                          <EmptySpace min="97" pref="97" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="38" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -78,7 +91,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="titleL" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="nombreL" min="-2" max="-2" attributes="0"/>
@@ -93,7 +106,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="apeM" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jSeparator1" min="-2" pref="250" max="-2" attributes="0"/>
+                      <Component id="jSeparator1" pref="250" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="emailL" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -102,7 +115,7 @@
                           <Component id="registroBtn" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="66" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -151,29 +164,37 @@
         </Component>
         <Container class="javax.swing.JPanel" name="registroBtn">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="33" type="rgb"/>
+            </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registroBtnMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registroBtnMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registroBtnMouseExited"/>
           </Events>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnName" alignment="0" pref="225" max="32767" attributes="0"/>
+                  <Component id="btnName" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnName" alignment="0" pref="50" max="32767" attributes="0"/>
+                  <Component id="btnName" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="btnName">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Registrar"/>
               </Properties>
