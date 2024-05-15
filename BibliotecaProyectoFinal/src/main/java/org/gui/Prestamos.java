@@ -194,7 +194,7 @@ public class Prestamos extends javax.swing.JPanel {
                 }
                 }else{
                     JOptionPane.showMessageDialog(null,"Usuario no encontardo, si aún no tiene ID, favor de generarlo en la pestaña 'Usuarios'");
-            
+                    //.
                 }
                     
             }
