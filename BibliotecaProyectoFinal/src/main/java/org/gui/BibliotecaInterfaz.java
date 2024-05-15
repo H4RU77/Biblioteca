@@ -613,11 +613,14 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         ListaSE<Libro> listaLibros = new ListaSE<Libro>();
+        LibroFisico libro = new LibroFisico("Librito", "Rogelio Camacho", "Fantasia", "Español", "Un librito muy entretenido", "1", 1);
+        listaLibros.Agregar(libro);
         ListaSE<Miembro> listaMiembros = new ListaSE<Miembro>();
         Miembro miembro = new Miembro("M0001", "Angel Rogelio", "Camacho Romero", "kelo.camachoromero@gmail.com", null, null, EstadoCuenta.ACTIVA);
         listaMiembros.Agregar(miembro);
         System.out.println(listaMiembros.Obtener(0).toString());
         Catalogo catalogo = new Catalogo(listaLibros);
+        System.out.println(catalogo.getListaLibros().Obtener(0).toString());
         Biblioteca biblio = new Biblioteca(catalogo, listaMiembros);
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
