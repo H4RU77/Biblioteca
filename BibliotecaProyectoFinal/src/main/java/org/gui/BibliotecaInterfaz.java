@@ -601,6 +601,8 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         contentP.revalidate();
         contentP.repaint();
     }
+    
+    
     /**
      * @param args the command line arguments
      */
