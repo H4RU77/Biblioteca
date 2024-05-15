@@ -6,6 +6,7 @@ package org.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import org.clases.ListaSE;
@@ -88,6 +89,9 @@ public class Miembros extends javax.swing.JPanel {
 
         buscarBtn.setBackground(new java.awt.Color(51, 153, 255));
         buscarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buscarBtn.setMaximumSize(new java.awt.Dimension(100, 27));
+        buscarBtn.setMinimumSize(new java.awt.Dimension(100, 27));
+        buscarBtn.setPreferredSize(new java.awt.Dimension(100, 27));
         buscarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 buscarBtnMouseEntered(evt);
@@ -102,17 +106,17 @@ public class Miembros extends javax.swing.JPanel {
         buscarL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         buscarL.setText("Buscar");
         buscarL.setMaximumSize(new java.awt.Dimension(100, 27));
-        buscarL.setMinimumSize(new java.awt.Dimension(100, 25));
+        buscarL.setMinimumSize(new java.awt.Dimension(100, 27));
 
         javax.swing.GroupLayout buscarBtnLayout = new javax.swing.GroupLayout(buscarBtn);
         buscarBtn.setLayout(buscarBtnLayout);
         buscarBtnLayout.setHorizontalGroup(
             buscarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(buscarL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(buscarL, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
         buscarBtnLayout.setVerticalGroup(
             buscarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(buscarL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(buscarL, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
         );
 
         tablaMiembros.setModel(new javax.swing.table.DefaultTableModel(
@@ -168,6 +172,9 @@ public class Miembros extends javax.swing.JPanel {
         editarBtn.setBackground(new java.awt.Color(0, 153, 255));
         editarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editarBtnMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 editarBtnMouseEntered(evt);
             }
@@ -259,7 +266,7 @@ public class Miembros extends javax.swing.JPanel {
                     .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscadorTF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nuevoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -330,6 +337,17 @@ public class Miembros extends javax.swing.JPanel {
     private void nuevoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nuevoBtnMouseClicked
         changePanel(new Registro(listaMiembros));
     }//GEN-LAST:event_nuevoBtnMouseClicked
+
+    private void editarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarBtnMouseClicked
+        // getSelectedRow() | getSelectedColumn() --> returns index
+        // getValueAt(row, col) --> returns value 
+        try {
+            
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        
+    }//GEN-LAST:event_editarBtnMouseClicked
     
     private void changePanel(JPanel p){
         p.setSize(this.getWidth(), this.getHeight());

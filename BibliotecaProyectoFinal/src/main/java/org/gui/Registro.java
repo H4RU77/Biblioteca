@@ -165,7 +165,10 @@ public class Registro extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_registroBtnMouseClicked
-
+    
+    private void initStyles(){
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apeM;

@@ -449,17 +449,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         contentP.setBackground(new java.awt.Color(255, 255, 255));
         contentP.setMinimumSize(new java.awt.Dimension(0, 0));
         contentP.setPreferredSize(new java.awt.Dimension(605, 360));
-
-        javax.swing.GroupLayout contentPLayout = new javax.swing.GroupLayout(contentP);
-        contentP.setLayout(contentPLayout);
-        contentPLayout.setHorizontalGroup(
-            contentPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        contentPLayout.setVerticalGroup(
-            contentPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        contentP.setLayout(new java.awt.BorderLayout());
 
         textoL.setForeground(new java.awt.Color(51, 51, 51));
         textoL.setText("un texto bonito");
@@ -606,7 +596,6 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     private void changeContent(JPanel panel){
         panel.setSize(contentP.getWidth(), contentP.getHeight());
         panel.setLocation(0,0);
-        
         contentP.removeAll();
         contentP.add(panel, BorderLayout.CENTER);
         contentP.revalidate();
