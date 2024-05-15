@@ -395,7 +395,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
 
         contenedorOpt.add(logsOptP);
 
-        logoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen.jpg"))); // NOI18N
+        logoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alejandria.jpg"))); // NOI18N
         logoL.setText("jLabel1");
 
         javax.swing.GroupLayout menuOpcionesLayout = new javax.swing.GroupLayout(menuOpciones);
