@@ -153,7 +153,9 @@ public class Prestamos extends javax.swing.JPanel {
                 String usuarioActual="";
                 //buscar usuario por ID
                 for(int i=0;i<biblio.getMiembroLista().tamanio(); i++){
-                    if(IDusuario==biblio.getMiembroLista().Obtener(i).getID()){
+                    System.out.println("Id en la lista: "+biblio.getMiembroLista().Obtener(i).getID());
+                    System.out.println("Id ingreaado: "+IDusuario);
+                    if(IDusuario.equals(biblio.getMiembroLista().Obtener(i).getID())){
                         usuarioActual=IDusuario;
                         indexMiembro = i;
                     }
@@ -162,33 +164,33 @@ public class Prestamos extends javax.swing.JPanel {
                     String ISBNactual="";
                     
                 //buscar libro por ISBN
-                for(int i=0;i<biblio.getMiembroLista().tamanio(); i++){
-                    if(IDlibro==biblio.getCatalogo().getListaLibros().Obtener(i).getISBN()){
-                        ISBNactual=IDlibro;
-                        indexLibro=i;
+                    for(int i=0;i<biblio.getMiembroLista().tamanio(); i++){
+                        if(IDlibro.equals(biblio.getCatalogo().getListaLibros().Obtener(i).getISBN())){
+                            ISBNactual=IDlibro;
+                            indexLibro=i;
+                        }
                     }
-                }
-                if(ISBNactual!=""){
-                    
-                    if(biblio.getCatalogo().getListaLibros().Obtener(indexLibro) instanceof LibroFisico){
-                        //verificar disponibilidad
-                        LibroFisico libro = (LibroFisico) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
-                        if(libro.getCantidad()>0){
-                            //hacer prestamo
-                            libro.setCantidad(libro.getCantidad()-1);
+                    if(ISBNactual!=""){
+
+                        if(biblio.getCatalogo().getListaLibros().Obtener(indexLibro) instanceof LibroFisico){
+                            //verificar disponibilidad
+                            LibroFisico libro = (LibroFisico) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
+                            if(libro.getCantidad()>0){
+                                //hacer prestamo
+                                libro.setCantidad(libro.getCantidad()-1);
+                                Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
+                                miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
+                            }
+                        }else{
+                            //hacer préstamo
+                            LibroDigital libro = (LibroDigital) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
                             Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
                             miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
                         }
                     }else{
-                        //hacer préstamo
-                        LibroDigital libro = (LibroDigital) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
-                        Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
-                        miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
+                        JOptionPane.showMessageDialog(null,"Libro no encontardo, verifique que ingresó el ISBN correctamente");
+
                     }
-                }else{
-                    JOptionPane.showMessageDialog(null,"Libro no encontardo, verifique que ingresó el ISBN correctamente");
-            
-                }
                 }else{
                     JOptionPane.showMessageDialog(null,"Usuario no encontardo, si aún no tiene ID, favor de generarlo en la pestaña 'Usuarios'");
                     //.
