@@ -125,4 +125,10 @@ public class ListaSE<T> implements IMetodos<T>{
         }
         return res;
     }
+    
+    public void borrarTodo(){
+        for(int i = 0; i < tamano; i++){
+            Eliminar(i);
+        }
+    }
 }

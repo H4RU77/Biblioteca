@@ -26,6 +26,7 @@ public class Miembros extends javax.swing.JPanel {
      * Creates new form Miembros
      */
     private ListaSE<Miembro> listaMiembros;
+    private ListaSE<Miembro> filtered = new ListaSE();
 
     public ListaSE<Miembro> getListaMiembros() {
         return listaMiembros;
@@ -221,6 +222,11 @@ public class Miembros extends javax.swing.JPanel {
         buscadorTF.setBackground(new java.awt.Color(255, 255, 255));
         buscadorTF.setForeground(new java.awt.Color(153, 153, 153));
         buscadorTF.setText("Ingrese un dato de búsqueda...");
+        buscadorTF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                buscadorTFFocusLost(evt);
+            }
+        });
         buscadorTF.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buscadorTFMouseClicked(evt);
@@ -241,6 +247,9 @@ public class Miembros extends javax.swing.JPanel {
         buscarBtn.setMinimumSize(new java.awt.Dimension(100, 27));
         buscarBtn.setPreferredSize(new java.awt.Dimension(100, 27));
         buscarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buscarBtnMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 buscarBtnMouseEntered(evt);
             }
@@ -450,7 +459,7 @@ public class Miembros extends javax.swing.JPanel {
                     .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscadorTF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -547,7 +556,7 @@ public class Miembros extends javax.swing.JPanel {
                 Miembro anterior = listaMiembros.Obtener(pos);
                 Miembro editado = new Miembro(id, nom, ape, email, anterior.getPrestamosActivos(), anterior.getHistorialPrestamos(), estado);
                 listaMiembros.editar(editado, pos);
-                setTable();
+                setTable(listaMiembros);
             }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -567,7 +576,7 @@ public class Miembros extends javax.swing.JPanel {
             if (res == JOptionPane.OK_OPTION){
                 listaMiembros.Eliminar(pos);
                 JOptionPane.showMessageDialog(null, "Miembro eliminado satisfactoriamente");
-                setTable();
+                setTable(listaMiembros);
         }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -599,6 +608,36 @@ public class Miembros extends javax.swing.JPanel {
     private void inspectBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inspectBtnMouseExited
         inspectBtn.setBackground(new Color(51,153,255));
     }//GEN-LAST:event_inspectBtnMouseExited
+
+    private void buscarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarBtnMouseClicked
+        try {
+            if (buscadorTF.getText().isEmpty() || buscadorTF.getText().equals("Ingrese un dato de búsqueda...")){
+                
+            } else {
+                String filter = buscadorTF.getText().toUpperCase();
+                for(int i = 0; i < listaMiembros.tamanio(); i++){
+                    Miembro m = listaMiembros.Obtener(i);
+                    if (m.getNombre().toUpperCase().contains(filter) || m.getApellidos().toUpperCase().contains(filter) || m.getID().toUpperCase().contains(filter) || m.getEmail().toUpperCase().contains(filter)){
+                        filtered.Agregar(m);
+                    }
+                }
+                setTable(filtered);
+                filtered.borrarTodo();
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_buscarBtnMouseClicked
+
+    private void buscadorTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_buscadorTFFocusLost
+        try {
+            if (buscadorTF.getText().isEmpty()){
+                buscadorTF.setText("Ingrese un dato de búsqueda...");
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_buscadorTFFocusLost
     
     private void changePanel(JPanel p){
         p.setSize(this.getWidth(), this.getHeight());
@@ -620,11 +659,11 @@ public class Miembros extends javax.swing.JPanel {
         buscadorTF.putClientProperty( "FlatLaf.style", "font: medium $medium.font" );
     }
     
-    public void setTable(){
+    public void setTable(ListaSE<Miembro> list){
         String[] tblH = {"ID", "Nombre", "Apellidos", "Email", "Estado Cuenta"};
         DefaultTableModel model = new DefaultTableModel(tblH, 0);
-        for (int i = 0; i < listaMiembros.tamanio(); i++){
-            Miembro miembro = listaMiembros.Obtener(i);
+        for (int i = 0; i < list.tamanio(); i++){
+            Miembro miembro = list.Obtener(i);
             Object[] row = {miembro.getID(), miembro.getNombre(), miembro.getApellidos(), miembro.getEmail(), miembro.getEstado()};
             model.addRow(row);
         }
