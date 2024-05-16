@@ -174,10 +174,12 @@ public class Registro extends javax.swing.JPanel {
 
     private void registroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroBtnMouseClicked
         try {
+            int n = (int) Math.floor(Math.random()*10000);
+            String id = "M".concat(String.valueOf(n));
             String nombre = nombreTF.getText();
-            String apellidos = apeP.getText().concat(apeM.getText());
+            String apellidos = apeP.getText().concat(" "+apeM.getText());
             String email = emailTF.getText();
-            Miembro m = new Miembro("M0002", nombre, apellidos, email, null, null, EstadoCuenta.ACTIVA);
+            Miembro m = new Miembro(id, nombre, apellidos, email, null, null, EstadoCuenta.ACTIVA);
             listaM.Agregar(m);
             JOptionPane.showMessageDialog(null, "¡Miembro agregado satisfactoriamente!");
         } catch(Exception e){

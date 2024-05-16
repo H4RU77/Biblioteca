@@ -117,10 +117,12 @@ public class ListaSE<T> implements IMetodos<T>{
         show();
     }
     
-    public void show(){
+    public String show(){
         NodoSE<T> nodoActual = cabeza;
+        String res = "";
         for (int i = 0; i<tamano; i++){
-            System.out.println(nodoActual.getDato().toString());
+            res = res.concat(nodoActual.getDato().toString()+"\n");
         }
+        return res;
     }
 }
