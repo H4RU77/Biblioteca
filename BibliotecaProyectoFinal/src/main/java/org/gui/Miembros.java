@@ -8,10 +8,12 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import org.clases.EstadoCuenta;
 import org.clases.ListaSE;
 import org.clases.Miembro;
+import org.clases.Prestamo;
 
 /**
  *
@@ -58,6 +60,11 @@ public class Miembros extends javax.swing.JPanel {
         editApeM = new javax.swing.JTextField();
         editEmail = new javax.swing.JTextField();
         editEstado = new javax.swing.JComboBox<>();
+        inspectP = new javax.swing.JPanel();
+        miembroL = new javax.swing.JLabel();
+        historialL = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        historialPrestamos = new javax.swing.JTable();
         miembrosIP = new javax.swing.JPanel();
         miembrosTextL = new javax.swing.JLabel();
         buscadorTF = new javax.swing.JTextField();
@@ -71,6 +78,8 @@ public class Miembros extends javax.swing.JPanel {
         editL = new javax.swing.JLabel();
         borrarBtn = new javax.swing.JPanel();
         borrarL = new javax.swing.JLabel();
+        inspectBtn = new javax.swing.JPanel();
+        inspectL = new javax.swing.JLabel();
 
         editP.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -143,6 +152,60 @@ public class Miembros extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(editEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(67, Short.MAX_VALUE))
+        );
+
+        inspectP.setBackground(new java.awt.Color(255, 255, 255));
+
+        miembroL.setText("Miembro");
+
+        historialL.setText("Historial:");
+
+        historialPrestamos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Titulo", "ISBN", "Tiempo", "Sanción", "Estado"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(historialPrestamos);
+
+        javax.swing.GroupLayout inspectPLayout = new javax.swing.GroupLayout(inspectP);
+        inspectP.setLayout(inspectPLayout);
+        inspectPLayout.setHorizontalGroup(
+            inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inspectPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(miembroL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(407, 407, 407))
+            .addGroup(inspectPLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(historialL)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        inspectPLayout.setVerticalGroup(
+            inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inspectPLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(miembroL)
+                .addGap(18, 18, 18)
+                .addComponent(historialL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -241,7 +304,6 @@ public class Miembros extends javax.swing.JPanel {
         nuevoL.setForeground(new java.awt.Color(255, 255, 255));
         nuevoL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nuevoL.setText("Añadir");
-        nuevoL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
 
         javax.swing.GroupLayout nuevoBtnLayout = new javax.swing.GroupLayout(nuevoBtn);
         nuevoBtn.setLayout(nuevoBtnLayout);
@@ -273,7 +335,6 @@ public class Miembros extends javax.swing.JPanel {
         editL.setForeground(new java.awt.Color(255, 255, 255));
         editL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         editL.setText("Editar");
-        editL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
 
         javax.swing.GroupLayout editarBtnLayout = new javax.swing.GroupLayout(editarBtn);
         editarBtn.setLayout(editarBtnLayout);
@@ -289,6 +350,9 @@ public class Miembros extends javax.swing.JPanel {
         borrarBtn.setBackground(new java.awt.Color(51, 153, 255));
         borrarBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         borrarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                borrarBtnMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 borrarBtnMouseEntered(evt);
             }
@@ -302,7 +366,6 @@ public class Miembros extends javax.swing.JPanel {
         borrarL.setForeground(new java.awt.Color(255, 255, 255));
         borrarL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         borrarL.setText("Borrar");
-        borrarL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
 
         javax.swing.GroupLayout borrarBtnLayout = new javax.swing.GroupLayout(borrarBtn);
         borrarBtn.setLayout(borrarBtnLayout);
@@ -315,30 +378,66 @@ public class Miembros extends javax.swing.JPanel {
             .addComponent(borrarL, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        inspectBtn.setBackground(new java.awt.Color(51, 153, 255));
+        inspectBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inspectBtn.setMinimumSize(new java.awt.Dimension(50, 31));
+        inspectBtn.setPreferredSize(new java.awt.Dimension(50, 31));
+        inspectBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inspectBtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                inspectBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                inspectBtnMouseExited(evt);
+            }
+        });
+
+        inspectL.setBackground(new java.awt.Color(51, 153, 255));
+        inspectL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        inspectL.setForeground(new java.awt.Color(255, 255, 255));
+        inspectL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        inspectL.setText("Inspeccionar");
+        inspectL.setMinimumSize(new java.awt.Dimension(50, 31));
+        inspectL.setPreferredSize(new java.awt.Dimension(50, 31));
+
+        javax.swing.GroupLayout inspectBtnLayout = new javax.swing.GroupLayout(inspectBtn);
+        inspectBtn.setLayout(inspectBtnLayout);
+        inspectBtnLayout.setHorizontalGroup(
+            inspectBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(inspectL, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+        );
+        inspectBtnLayout.setVerticalGroup(
+            inspectBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inspectBtnLayout.createSequentialGroup()
+                .addComponent(inspectL, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout miembrosIPLayout = new javax.swing.GroupLayout(miembrosIP);
         miembrosIP.setLayout(miembrosIPLayout);
         miembrosIPLayout.setHorizontalGroup(
             miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, miembrosIPLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(miembrosIPLayout.createSequentialGroup()
-                        .addGap(361, 361, 361)
+                        .addComponent(inspectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(216, 216, 216)
                         .addComponent(nuevoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(editarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(borrarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(miembrosIPLayout.createSequentialGroup()
+                        .addComponent(buscadorTF)
+                        .addGap(18, 18, 18)
+                        .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, miembrosIPLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, miembrosIPLayout.createSequentialGroup()
-                                .addComponent(buscadorTF)
-                                .addGap(18, 18, 18)
-                                .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(miembrosIPLayout.createSequentialGroup()
-                                .addComponent(miembrosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(392, 392, 392)))))
+                        .addComponent(miembrosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(392, 392, 392)))
                 .addGap(21, 21, 21))
         );
         miembrosIPLayout.setVerticalGroup(
@@ -351,12 +450,14 @@ public class Miembros extends javax.swing.JPanel {
                     .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscadorTF, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nuevoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(borrarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(miembrosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(nuevoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(borrarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(editarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inspectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
         );
 
@@ -451,12 +552,53 @@ public class Miembros extends javax.swing.JPanel {
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        
     }//GEN-LAST:event_editarBtnMouseClicked
 
     private void editApePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editApePActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editApePActionPerformed
+
+    private void borrarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarBtnMouseClicked
+        try {
+            int row = tablaMiembros.getSelectedRow();
+            String id = (String) tablaMiembros.getValueAt(row, 0);
+            int pos = buscarPorId(id);
+            int res = JOptionPane.showConfirmDialog(null, "Esta acción eliminará al miembro seleccionado, ¿Desea continuar?", "Advertencia", JOptionPane.OK_CANCEL_OPTION);
+            if (res == JOptionPane.OK_OPTION){
+                listaMiembros.Eliminar(pos);
+                JOptionPane.showMessageDialog(null, "Miembro eliminado satisfactoriamente");
+                setTable();
+        }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_borrarBtnMouseClicked
+
+    private void inspectBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inspectBtnMouseClicked
+        try {
+            int row = tablaMiembros.getSelectedRow();
+            String id = (String) tablaMiembros.getValueAt(row, 0);
+            int pos = buscarPorId(id);
+            String nom = listaMiembros.Obtener(pos).getNombre();
+            String ape = listaMiembros.Obtener(pos).getApellidos();
+            String fullNom = nom.concat(" "+ape);
+            ListaSE prestamos = listaMiembros.Obtener(pos).getPrestamosActivos();
+            ListaSE historial = listaMiembros.Obtener(pos).getHistorialPrestamos();
+            miembroL.setText(fullNom);
+            setHistorial(historial);
+            JOptionPane.showMessageDialog(null, inspectP);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_inspectBtnMouseClicked
+
+    private void inspectBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inspectBtnMouseEntered
+        inspectBtn.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_inspectBtnMouseEntered
+
+    private void inspectBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inspectBtnMouseExited
+        inspectBtn.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_inspectBtnMouseExited
     
     private void changePanel(JPanel p){
         p.setSize(this.getWidth(), this.getHeight());
@@ -469,6 +611,8 @@ public class Miembros extends javax.swing.JPanel {
     }
     private void initStyles(){
         miembrosTextL.putClientProperty( "FlatLaf.style", "font: h1 $h1.font" );
+        miembroL.putClientProperty( "FlatLaf.style", "font: h2 $h2.font" );
+        historialL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         buscarL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         nuevoL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         editL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
@@ -485,6 +629,17 @@ public class Miembros extends javax.swing.JPanel {
             model.addRow(row);
         }
         tablaMiembros.setModel(model);
+    }
+    
+    public void setHistorial(ListaSE<Prestamo> h){
+        String[] tblH = {"Titulo", "ISBN", "Tiempo", "Sancion", "Estado"};
+        DefaultTableModel model = new DefaultTableModel(tblH, 0);
+        for (int i = 0; i < h.tamanio(); i++){
+            Prestamo p = h.Obtener(i);
+            Object[] row = {p.getLibro().getTitulo(), p.getLibro().getISBN(), p.getTiempo(), p.getMonto(), ""};
+            model.addRow(row);
+        }
+        historialPrestamos.setModel(model);
     }
     
     public int buscarPorId(String id){
@@ -510,12 +665,19 @@ public class Miembros extends javax.swing.JPanel {
     private javax.swing.JTextField editNombre;
     private javax.swing.JPanel editP;
     private javax.swing.JPanel editarBtn;
+    private javax.swing.JLabel historialL;
+    private javax.swing.JTable historialPrestamos;
+    private javax.swing.JPanel inspectBtn;
+    private javax.swing.JLabel inspectL;
+    private javax.swing.JPanel inspectP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel miembroL;
     private javax.swing.JPanel miembrosIP;
     private javax.swing.JLabel miembrosTextL;
     private javax.swing.JPanel nuevoBtn;

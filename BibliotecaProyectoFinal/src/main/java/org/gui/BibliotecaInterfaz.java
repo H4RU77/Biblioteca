@@ -29,7 +29,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     private Image miembrosImage = new ImageIcon("src/main/resources/miembrosImg.png").getImage();
     private Image catalogoImage = new ImageIcon("src/main/resources/catalogoImg.png").getImage();
     private Image logsImage = new ImageIcon("src/main/resources/logsImg.png").getImage();
-    private Image logoImage = new ImageIcon("src/main/resources/logo.png").getImage();
+    private Image logoImage = new ImageIcon("src/main/resources/alejandria.jpg").getImage();
     public BibliotecaInterfaz(Biblioteca biblio) {
         initComponents();
         this.biblio = biblio;
@@ -451,8 +451,9 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         contentP.setPreferredSize(new java.awt.Dimension(605, 360));
         contentP.setLayout(new java.awt.BorderLayout());
 
+        textoL.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         textoL.setForeground(new java.awt.Color(51, 51, 51));
-        textoL.setText("un texto bonito");
+        textoL.setText("Letras que despiertan mundos");
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
@@ -462,10 +463,10 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
                 .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contentP, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(textoL, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(507, Short.MAX_VALUE))
-                    .addComponent(contentP, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)))
+                        .addComponent(textoL)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(bgLayout.createSequentialGroup()
                 .addGap(180, 180, 180)
                 .addComponent(barraP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -586,7 +587,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         miembrosL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         catalogoL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         logsL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
-        textoL.putClientProperty( "FlatLaf.style", "font: medium $medium.font" );
+        textoL.putClientProperty( "FlatLaf.style", "font: large $medium.font" );
     }
     
     private void initContent(){
@@ -616,8 +617,11 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         LibroFisico libro = new LibroFisico("Librito", "Rogelio Camacho", "Fantasia", "Español", "Un librito muy entretenido", "1", 1);
         listaLibros.Agregar(libro);
         ListaSE<Miembro> listaMiembros = new ListaSE<Miembro>();
-        Miembro miembro = new Miembro("M0001", "Angel Rogelio", "Camacho Romero", "kelo.camachoromero@gmail.com", null, null, EstadoCuenta.ACTIVA);
+        ListaSE<Prestamo> historial = new ListaSE();
+        Miembro miembro = new Miembro("M0001", "Angel Rogelio", "Camacho Romero", "kelo.camachoromero@gmail.com", null, historial, EstadoCuenta.ACTIVA);
         listaMiembros.Agregar(miembro);
+        Prestamo prestamo = new Prestamo(libro, 7, 250.48, miembro);
+        miembro.getHistorialPrestamos().Agregar(prestamo);
         System.out.println(listaMiembros.Obtener(0).toString());
         Catalogo catalogo = new Catalogo(listaLibros);
         System.out.println(catalogo.getListaLibros().Obtener(0).toString());
