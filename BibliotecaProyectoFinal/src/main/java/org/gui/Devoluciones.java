@@ -4,17 +4,19 @@
  */
 package org.gui;
 
-import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
-import org.clases.Miembro;
-import org.clases.Prestamo;
+import org.clases.*;
 
 /**
- *
+ *  
  * @author Keloc
  */
 public class Devoluciones extends javax.swing.JPanel {
-    private ArrayList <Prestamo> prestamos;
+ 
+    private ListaSE<Miembro> miembros = new ListaSE<>();
+    private ListaSE<Libro> libros = new ListaSE<>();
+    private ListaSE<Prestamo> prestamos = new ListaSE<>();
 
     /**
      * Creates new form Devoluciones
@@ -37,31 +39,22 @@ public class Devoluciones extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         libroIdText = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        folioIdText = new javax.swing.JTextField();
+
+        folioTxt = new javax.swing.JTextField();
         btnDevolver = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
-        setMinimumSize(new java.awt.Dimension(611, 362));
-        setPreferredSize(new java.awt.Dimension(611, 362));
-
-        devolucionesIP.setBackground(new java.awt.Color(255, 255, 255));
-        devolucionesIP.setMinimumSize(new java.awt.Dimension(611, 362));
-        devolucionesIP.setPreferredSize(new java.awt.Dimension(611, 362));
 
         devolucionesTextL.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         devolucionesTextL.setText("Devolución de Libro");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("ISBN Libro");
+
+        jLabel1.setText("ID Libro");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("ID de Usuario");
+        jLabel2.setText("Folio Usuario");
 
-        btnDevolver.setBackground(new java.awt.Color(51, 51, 255));
-        btnDevolver.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnDevolver.setForeground(new java.awt.Color(255, 255, 255));
+
         btnDevolver.setText("Devolver");
         btnDevolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,50 +62,41 @@ public class Devoluciones extends javax.swing.JPanel {
             }
         });
 
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/devolucion-libros.jpg"))); // NOI18N
 
-        javax.swing.GroupLayout devolucionesIPLayout = new javax.swing.GroupLayout(devolucionesIP);
-        devolucionesIP.setLayout(devolucionesIPLayout);
-        devolucionesIPLayout.setHorizontalGroup(
-            devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(devolucionesIPLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(29, 29, 29)
                 .addGroup(devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(devolucionesTextL)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(folioIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(libroIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(devolucionesTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(devolucionesIPLayout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(jLabel3))
-                    .addComponent(jLabel4)))
+                        .addGap(6, 6, 6)
+                        .addGroup(devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(libroIdText)
+                            .addComponent(folioTxt)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDevolver, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))))
+                .addContainerGap(221, Short.MAX_VALUE))
+
         );
         devolucionesIPLayout.setVerticalGroup(
             devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(devolucionesIPLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+
+                .addGap(25, 25, 25)
                 .addComponent(devolucionesTextL)
-                .addGap(6, 6, 6)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(folioIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addGap(12, 12, 12)
-                .addComponent(libroIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(btnDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(devolucionesIPLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(devolucionesIPLayout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(jLabel3))
-                    .addComponent(jLabel4)))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(folioTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(libroIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(btnDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
+
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -131,56 +115,115 @@ public class Devoluciones extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolverActionPerformed
-        String folio = folioIdText.getText();
-        String bookID = libroIdText.getText();
+
+        String folio = folioTxt.getText();
+        String bookId = libroIdText.getText();
         
         //Validacion de datos
-        if (folio.isEmpty() || bookID.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos. \n", "AVISO", JOptionPane.ERROR_MESSAGE);
-            folioIdText.requestFocus();
+        if (folio.isEmpty() || bookId.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos. \n", "AVISO",javax.swing.JOptionPane.ERROR_MESSAGE);
+            folioTxt.requestFocus();
             return;
-        }
+        } 
         
-        int folioId = Integer.parseInt(folio);
-        int bookId = Integer.parseInt(bookID);
+        int folioid = Integer.parseInt(folio);
+        int bookid = Integer.parseInt(bookId);
         
-        if (folioId <= 0 || bookId <= 0) {
+        if (folioid <= 0 || bookid <= 0) {
             JOptionPane.showMessageDialog(this, "Los IDs deben de ser mayores que 0", "AVISO", JOptionPane.ERROR_MESSAGE);
-            folioIdText.requestFocus();
+            folioTxt.requestFocus();
             return;
         }
         
-        try {
-            if (devolver(folio, bookID)) {
-                JOptionPane.showMessageDialog(this, "El libro con ID " + bookID + " ha sido devuelto por el usaurio con folio " + folio);
-            } else {
-                JOptionPane.showMessageDialog(this, "ERROR. El libro con ID " + bookID + " no estaba prestado al usuario con folio " + folio);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Errir al devolver el libro: " + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        //Buscar miembro
+        Miembro miembro = buscarMiembro(folio);
+        if (miembro == null) {
+            JOptionPane.showMessageDialog(this, "Miembro no encontrado");
+            return;
         }
+        
+        //Buscar libro
+        Libro libro = buscarLibro(bookId);
+        if (libro == null) {
+            JOptionPane.showMessageDialog(this, "Libro no encontrado");
+            return;
+        }
+        
+        //Buscar prestamo activo
+        Prestamo prestamo = buscarPrestamo(miembro, libro);
+        if (prestamo == null) {
+            JOptionPane.showMessageDialog(this, "El miembro no tiene este libro en prestamo");
+            return;
+        }
+        
+        //Realizar devolucion
+        realizarDevolucion(prestamo);
+        
+        JOptionPane.showMessageDialog(this, "Devolucion realizada con exito");
     }//GEN-LAST:event_btnDevolverActionPerformed
 
-    private boolean devolver (String folio, String idLibro) {
-        for (int i = 0; i < prestamos.size(); i++) {
-            Prestamo prestamo = (Prestamo) prestamos.get(i);
-            if (prestamo.getLibro().equals(idLibro) && prestamo.getFolio().equals(folio)) {
-                prestamos.remove(prestamo);
-                return false;
+
+    //Buscar miembro por su folio(ID)
+    private Miembro buscarMiembro(String folio) {
+        for (int i = 0; i < miembros.tamanio(); i++) {
+            Miembro miembro = miembros.Obtener(i);
+            if (miembro.getID().equals(folio)) {
+                return miembro;
             }
         }
-        return true;
+        return null;
     }
-
+    
+    //Buscar libro por su ID
+    private Libro buscarLibro(String libroID) {
+        for (int i = 0; i < libros.tamanio(); i++) {
+            Libro libro = libros.Obtener(i);
+            if (libro.getISBN().equals(libroID)) {
+                return libro;
+            }
+        }
+        return null;
+    }
+    
+    //Buscar prestamos activos
+    private Prestamo buscarPrestamo (Miembro miembro, Libro libro) {
+        for (int i = 0; i < prestamos.tamanio(); i++) {
+            Prestamo prestamo = prestamos.Obtener(i);
+            if (prestamo.getFolio().equals(miembro) && prestamo.getLibro().equals(libro)) {
+                return prestamo;
+            }
+        }
+        return null;
+    }
+    
+    //Realizar devolucion
+    private void realizarDevolucion(Prestamo prestamo) {
+        //Marcar devuelto
+        prestamo.setDevuelto(true);
+        
+        //Elimar prestamo
+        Miembro miembro = prestamo.getFolio();
+        ListaSE<Prestamo> prestamoActivo = miembro.getPrestamosActivos();
+        prestamoActivo.Eliminar(prestamoActivo.indiceDe(prestamo));
+        
+        //Agregar al historial
+        miembro.getHistorialPrestamos().Agregar(prestamo);
+        
+        //Actualizar estado de libro
+        prestamo.getLibro().setPrestado(false);
+        
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDevolver;
     private javax.swing.JPanel devolucionesIP;
     private javax.swing.JLabel devolucionesTextL;
-    private javax.swing.JTextField folioIdText;
+
+    private javax.swing.JTextField folioTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+
     private javax.swing.JTextField libroIdText;
     // End of variables declaration//GEN-END:variables
 }
