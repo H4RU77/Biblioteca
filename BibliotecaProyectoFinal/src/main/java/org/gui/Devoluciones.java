@@ -5,14 +5,17 @@
 package org.gui;
 
 import javax.swing.JOptionPane;
-import org.clases.Libro;
-import org.clases.Miembro;
+import org.clases.*;
 
 /**
- *
+ *  
  * @author Keloc
  */
 public class Devoluciones extends javax.swing.JPanel {
+    
+    private ListaSE<Miembro> miembros = new ListaSE<>();
+    private ListaSE<Libro> libros = new ListaSE<>();
+    private ListaSE<Prestamo> prestamos = new ListaSE<>();
 
     /**
      * Creates new form Devoluciones
@@ -67,10 +70,10 @@ public class Devoluciones extends javax.swing.JPanel {
                         .addGroup(devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(libroIdText)
-                            .addComponent(folioTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                            .addComponent(folioTxt)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDevolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(215, Short.MAX_VALUE))
+                            .addComponent(btnDevolver, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
         devolucionesIPLayout.setVerticalGroup(
             devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,9 +97,7 @@ public class Devoluciones extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(devolucionesIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(devolucionesIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,16 +125,85 @@ public class Devoluciones extends javax.swing.JPanel {
             return;
         }
         
-        try {
-            Miembro miembro = new Miembro();
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al devolver el libro: " + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        //Buscar miembro
+        Miembro miembro = buscarMiembro(folio);
+        if (miembro == null) {
+            JOptionPane.showMessageDialog(this, "Miembro no encontrado");
+            return;
         }
         
+        //Buscar libro
+        Libro libro = buscarLibro(bookId);
+        if (libro == null) {
+            JOptionPane.showMessageDialog(this, "Libro no encontrado");
+            return;
+        }
+        
+        //Buscar prestamo activo
+        Prestamo prestamo = buscarPrestamo(miembro, libro);
+        if (prestamo == null) {
+            JOptionPane.showMessageDialog(this, "El miembro no tiene este libro en prestamo");
+            return;
+        }
+        
+        //Realizar devolucion
+        realizarDevolucion(prestamo);
+        
+        JOptionPane.showMessageDialog(this, "Devolucion realizada con exito");
     }//GEN-LAST:event_btnDevolverActionPerformed
 
-
+    //Buscar miembro por su folio(ID)
+    private Miembro buscarMiembro(String folio) {
+        for (int i = 0; i < miembros.tamanio(); i++) {
+            Miembro miembro = miembros.Obtener(i);
+            if (miembro.getID().equals(folio)) {
+                return miembro;
+            }
+        }
+        return null;
+    }
+    
+    //Buscar libro por su ID
+    private Libro buscarLibro(String libroID) {
+        for (int i = 0; i < libros.tamanio(); i++) {
+            Libro libro = libros.Obtener(i);
+            if (libro.getISBN().equals(libroID)) {
+                return libro;
+            }
+        }
+        return null;
+    }
+    
+    //Buscar prestamos activos
+    private Prestamo buscarPrestamo (Miembro miembro, Libro libro) {
+        for (int i = 0; i < prestamos.tamanio(); i++) {
+            Prestamo prestamo = prestamos.Obtener(i);
+            if (prestamo.getFolio().equals(miembro) && prestamo.getLibro().equals(libro)) {
+                return prestamo;
+            }
+        }
+        return null;
+    }
+    
+    //Realizar devolucion
+    private void realizarDevolucion(Prestamo prestamo) {
+        //Marcar devuelto
+        prestamo.setDevuelto(true);
+        
+        //Elimar prestamo
+        Miembro miembro = prestamo.getFolio();
+        ListaSE<Prestamo> prestamoActivo = miembro.getPrestamosActivos();
+        prestamoActivo.Eliminar(prestamoActivo.indiceDe(prestamo));
+        
+        //Agregar al historial
+        miembro.getHistorialPrestamos().Agregar(prestamo);
+        
+        //Actualizar estado de libro
+        prestamo.getLibro().setPrestado(false);
+        
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDevolver;
     private javax.swing.JPanel devolucionesIP;
