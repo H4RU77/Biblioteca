@@ -563,7 +563,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     private void miembrosOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosOptPMouseClicked
         Miembros m = new Miembros();
         m.setListaMiembros(biblio.getMiembroLista());
-        m.setTable();
+        m.setTable(biblio.getMiembroLista());
         changeContent(m);
     }//GEN-LAST:event_miembrosOptPMouseClicked
 
