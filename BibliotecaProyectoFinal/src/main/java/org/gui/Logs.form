@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+    </Property>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[611, 362]"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -27,6 +35,17 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="logsIP">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[611, 362]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[611, 362]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -34,7 +53,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                   <Component id="logsTextL" min="-2" pref="133" max="-2" attributes="0"/>
-                  <EmptySpace pref="374" max="32767" attributes="0"/>
+                  <EmptySpace pref="365" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -43,7 +62,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                   <Component id="logsTextL" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace pref="248" max="32767" attributes="0"/>
+                  <EmptySpace pref="250" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

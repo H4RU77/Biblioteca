@@ -4,11 +4,21 @@ public class Prestamo {
     private Libro libro;
     private int tiempo;
     private double monto;
+    private Miembro folio;
 
-    public Prestamo(Libro libro, int tiempo, double monto) {
+    public Prestamo(Libro libro, int tiempo, double monto, Miembro folio) {
         this.libro = libro;
         this.tiempo = tiempo;
         this.monto = monto;
+        this.folio = folio;
+    }
+    
+    public Miembro getFolio() {
+        return folio;
+    }
+    
+    public void setFolio(Miembro folio) {
+        this.folio = folio;
     }
 
     public Libro getLibro() {

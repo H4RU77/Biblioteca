@@ -4,8 +4,8 @@ public class LibroFisico extends Libro{
     private int cantidad;
 
     public LibroFisico(String titulo, String autor, String genero,
-                       String idioma, String desc, boolean prestado, String ISBN, int cantidad) {
-        super(titulo, autor, genero, idioma, desc, prestado, ISBN);
+                       String idioma, String desc, String ISBN, int cantidad) {
+        super(titulo, autor, genero, idioma, desc, ISBN);
         this.cantidad = cantidad;
     }
 

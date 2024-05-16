@@ -4,6 +4,7 @@
  */
 package org.gui;
 
+
 import javax.swing.JOptionPane;
 import org.clases.*;
 
@@ -12,7 +13,7 @@ import org.clases.*;
  * @author Keloc
  */
 public class Devoluciones extends javax.swing.JPanel {
-    
+ 
     private ListaSE<Miembro> miembros = new ListaSE<>();
     private ListaSE<Libro> libros = new ListaSE<>();
     private ListaSE<Prestamo> prestamos = new ListaSE<>();
@@ -38,17 +39,21 @@ public class Devoluciones extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         libroIdText = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+
         folioTxt = new javax.swing.JTextField();
         btnDevolver = new javax.swing.JButton();
+
 
         devolucionesTextL.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         devolucionesTextL.setText("Devolución de Libro");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
         jLabel1.setText("ID Libro");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Folio Usuario");
+
 
         btnDevolver.setText("Devolver");
         btnDevolver.addActionListener(new java.awt.event.ActionListener() {
@@ -57,11 +62,9 @@ public class Devoluciones extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout devolucionesIPLayout = new javax.swing.GroupLayout(devolucionesIP);
-        devolucionesIP.setLayout(devolucionesIPLayout);
-        devolucionesIPLayout.setHorizontalGroup(
-            devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(devolucionesIPLayout.createSequentialGroup()
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/devolucion-libros.jpg"))); // NOI18N
+
                 .addGap(29, 29, 29)
                 .addGroup(devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(devolucionesTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -74,10 +77,12 @@ public class Devoluciones extends javax.swing.JPanel {
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnDevolver, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))))
                 .addContainerGap(221, Short.MAX_VALUE))
+
         );
         devolucionesIPLayout.setVerticalGroup(
             devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(devolucionesIPLayout.createSequentialGroup()
+
                 .addGap(25, 25, 25)
                 .addComponent(devolucionesTextL)
                 .addGap(33, 33, 33)
@@ -91,13 +96,17 @@ public class Devoluciones extends javax.swing.JPanel {
                 .addGap(37, 37, 37)
                 .addComponent(btnDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
+
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(devolucionesIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(devolucionesIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,6 +115,7 @@ public class Devoluciones extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolverActionPerformed
+
         String folio = folioTxt.getText();
         String bookId = libroIdText.getText();
         
@@ -151,6 +161,7 @@ public class Devoluciones extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(this, "Devolucion realizada con exito");
     }//GEN-LAST:event_btnDevolverActionPerformed
+
 
     //Buscar miembro por su folio(ID)
     private Miembro buscarMiembro(String folio) {
@@ -208,9 +219,11 @@ public class Devoluciones extends javax.swing.JPanel {
     private javax.swing.JButton btnDevolver;
     private javax.swing.JPanel devolucionesIP;
     private javax.swing.JLabel devolucionesTextL;
+
     private javax.swing.JTextField folioTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+
     private javax.swing.JTextField libroIdText;
     // End of variables declaration//GEN-END:variables
 }

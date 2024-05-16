@@ -29,6 +29,13 @@ public class Logs extends javax.swing.JPanel {
         logsIP = new javax.swing.JPanel();
         logsTextL = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMinimumSize(new java.awt.Dimension(611, 362));
+
+        logsIP.setBackground(new java.awt.Color(255, 255, 255));
+        logsIP.setMinimumSize(new java.awt.Dimension(611, 362));
+        logsIP.setPreferredSize(new java.awt.Dimension(611, 362));
+
         logsTextL.setText("LOGS ");
 
         javax.swing.GroupLayout logsIPLayout = new javax.swing.GroupLayout(logsIP);
@@ -38,14 +45,14 @@ public class Logs extends javax.swing.JPanel {
             .addGroup(logsIPLayout.createSequentialGroup()
                 .addGap(113, 113, 113)
                 .addComponent(logsTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(374, Short.MAX_VALUE))
+                .addContainerGap(365, Short.MAX_VALUE))
         );
         logsIPLayout.setVerticalGroup(
             logsIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(logsIPLayout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addComponent(logsTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

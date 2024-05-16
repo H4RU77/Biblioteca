@@ -4,6 +4,14 @@
  */
 package org.gui;
 
+import javax.swing.JOptionPane;
+import org.clases.Biblioteca;
+import org.clases.Libro;
+import org.clases.LibroDigital;
+import org.clases.LibroFisico;
+import org.clases.Miembro;
+import org.clases.Prestamo;
+
 /**
  *
  * @author Keloc
@@ -13,6 +21,15 @@ public class Prestamos extends javax.swing.JPanel {
     /**
      * Creates new form Prestamos
      */
+    private Biblioteca biblio;
+
+    public Biblioteca getBiblio() {
+        return biblio;
+    }
+
+    public void setBiblio(Biblioteca biblio) {
+        this.biblio = biblio;
+    }
     public Prestamos() {
         initComponents();
     }
@@ -28,41 +45,176 @@ public class Prestamos extends javax.swing.JPanel {
 
         prestamosIP = new javax.swing.JPanel();
         prestamosTextL = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        prestamosTextL1 = new javax.swing.JLabel();
+        prestamosTextL2 = new javax.swing.JLabel();
+        usuario = new javax.swing.JTextField();
+        libro = new javax.swing.JTextField();
+        prestar = new javax.swing.JButton();
 
-        prestamosTextL.setText("Aqui van los prestamos y asi");
+        setMinimumSize(new java.awt.Dimension(611, 362));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        prestamosIP.setBackground(new java.awt.Color(255, 255, 255));
+        prestamosIP.setMinimumSize(new java.awt.Dimension(611, 362));
+        prestamosIP.setPreferredSize(new java.awt.Dimension(611, 362));
+
+        prestamosTextL.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        prestamosTextL.setText("Préstamo de libro");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/devolucion2.jpg"))); // NOI18N
+
+        prestamosTextL1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        prestamosTextL1.setText("ID de usuario");
+
+        prestamosTextL2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        prestamosTextL2.setText("ISBN del libro:");
+
+        usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioActionPerformed(evt);
+            }
+        });
+
+        libro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                libroActionPerformed(evt);
+            }
+        });
+
+        prestar.setBackground(new java.awt.Color(51, 51, 255));
+        prestar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        prestar.setForeground(new java.awt.Color(255, 255, 255));
+        prestar.setText("Prestar");
+        prestar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prestarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout prestamosIPLayout = new javax.swing.GroupLayout(prestamosIP);
         prestamosIP.setLayout(prestamosIPLayout);
         prestamosIPLayout.setHorizontalGroup(
             prestamosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(prestamosIPLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(prestamosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                .addGap(337, 337, 337))
+                .addGap(25, 25, 25)
+                .addGroup(prestamosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(prestamosTextL)
+                    .addGroup(prestamosIPLayout.createSequentialGroup()
+                        .addGroup(prestamosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(prestamosTextL1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(prestamosTextL2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(libro, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(prestar, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         prestamosIPLayout.setVerticalGroup(
             prestamosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(prestamosIPLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(prestamosTextL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(277, 277, 277))
+                .addGap(27, 27, 27)
+                .addComponent(prestamosTextL)
+                .addGap(6, 6, 6)
+                .addGroup(prestamosIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(prestamosIPLayout.createSequentialGroup()
+                        .addComponent(prestamosTextL1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(prestamosTextL2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(libro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(prestar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(prestamosIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(prestamosIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        add(prestamosIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void libroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_libroActionPerformed
+
+    private void prestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prestarActionPerformed
+        String IDlibro = libro.getText();
+        String IDusuario = usuario.getText();
+        int indexLibro=0;
+        int indexMiembro=0;
+        
+        if(libro.getText().isEmpty()||usuario.getText().isEmpty()){
+            
+            
+        }else{
+            if(usuario.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Por favor ingrese su ID de usuario, si aún no tiene uno, favor de generarlo en la pestaña 'Usuarios'");
+            }else{
+                String usuarioActual="";
+                //buscar usuario por ID
+                for(int i=0;i<biblio.getMiembroLista().tamanio(); i++){
+                    System.out.println("Id en la lista: "+biblio.getMiembroLista().Obtener(i).getID());
+                    System.out.println("Id ingreaado: "+IDusuario);
+                    if(IDusuario.equals(biblio.getMiembroLista().Obtener(i).getID())){
+                        usuarioActual=IDusuario;
+                        indexMiembro = i;
+                    }
+                }
+                if(usuarioActual!=""){
+                    String ISBNactual="";
+                    
+                //buscar libro por ISBN
+                    for(int i=0;i<biblio.getMiembroLista().tamanio(); i++){
+                        if(IDlibro.equals(biblio.getCatalogo().getListaLibros().Obtener(i).getISBN())){
+                            ISBNactual=IDlibro;
+                            indexLibro=i;
+                        }
+                    }
+                    if(ISBNactual!=""){
+
+                        if(biblio.getCatalogo().getListaLibros().Obtener(indexLibro) instanceof LibroFisico){
+                            //verificar disponibilidad
+                            LibroFisico libro = (LibroFisico) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
+                            if(libro.getCantidad()>0){
+                                //hacer prestamo
+                                libro.setCantidad(libro.getCantidad()-1);
+                                Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
+                                miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
+                            }
+                        }else{
+                            //hacer préstamo
+                            LibroDigital libro = (LibroDigital) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
+                            Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
+                            miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Libro no encontardo, verifique que ingresó el ISBN correctamente");
+
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null,"Usuario no encontardo, si aún no tiene ID, favor de generarlo en la pestaña 'Usuarios'");
+                    //.
+                }
+                    
+            }
+                
+        }
+            
+    }//GEN-LAST:event_prestarActionPerformed
+
+    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField libro;
     private javax.swing.JPanel prestamosIP;
     private javax.swing.JLabel prestamosTextL;
+    private javax.swing.JLabel prestamosTextL1;
+    private javax.swing.JLabel prestamosTextL2;
+    private javax.swing.JButton prestar;
+    private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }

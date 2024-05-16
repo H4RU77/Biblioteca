@@ -2,6 +2,11 @@ package org.clases;
 public class Biblioteca {
     protected Catalogo catalogo;
     protected ListaSE<Miembro> miembroLista;
+    
+    public Biblioteca(Catalogo catalogo, ListaSE<Miembro> miembroLista){
+        this.catalogo = catalogo;
+        this.miembroLista = miembroLista;
+    }
 
     public ListaSE<Miembro> getMiembroLista() {
         return miembroLista;

@@ -7,54 +7,103 @@ package org.clases;
 public class Catalogo {
     protected ListaSE<Libro> listaLibros;
 
-    public Catalogo() {
-        this.listaLibros = new ListaSE();
-    }
-/*
-    public void mostrarPorAutor (String autor) {
-        for (Libro libro : listaLibros) {
-            if (libro.getAutor().equalsIgnoreCase(autor)) {
-                System.out.println(libro);
-            }
-        }
+    public Catalogo(ListaSE<Libro> listaLibros) {
+        this.listaLibros = listaLibros;
     }
 
-    public void mostrarPorCategoria (String categoria) {
-        for (Libro libro : listaLibros) {
-            if (libro.getAutor().equalsIgnoreCase(categoria)) {
-                System.out.println(libro);
-            }
-        }
+    public ListaSE<Libro> getListaLibros() {
+        return listaLibros;
     }
 
-    public void mostrarPorGenero (String genero) {
-        for (Libro libro : listaLibros) {
-            if (libro.getAutor().equalsIgnoreCase(genero)) {
-                System.out.println(libro);
+    public void setListaLibros(ListaSE<Libro> listaLibros) {
+        this.listaLibros = listaLibros;
+    }
+    
+    public ListaSE<Libro> mostrarPorAutor (String autor) {
+        ListaSE<Libro> librosEncontrados = new ListaSE<Libro>(); ;
+        for (int i=0;i<listaLibros.tamanio();i++) {
+            if (autor==listaLibros.Obtener(i).getAutor()) {
+                librosEncontrados.Agregar(listaLibros.Obtener(i));
             }
         }
+        return librosEncontrados;
     }
 
-    public void mostrarPorTitulo (String titulo) {
-        for (Libro libro : listaLibros) {
-            if (libro.getAutor().equalsIgnoreCase(titulo)) {
-                System.out.println(libro);
+
+
+    public ListaSE<Libro> mostrarPorGenero (String genero) {
+        ListaSE<Libro> librosEncontrados = new ListaSE<Libro>(); ;
+        for (int i=0;i<listaLibros.tamanio();i++) {
+            if (genero==listaLibros.Obtener(i).getGenero()) {
+                librosEncontrados.Agregar(listaLibros.Obtener(i));
             }
         }
+        return librosEncontrados;
+    }
+
+    public ListaSE<Libro> mostrarPorTitulo (String titulo) {
+        ListaSE<Libro> librosEncontrados = new ListaSE<Libro>(); ;
+        for (int i=0;i<listaLibros.tamanio();i++) {
+            if (titulo==listaLibros.Obtener(i).getTitulo()) {
+                librosEncontrados.Agregar(listaLibros.Obtener(i));
+            }
+        }
+        return librosEncontrados;
     }
 
     public void adicionarLibro (Libro libro) {
-        listaLibros.Agregar(libro);
+        listaLibros.Agregar(listaLibros.Obtener(listaLibros.Buscar(libro)));
     }
 
     public void eliminarLibro(Libro libro) {
-        listaLibros.Eliminar(libro);
+        listaLibros.Eliminar(listaLibros.Buscar(libro));
     }
 
-    public void modificarLibro(Libro libroViejo, Libro libroNuevo) {
-        int index = listaLibros.indexOf(libroViejo);
+    public void modificarTitulo(Libro libroACambiar, String titulo) {
+        int index = listaLibros.Buscar(libroACambiar);
+
         if (index != -1) {
-            listaLibros.set(index, libroNuevo);
+            libroACambiar.setTitulo(titulo);
+            
         }
-    }*/
+    }
+    public void modificarAutor(Libro libroACambiar, String autor) {
+        int index = listaLibros.Buscar(libroACambiar);
+
+        if (index != -1) {
+            libroACambiar.setAutor(autor);
+            
+        }
+    }
+    public void modificarGenero(Libro libroACambiar, String genero) {
+        int index = listaLibros.Buscar(libroACambiar);
+
+        if (index != -1) {
+            libroACambiar.setGenero(genero);
+            
+        }
+    }
+    public void modificarIdioma(Libro libroACambiar, String idioma) {
+        int index = listaLibros.Buscar(libroACambiar);
+
+        if (index != -1) {
+            libroACambiar.setIdioma(idioma);
+            
+        }
+    }
+    public void modificarDesc(Libro libroACambiar, String desc) {
+        int index = listaLibros.Buscar(libroACambiar);
+        if (index != -1) {
+            libroACambiar.setDesc(desc);
+            
+        }
+    }
+ 
+    public void modificarISBN(Libro libroACambiar, String ISBN) {
+        int index = listaLibros.Buscar(libroACambiar);
+        if (index != -1) {
+            libroACambiar.setISBN(ISBN);
+            
+        }
+    }
 }

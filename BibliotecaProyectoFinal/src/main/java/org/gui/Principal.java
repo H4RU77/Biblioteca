@@ -15,6 +15,7 @@ public class Principal extends javax.swing.JPanel {
      */
     public Principal() {
         initComponents();
+        initStyles();
     }
 
     /**
@@ -29,45 +30,49 @@ public class Principal extends javax.swing.JPanel {
         bg = new javax.swing.JPanel();
         bienvenidoL = new javax.swing.JLabel();
         ayudaL = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        descL = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(620, 362));
-        setPreferredSize(new java.awt.Dimension(620, 362));
+        setMinimumSize(new java.awt.Dimension(607, 347));
+        setPreferredSize(new java.awt.Dimension(607, 347));
+
+        bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setMinimumSize(new java.awt.Dimension(607, 347));
+        bg.setPreferredSize(new java.awt.Dimension(607, 347));
 
         bienvenidoL.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         bienvenidoL.setText("¡Bienvenido!");
 
         ayudaL.setText("<html>\nOperaciones:\n<ul>\n<li>Préstamos</li>\n<li>Devoluciones</li>\n<li>Registro y Edición de Miembros</li>\n<li>Registro y Edición de Libros</li>\n<li>Eliminar todo tipo de Registros</li>\n<li>Registrar y Consultar logs</li>\n</ul>\n</html>");
 
-        jLabel1.setText("<html>\nBiblioteca {nombreBiblio} presenta sus sistema de gestion, que facilita el proceso de prestamo <br></br>\ny devolución de libros y su registro en una base de datos. <br></br>\n<br></br>\nEste Sistema permite el manejo del catalogo en una manera óptima y sencilla,  con una interfaz <br></br>\nllamativa y amigable con el usuario.\n</html>");
+        descL.setText("<html>\nBiblioteca {nombreBiblio} presenta sus sistema de gestion, que facilita el proceso de prestamo <br></br>\ny devolución de libros y su registro en una base de datos. <br></br>\n<br></br>\nEste Sistema permite el manejo del catalogo en una manera óptima y sencilla,  con una interfaz <br></br>\nllamativa y amigable con el usuario.\n</html>");
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(20, 20, 20)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bienvenidoL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(descL, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
-                            .addGroup(bgLayout.createSequentialGroup()
-                                .addComponent(ayudaL)
-                                .addGap(281, 281, 281)))
-                        .addGap(54, 54, 54)))
+                        .addComponent(ayudaL)
+                        .addGap(215, 215, 215)))
+                .addGap(18, 18, 18))
+            .addGroup(bgLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(bienvenidoL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(bienvenidoL, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addGap(8, 8, 8)
+                .addComponent(bienvenidoL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                .addGap(45, 45, 45)
-                .addComponent(ayudaL, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+                .addComponent(descL)
+                .addGap(31, 31, 31)
+                .addComponent(ayudaL)
+                .addGap(55, 55, 55))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -82,11 +87,15 @@ public class Principal extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+private void initStyles(){
+        bienvenidoL.putClientProperty( "FlatLaf.style", "font: h1 $h1.font" );
+        descL.putClientProperty( "FlatLaf.style", "font: $defaultFont" );
+        ayudaL.putClientProperty( "FlatLaf.style", "font: $defaultFont" );
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ayudaL;
     private javax.swing.JPanel bg;
     private javax.swing.JLabel bienvenidoL;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel descL;
     // End of variables declaration//GEN-END:variables
 }

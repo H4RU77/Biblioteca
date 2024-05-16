@@ -1,5 +1,5 @@
 package org.clases;
-enum EstadoCuenta {
+public enum EstadoCuenta {
     ACTIVA,
     CONGELADA,
     CERRADA
