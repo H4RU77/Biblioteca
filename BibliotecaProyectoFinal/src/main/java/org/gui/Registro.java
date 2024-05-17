@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import org.clases.EstadoCuenta;
 import org.clases.ListaSE;
 import org.clases.Miembro;
+import org.clases.Prestamo;
 
 /**
  *
@@ -179,7 +180,8 @@ public class Registro extends javax.swing.JPanel {
             String nombre = nombreTF.getText();
             String apellidos = apeP.getText().concat(" "+apeM.getText());
             String email = emailTF.getText();
-            Miembro m = new Miembro(id, nombre, apellidos, email, null, null, EstadoCuenta.ACTIVA);
+            ListaSE<Prestamo> historial = new ListaSE();
+            Miembro m = new Miembro(id, nombre, apellidos, email, null, historial, EstadoCuenta.ACTIVA);
             listaM.Agregar(m);
             JOptionPane.showMessageDialog(null, "¡Miembro agregado satisfactoriamente!");
         } catch(Exception e){
