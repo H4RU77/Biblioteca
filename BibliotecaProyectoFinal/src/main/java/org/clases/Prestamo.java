@@ -5,12 +5,14 @@ public class Prestamo {
     private int tiempo;
     private double monto;
     private Miembro folio;
+    private boolean devuelto;
 
     public Prestamo(Libro libro, int tiempo, double monto, Miembro folio) {
         this.libro = libro;
         this.tiempo = tiempo;
         this.monto = monto;
         this.folio = folio;
+        this.devuelto = false; //Default
     }
     
     public Miembro getFolio() {
@@ -43,5 +45,13 @@ public class Prestamo {
 
     public void setMonto(double monto) {
         this.monto = monto;
+    }
+    
+    public boolean isDevuelto(){
+        return devuelto;
+    }
+    
+    public void setDevuelto(boolean devuelto) {
+        this.devuelto = devuelto;
     }
 }

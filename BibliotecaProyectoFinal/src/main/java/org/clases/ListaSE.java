@@ -131,4 +131,19 @@ public class ListaSE<T> implements IMetodos<T>{
             Eliminar(i);
         }
     }
+    
+    //Indice de un elemento
+    public int indiceDe (T elemento) {
+        NodoSE<T> nodoActual = cabeza;
+        int indice = 0;
+        
+        while (nodoActual != null) {
+            if (nodoActual.getDato().equals(elemento)) {
+                return indice;//Elemento encontrado
+            }
+            nodoActual = nodoActual.getSiguiente();
+            indice++;
+        }
+        return -1; //No se encontro
+    }
 }
