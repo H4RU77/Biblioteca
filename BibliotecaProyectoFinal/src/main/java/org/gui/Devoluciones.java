@@ -14,8 +14,25 @@ import org.clases.*;
  */
 public class Devoluciones extends javax.swing.JPanel {
  
-    private ListaSE<Miembro> miembros = new ListaSE<>();
-    private ListaSE<Libro> libros = new ListaSE<>();
+    private ListaSE<Miembro> miembros;
+
+    public ListaSE<Miembro> getMiembros() {
+        return miembros;
+    }
+
+    public void setMiembros(ListaSE<Miembro> miembros) {
+        this.miembros = miembros;
+    }
+    private ListaSE<Libro> libros;
+
+    public ListaSE<Libro> getLibros() {
+        return libros;
+    }
+
+    public void setLibros(ListaSE<Libro> libros) {
+        this.libros = libros;
+    }
+    
     private ListaSE<Prestamo> prestamos = new ListaSE<>();
 
     /**
@@ -39,22 +56,30 @@ public class Devoluciones extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         libroIdText = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-
-        folioTxt = new javax.swing.JTextField();
+        folioIdText = new javax.swing.JTextField();
         btnDevolver = new javax.swing.JButton();
+        folioTxt = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMinimumSize(new java.awt.Dimension(611, 362));
+        setPreferredSize(new java.awt.Dimension(611, 362));
+
+        devolucionesIP.setBackground(new java.awt.Color(255, 255, 255));
+        devolucionesIP.setMinimumSize(new java.awt.Dimension(611, 362));
+        devolucionesIP.setPreferredSize(new java.awt.Dimension(611, 362));
 
         devolucionesTextL.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         devolucionesTextL.setText("Devolución de Libro");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        jLabel1.setText("ID Libro");
+        jLabel1.setText("ISBN Libro");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Folio Usuario");
+        jLabel2.setText("ID de Usuario");
 
-
+        btnDevolver.setBackground(new java.awt.Color(51, 51, 255));
+        btnDevolver.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnDevolver.setForeground(new java.awt.Color(255, 255, 255));
         btnDevolver.setText("Devolver");
         btnDevolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,9 +87,11 @@ public class Devoluciones extends javax.swing.JPanel {
             }
         });
 
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/devolucion-libros.jpg"))); // NOI18N
-
+        javax.swing.GroupLayout devolucionesIPLayout = new javax.swing.GroupLayout(devolucionesIP);
+        devolucionesIP.setLayout(devolucionesIPLayout);
+        devolucionesIPLayout.setHorizontalGroup(
+            devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(devolucionesIPLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(devolucionesTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -76,13 +103,11 @@ public class Devoluciones extends javax.swing.JPanel {
                             .addComponent(folioTxt)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnDevolver, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))))
-                .addContainerGap(221, Short.MAX_VALUE))
-
+                .addContainerGap(212, Short.MAX_VALUE))
         );
         devolucionesIPLayout.setVerticalGroup(
             devolucionesIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(devolucionesIPLayout.createSequentialGroup()
-
                 .addGap(25, 25, 25)
                 .addComponent(devolucionesTextL)
                 .addGap(33, 33, 33)
@@ -96,17 +121,13 @@ public class Devoluciones extends javax.swing.JPanel {
                 .addGap(37, 37, 37)
                 .addComponent(btnDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
-
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(devolucionesIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(15, 15, 15))
+            .addComponent(devolucionesIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,22 +139,6 @@ public class Devoluciones extends javax.swing.JPanel {
 
         String folio = folioTxt.getText();
         String bookId = libroIdText.getText();
-        
-        //Validacion de datos
-        if (folio.isEmpty() || bookId.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos. \n", "AVISO",javax.swing.JOptionPane.ERROR_MESSAGE);
-            folioTxt.requestFocus();
-            return;
-        } 
-        
-        int folioid = Integer.parseInt(folio);
-        int bookid = Integer.parseInt(bookId);
-        
-        if (folioid <= 0 || bookid <= 0) {
-            JOptionPane.showMessageDialog(this, "Los IDs deben de ser mayores que 0", "AVISO", JOptionPane.ERROR_MESSAGE);
-            folioTxt.requestFocus();
-            return;
-        }
         
         //Buscar miembro
         Miembro miembro = buscarMiembro(folio);
@@ -209,8 +214,6 @@ public class Devoluciones extends javax.swing.JPanel {
         //Agregar al historial
         miembro.getHistorialPrestamos().Agregar(prestamo);
         
-        //Actualizar estado de libro
-        prestamo.getLibro().setPrestado(false);
         
     }
     
@@ -219,11 +222,10 @@ public class Devoluciones extends javax.swing.JPanel {
     private javax.swing.JButton btnDevolver;
     private javax.swing.JPanel devolucionesIP;
     private javax.swing.JLabel devolucionesTextL;
-
+    private javax.swing.JTextField folioIdText;
     private javax.swing.JTextField folioTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-
     private javax.swing.JTextField libroIdText;
     // End of variables declaration//GEN-END:variables
 }

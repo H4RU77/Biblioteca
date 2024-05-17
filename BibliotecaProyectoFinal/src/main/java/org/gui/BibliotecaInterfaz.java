@@ -557,6 +557,9 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_prestamosOptPMouseClicked
 
     private void devolucionesOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesOptPMouseClicked
+        Devoluciones d = new Devoluciones();
+        d.setMiembros(biblio.getMiembroLista());
+        d.setLibros(biblio.getCatalogo().getListaLibros());
         changeContent(new Devoluciones());
     }//GEN-LAST:event_devolucionesOptPMouseClicked
 
@@ -615,6 +618,8 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
          */
         ListaSE<Libro> listaLibros = new ListaSE<Libro>();
         LibroFisico libro = new LibroFisico("Librito", "Rogelio Camacho", "Fantasia", "Español", "Un librito muy entretenido", "1", 1);
+        LibroFisico otro = new LibroFisico("Proyectos para estudiantes", "Ramon SF", "No Ficción", "Español", "Un libro con trabajos para alumnos, en los cuales moriran entre terribles sufrimientos", "2", 1);
+        listaLibros.Agregar(otro);
         listaLibros.Agregar(libro);
         ListaSE<Miembro> listaMiembros = new ListaSE<Miembro>();
         ListaSE<Prestamo> historial = new ListaSE();
