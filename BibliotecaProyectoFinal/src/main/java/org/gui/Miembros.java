@@ -538,25 +538,29 @@ public class Miembros extends javax.swing.JPanel {
         // getValueAt(row, col) --> returns value 
         try {
             int row = tablaMiembros.getSelectedRow();
-            String id = (String) tablaMiembros.getValueAt(row, 0);
-            String nom = (String) tablaMiembros.getValueAt(row, 1);
-            String ape = (String) tablaMiembros.getValueAt(row, 2);
-            String email = (String) tablaMiembros.getValueAt(row, 3);
-            editNombre.setText(nom);
-            editApeP.setText(ape.substring(0, ape.indexOf(" ")));
-            editApeM.setText(ape.substring(ape.indexOf(" ")));
-            editEmail.setText(email);
-            int res = JOptionPane.showConfirmDialog(null, editP, "Edición de datos de un Miembro", JOptionPane.OK_CANCEL_OPTION);
-            if (res == JOptionPane.OK_OPTION){
-                nom = editNombre.getText();
-                ape = editApeP.getText().concat(" "+editApeM.getText());
-                email = editEmail.getText();
-                EstadoCuenta estado = EstadoCuenta.valueOf(editEstado.getSelectedItem().toString());
-                int pos = buscarPorId(id);
-                Miembro anterior = listaMiembros.Obtener(pos);
-                Miembro editado = new Miembro(id, nom, ape, email, anterior.getPrestamosActivos(), anterior.getHistorialPrestamos(), estado);
-                listaMiembros.editar(editado, pos);
-                setTable(listaMiembros);
+            if (row == -1){
+                JOptionPane.showMessageDialog(null, "Selecciona una fila para editar");
+            } else {
+                String id = (String) tablaMiembros.getValueAt(row, 0);
+                String nom = (String) tablaMiembros.getValueAt(row, 1);
+                String ape = (String) tablaMiembros.getValueAt(row, 2);
+                String email = (String) tablaMiembros.getValueAt(row, 3);
+                editNombre.setText(nom);
+                editApeP.setText(ape.substring(0, ape.indexOf(" ")));
+                editApeM.setText(ape.substring(ape.indexOf(" ")));
+                editEmail.setText(email);
+                int res = JOptionPane.showConfirmDialog(null, editP, "Edición de datos de un Miembro", JOptionPane.OK_CANCEL_OPTION);
+                if (res == JOptionPane.OK_OPTION){
+                    nom = editNombre.getText();
+                    ape = editApeP.getText().concat(" "+editApeM.getText());
+                    email = editEmail.getText();
+                    EstadoCuenta estado = EstadoCuenta.valueOf(editEstado.getSelectedItem().toString());
+                    int pos = buscarPorId(id);
+                    Miembro anterior = listaMiembros.Obtener(pos);
+                    Miembro editado = new Miembro(id, nom, ape, email, anterior.getPrestamosActivos(), anterior.getHistorialPrestamos(), estado);
+                    listaMiembros.editar(editado, pos);
+                    setTable(listaMiembros);
+                }
             }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -570,14 +574,18 @@ public class Miembros extends javax.swing.JPanel {
     private void borrarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarBtnMouseClicked
         try {
             int row = tablaMiembros.getSelectedRow();
-            String id = (String) tablaMiembros.getValueAt(row, 0);
-            int pos = buscarPorId(id);
-            int res = JOptionPane.showConfirmDialog(null, "Esta acción eliminará al miembro seleccionado, ¿Desea continuar?", "Advertencia", JOptionPane.OK_CANCEL_OPTION);
-            if (res == JOptionPane.OK_OPTION){
-                listaMiembros.Eliminar(pos);
-                JOptionPane.showMessageDialog(null, "Miembro eliminado satisfactoriamente");
-                setTable(listaMiembros);
-        }
+            if (row == -1){
+                JOptionPane.showMessageDialog(null, "Selecciona una fila para borrar");
+            } else {
+                String id = (String) tablaMiembros.getValueAt(row, 0);
+                int pos = buscarPorId(id);
+                int res = JOptionPane.showConfirmDialog(null, "Esta acción eliminará al miembro seleccionado, ¿Desea continuar?", "Advertencia", JOptionPane.OK_CANCEL_OPTION);
+                if (res == JOptionPane.OK_OPTION){
+                    listaMiembros.Eliminar(pos);
+                    JOptionPane.showMessageDialog(null, "Miembro eliminado satisfactoriamente");
+                    setTable(listaMiembros);
+                }
+            }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -586,18 +594,23 @@ public class Miembros extends javax.swing.JPanel {
     private void inspectBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inspectBtnMouseClicked
         try {
             int row = tablaMiembros.getSelectedRow();
-            String id = (String) tablaMiembros.getValueAt(row, 0);
-            int pos = buscarPorId(id);
-            String nom = listaMiembros.Obtener(pos).getNombre();
-            String ape = listaMiembros.Obtener(pos).getApellidos();
-            String fullNom = nom.concat(" "+ape);
-            ListaSE prestamos = listaMiembros.Obtener(pos).getPrestamosActivos();
-            ListaSE historial = listaMiembros.Obtener(pos).getHistorialPrestamos();
-            miembroL.setText(fullNom);
-            setHistorial(historial);
-            JOptionPane.showMessageDialog(null, inspectP);
+            if (row == -1){
+                JOptionPane.showMessageDialog(null, "Selecciona una fila para insepccionar");
+            } else {
+                String id = (String) tablaMiembros.getValueAt(row, 0);
+                int pos = buscarPorId(id);
+                String nom = listaMiembros.Obtener(pos).getNombre();
+                String ape = listaMiembros.Obtener(pos).getApellidos();
+                String fullNom = nom.concat(" "+ape);
+                ListaSE prestamos = listaMiembros.Obtener(pos).getPrestamosActivos();
+                ListaSE historial = listaMiembros.Obtener(pos).getHistorialPrestamos();
+                miembroL.setText(fullNom);
+                setHistorial(historial);
+                JOptionPane.showMessageDialog(null, inspectP);
+            }
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println(e.getCause());
         }
     }//GEN-LAST:event_inspectBtnMouseClicked
 
