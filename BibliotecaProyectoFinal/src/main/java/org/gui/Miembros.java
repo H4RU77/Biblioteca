@@ -10,9 +10,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import org.clases.Biblioteca;
+import org.clases.Devolucion;
 import org.clases.EstadoCuenta;
 import org.clases.ListaSE;
 import org.clases.Miembro;
+import org.clases.Operacion;
 import org.clases.Prestamo;
 
 /**
@@ -36,7 +39,8 @@ public class Miembros extends javax.swing.JPanel {
         this.listaMiembros = listaMiembros;
     }
     
-    public Miembros() {
+    public Miembros(Biblioteca biblio) {
+        listaMiembros = biblio.getMiembroLista();
         initComponents();
         initStyles();
     }
@@ -169,7 +173,7 @@ public class Miembros extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Titulo", "ISBN", "Tiempo", "Sanción", "Estado"
+                "Titulo", "ISBN", "Tiempo", "Sanción", "Operación"
             }
         ) {
             Class[] types = new Class [] {
@@ -684,11 +688,17 @@ public class Miembros extends javax.swing.JPanel {
     }
     
     public void setHistorial(ListaSE<Prestamo> h){
-        String[] tblH = {"Titulo", "ISBN", "Tiempo", "Sancion", "Estado"};
+        String op = "";
+        String[] tblH = {"Titulo", "ISBN", "Tiempo", "Sanción", "Operación"};
         DefaultTableModel model = new DefaultTableModel(tblH, 0);
         for (int i = 0; i < h.tamanio(); i++){
-            Prestamo p = h.Obtener(i);
-            Object[] row = {p.getLibro().getTitulo(), p.getLibro().getISBN(), p.getTiempo(), p.getMonto(), ""};
+            Operacion o = h.Obtener(i);
+            if (o instanceof Devolucion){
+                op = "DEVOLUCIÓN";
+            } else {
+                op = "PRESTAMO";
+            }
+            Object[] row = {o.getLibro().getTitulo(), o.getLibro().getISBN(), o.getTiempo(), o.getMonto(), op};
             model.addRow(row);
         }
         historialPrestamos.setModel(model);

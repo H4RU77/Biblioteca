@@ -140,12 +140,12 @@ public class Prestamos extends javax.swing.JPanel {
     private void prestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prestarActionPerformed
         String IDlibro = libro.getText();
         String IDusuario = usuario.getText();
-        int indexLibro=0;
-        int indexMiembro=0;
+        int indexLibro=-1;
+        int indexMiembro=-1;
         
-        if(libro.getText().isEmpty()||usuario.getText().isEmpty()){
-            
-            
+        try {
+            if(libro.getText().isEmpty()||usuario.getText().isEmpty()){
+            //NADA JAJAJ
         }else{
             if(usuario.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null,"Por favor ingrese su ID de usuario, si aún no tiene uno, favor de generarlo en la pestaña 'Usuarios'");
@@ -164,7 +164,7 @@ public class Prestamos extends javax.swing.JPanel {
                     String ISBNactual="";
                     
                 //buscar libro por ISBN
-                    for(int i=0;i<biblio.getMiembroLista().tamanio(); i++){
+                    for(int i=0;i<biblio.getCatalogo().getListaLibros().tamanio(); i++){
                         if(IDlibro.equals(biblio.getCatalogo().getListaLibros().Obtener(i).getISBN())){
                             ISBNactual=IDlibro;
                             indexLibro=i;
@@ -180,12 +180,16 @@ public class Prestamos extends javax.swing.JPanel {
                                 libro.setCantidad(libro.getCantidad()-1);
                                 Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
                                 miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
+                                miembro.getHistorialPrestamos().Agregar(new Prestamo(libro,0,0, miembro));
+                                JOptionPane.showMessageDialog(null, "¡Prestamo realizado satisfactoriamente!");
                             }
                         }else{
                             //hacer préstamo
                             LibroDigital libro = (LibroDigital) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
                             Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
                             miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
+                            miembro.getHistorialPrestamos().Agregar(new Prestamo(libro,0,0, miembro));
+                            JOptionPane.showMessageDialog(null, "¡Prestamo realizado satisfactoriamente!");
                         }
                     }else{
                         JOptionPane.showMessageDialog(null,"Libro no encontardo, verifique que ingresó el ISBN correctamente");
@@ -194,12 +198,12 @@ public class Prestamos extends javax.swing.JPanel {
                 }else{
                     JOptionPane.showMessageDialog(null,"Usuario no encontardo, si aún no tiene ID, favor de generarlo en la pestaña 'Usuarios'");
                     //.
+                    }
                 }
-                    
             }
-                
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
-            
     }//GEN-LAST:event_prestarActionPerformed
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
