@@ -194,7 +194,7 @@
                     <Column editable="true" title="ISBN" type="java.lang.String"/>
                     <Column editable="true" title="Tiempo" type="java.lang.Integer"/>
                     <Column editable="true" title="Sanci&#xf3;n" type="java.lang.Double"/>
-                    <Column editable="true" title="Estado" type="java.lang.String"/>
+                    <Column editable="true" title="Operaci&#xf3;n" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

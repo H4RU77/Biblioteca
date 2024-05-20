@@ -557,15 +557,12 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_prestamosOptPMouseClicked
 
     private void devolucionesOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesOptPMouseClicked
-        Devoluciones d = new Devoluciones();
-        d.setMiembros(biblio.getMiembroLista());
-        d.setLibros(biblio.getCatalogo().getListaLibros());
-        changeContent(new Devoluciones());
+        Devoluciones d = new Devoluciones(biblio.getMiembroLista(), biblio.getCatalogo().getListaLibros());
+        changeContent(d);
     }//GEN-LAST:event_devolucionesOptPMouseClicked
 
     private void miembrosOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosOptPMouseClicked
-        Miembros m = new Miembros();
-        m.setListaMiembros(biblio.getMiembroLista());
+        Miembros m = new Miembros(biblio);
         m.setTable(biblio.getMiembroLista());
         changeContent(m);
     }//GEN-LAST:event_miembrosOptPMouseClicked
@@ -622,11 +619,13 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         listaLibros.Agregar(otro);
         listaLibros.Agregar(libro);
         ListaSE<Miembro> listaMiembros = new ListaSE<Miembro>();
-        ListaSE<Prestamo> historial = new ListaSE();
-        Miembro miembro = new Miembro("M0001", "Angel Rogelio", "Camacho Romero", "kelo.camachoromero@gmail.com", null, historial, EstadoCuenta.ACTIVA);
+        ListaSE<Operacion> historial = new ListaSE();
+        ListaSE<Prestamo> activos = new ListaSE();
+        Miembro miembro = new Miembro("M0001", "Angel Rogelio", "Camacho Romero", "kelo.camachoromero@gmail.com", activos, historial, EstadoCuenta.ACTIVA);
         listaMiembros.Agregar(miembro);
         Prestamo prestamo = new Prestamo(libro, 7, 250.48, miembro);
         miembro.getHistorialPrestamos().Agregar(prestamo);
+        miembro.getPrestamosActivos().Agregar(prestamo);
         System.out.println(listaMiembros.Obtener(0).toString());
         Catalogo catalogo = new Catalogo(listaLibros);
         System.out.println(catalogo.getListaLibros().Obtener(0).toString());

@@ -38,8 +38,11 @@ public class Devoluciones extends javax.swing.JPanel {
     /**
      * Creates new form Devoluciones
      */
-    public Devoluciones() {
+    public Devoluciones(ListaSE<Miembro> miembros, ListaSE<Libro> libros) {
         initComponents();
+        this.miembros = miembros;
+        this.libros = libros;
+        initPrestamos();
     }
 
     /**
@@ -202,19 +205,30 @@ public class Devoluciones extends javax.swing.JPanel {
     }
     
     //Realizar devolucion
-    private void realizarDevolucion(Prestamo prestamo) {
+    private void realizarDevolucion(Prestamo p) {
         //Marcar devuelto
-        prestamo.setDevuelto(true);
+        p.setDevuelto(true);
+        Devolucion dev = new Devolucion(p.getLibro(), p.getTiempo(), p.getMonto(), p.getFolio());
+        
         
         //Elimar prestamo
-        Miembro miembro = prestamo.getFolio();
+        Miembro miembro = p.getFolio();
         ListaSE<Prestamo> prestamoActivo = miembro.getPrestamosActivos();
-        prestamoActivo.Eliminar(prestamoActivo.indiceDe(prestamo));
+        prestamoActivo.Eliminar(prestamoActivo.indiceDe(p));
         
         //Agregar al historial
-        miembro.getHistorialPrestamos().Agregar(prestamo);
-        
-        
+        miembro.getHistorialPrestamos().Agregar(dev);
+    }
+    
+    private void initPrestamos(){
+        for (int i = 0; i < miembros.tamanio(); i++){
+            ListaSE<Prestamo> lista = miembros.Obtener(i).getPrestamosActivos();
+            if (lista.EsVacia() == false){
+                for (int j = 0; j < lista.tamanio(); j++){
+                    prestamos.Agregar(lista.Obtener(j));
+                }
+            }
+        }
     }
     
     

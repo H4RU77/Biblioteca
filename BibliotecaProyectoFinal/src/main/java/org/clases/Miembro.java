@@ -5,10 +5,10 @@ public class  Miembro{
     private String apellidos;
     private String email;
     private ListaSE<Prestamo> prestamosActivos;
-    private ListaSE<Prestamo> historialPrestamos;
+    private ListaSE<Operacion> historialPrestamos;
     private EstadoCuenta estado;
 
-    public Miembro(String ID, String nombre, String apellidos, String email, ListaSE<Prestamo> prestamosActivos, ListaSE<Prestamo> historialPrestamos, EstadoCuenta estado) {
+    public Miembro(String ID, String nombre, String apellidos, String email, ListaSE<Prestamo> prestamosActivos, ListaSE<Operacion> historialPrestamos, EstadoCuenta estado) {
         this.ID = ID;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -58,11 +58,11 @@ public class  Miembro{
         this.prestamosActivos = prestamosActivos;
     }
 
-    public ListaSE<Prestamo> getHistorialPrestamos() {
+    public ListaSE<Operacion> getHistorialPrestamos() {
         return historialPrestamos;
     }
 
-    public void setHistorialPrestamos(ListaSE<Prestamo> historialPrestamos) {
+    public void setHistorialPrestamos(ListaSE<Operacion> historialPrestamos) {
         this.historialPrestamos = historialPrestamos;
     }
 
