@@ -145,7 +145,7 @@ public class Prestamos extends javax.swing.JPanel {
         
         try {
             if(libro.getText().isEmpty()||usuario.getText().isEmpty()){
-            //NADA JAJAJ
+                JOptionPane.showMessageDialog(null, "Por favor llene todos los campos");
         }else{
             if(usuario.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null,"Por favor ingrese su ID de usuario, si aún no tiene uno, favor de generarlo en la pestaña 'Usuarios'");
@@ -176,15 +176,17 @@ public class Prestamos extends javax.swing.JPanel {
                             //verificar disponibilidad
                             LibroFisico libro = (LibroFisico) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
                             if(libro.getCantidad()>0){
-                                //hacer prestamo
+                                //hacer prestamo libro fisico
                                 libro.setCantidad(libro.getCantidad()-1);
                                 Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
                                 miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
                                 miembro.getHistorialPrestamos().Agregar(new Prestamo(libro,0,0, miembro));
                                 JOptionPane.showMessageDialog(null, "¡Prestamo realizado satisfactoriamente!");
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Libro no disponible :(");
                             }
                         }else{
-                            //hacer préstamo
+                            //hacer préstamo libro digital
                             LibroDigital libro = (LibroDigital) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
                             Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
                             miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));

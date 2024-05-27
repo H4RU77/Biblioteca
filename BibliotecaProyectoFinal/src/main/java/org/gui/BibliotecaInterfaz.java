@@ -623,9 +623,6 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         ListaSE<Prestamo> activos = new ListaSE();
         Miembro miembro = new Miembro("M0001", "Angel Rogelio", "Camacho Romero", "kelo.camachoromero@gmail.com", activos, historial, EstadoCuenta.ACTIVA);
         listaMiembros.Agregar(miembro);
-        Prestamo prestamo = new Prestamo(libro, 7, 250.48, miembro);
-        miembro.getHistorialPrestamos().Agregar(prestamo);
-        miembro.getPrestamosActivos().Agregar(prestamo);
         System.out.println(listaMiembros.Obtener(0).toString());
         Catalogo catalogo = new Catalogo(listaLibros);
         System.out.println(catalogo.getListaLibros().Obtener(0).toString());

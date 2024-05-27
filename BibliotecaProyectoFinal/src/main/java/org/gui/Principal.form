@@ -98,7 +98,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="descL">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xa;Biblioteca {nombreBiblio} presenta sus sistema de gestion, que facilita el proceso de prestamo &lt;br&gt;&lt;/br&gt;&#xa;y devoluci&#xf3;n de libros y su registro en una base de datos. &lt;br&gt;&lt;/br&gt;&#xa;&lt;br&gt;&lt;/br&gt;&#xa;Este Sistema permite el manejo del catalogo en una manera &#xf3;ptima y sencilla,  con una interfaz &lt;br&gt;&lt;/br&gt;&#xa;llamativa y amigable con el usuario.&#xa;&lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt; Biblioteca {nombreBiblio} presenta sus sistema de gestion, que facilita el proceso de prestamo &lt;br&gt;&lt;/br&gt; y devoluci&#xf3;n de libros y su registro en una base de datos. &lt;br&gt;&lt;/br&gt; &lt;br&gt;&lt;/br&gt; Este Sistema permite el manejo del catalogo en una manera &#xf3;ptima y sencilla,  con una interfaz &lt;br&gt;&lt;/br&gt; llamativa y amigable con el usuario. &lt;/html&gt;"/>
           </Properties>
         </Component>
       </SubComponents>
