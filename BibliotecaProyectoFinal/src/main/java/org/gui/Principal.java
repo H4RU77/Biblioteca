@@ -44,7 +44,7 @@ public class Principal extends javax.swing.JPanel {
 
         ayudaL.setText("<html>\nOperaciones:\n<ul>\n<li>Préstamos</li>\n<li>Devoluciones</li>\n<li>Registro y Edición de Miembros</li>\n<li>Registro y Edición de Libros</li>\n<li>Eliminar todo tipo de Registros</li>\n<li>Registrar y Consultar logs</li>\n</ul>\n</html>");
 
-        descL.setText("<html>\nBiblioteca {nombreBiblio} presenta sus sistema de gestion, que facilita el proceso de prestamo <br></br>\ny devolución de libros y su registro en una base de datos. <br></br>\n<br></br>\nEste Sistema permite el manejo del catalogo en una manera óptima y sencilla,  con una interfaz <br></br>\nllamativa y amigable con el usuario.\n</html>");
+        descL.setText("<html> Biblioteca {nombreBiblio} presenta sus sistema de gestion, que facilita el proceso de prestamo <br></br> y devolución de libros y su registro en una base de datos. <br></br> <br></br> Este Sistema permite el manejo del catalogo en una manera óptima y sencilla,  con una interfaz <br></br> llamativa y amigable con el usuario. </html>");
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);

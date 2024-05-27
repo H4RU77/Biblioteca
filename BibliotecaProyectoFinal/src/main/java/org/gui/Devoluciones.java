@@ -213,7 +213,12 @@ public class Devoluciones extends javax.swing.JPanel {
         
         //Elimar prestamo
         Miembro miembro = p.getFolio();
+        if (p.getLibro() instanceof LibroFisico){
+            LibroFisico lib = (LibroFisico) p.getLibro();
+            lib.setCantidad(lib.getCantidad()+1);
+        }
         ListaSE<Prestamo> prestamoActivo = miembro.getPrestamosActivos();
+        System.out.println(prestamoActivo.indiceDe(p));
         prestamoActivo.Eliminar(prestamoActivo.indiceDe(p));
         
         //Agregar al historial
