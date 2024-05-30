@@ -13,7 +13,11 @@ public class LibroDigital extends Libro{
     public String getFormato() {
         return formato;
     }
-
+    
+    public String getTipo(){
+        return "Libro Digital";
+    }
+    
     public String mostrar(){
         return "Libro Digital - [Titulo: "+getTitulo()+", Autor: "+getAutor()+", Genero: "+getGenero()+", Idioma: "+getIdioma()+", Formato: "+getFormato()+"\n"+getDesc()+"]";
     }

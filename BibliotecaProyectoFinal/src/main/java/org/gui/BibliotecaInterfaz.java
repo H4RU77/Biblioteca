@@ -120,10 +120,32 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         principalL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         principalL.setForeground(new java.awt.Color(255, 255, 255));
         principalL.setText("Principal");
+        principalL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                principalLMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                principalLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                principalLMouseExited(evt);
+            }
+        });
 
         principalImgL.setMaximumSize(new java.awt.Dimension(30, 30));
         principalImgL.setMinimumSize(new java.awt.Dimension(30, 30));
         principalImgL.setPreferredSize(new java.awt.Dimension(30, 30));
+        principalImgL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                principalImgLMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                principalImgLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                principalImgLMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout principalOptPLayout = new javax.swing.GroupLayout(principalOptP);
         principalOptP.setLayout(principalOptPLayout);
@@ -169,10 +191,32 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         prestamosL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         prestamosL.setForeground(new java.awt.Color(255, 255, 255));
         prestamosL.setText("Prestamos");
+        prestamosL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                prestamosLMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                prestamosLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                prestamosLMouseExited(evt);
+            }
+        });
 
         prestamosImgL.setMaximumSize(new java.awt.Dimension(30, 30));
         prestamosImgL.setMinimumSize(new java.awt.Dimension(30, 30));
         prestamosImgL.setPreferredSize(new java.awt.Dimension(30, 30));
+        prestamosImgL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                prestamosImgLMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                prestamosImgLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                prestamosImgLMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout prestamosOptPLayout = new javax.swing.GroupLayout(prestamosOptP);
         prestamosOptP.setLayout(prestamosOptPLayout);
@@ -218,10 +262,32 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         devolucionesL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         devolucionesL.setForeground(new java.awt.Color(255, 255, 255));
         devolucionesL.setText("Devoluciones");
+        devolucionesL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                devolucionesLMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                devolucionesLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                devolucionesLMouseExited(evt);
+            }
+        });
 
         devolucionesImgL.setMaximumSize(new java.awt.Dimension(30, 30));
         devolucionesImgL.setMinimumSize(new java.awt.Dimension(30, 30));
         devolucionesImgL.setPreferredSize(new java.awt.Dimension(30, 30));
+        devolucionesImgL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                devolucionesImgLMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                devolucionesImgLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                devolucionesImgLMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout devolucionesOptPLayout = new javax.swing.GroupLayout(devolucionesOptP);
         devolucionesOptP.setLayout(devolucionesOptPLayout);
@@ -267,10 +333,32 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         miembrosL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         miembrosL.setForeground(new java.awt.Color(255, 255, 255));
         miembrosL.setText("Miembros");
+        miembrosL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miembrosLMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                miembrosLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                miembrosLMouseExited(evt);
+            }
+        });
 
         miembrosImgL.setMaximumSize(new java.awt.Dimension(30, 30));
         miembrosImgL.setMinimumSize(new java.awt.Dimension(30, 30));
         miembrosImgL.setPreferredSize(new java.awt.Dimension(30, 30));
+        miembrosImgL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miembrosImgLMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                miembrosImgLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                miembrosImgLMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout miembrosOptPLayout = new javax.swing.GroupLayout(miembrosOptP);
         miembrosOptP.setLayout(miembrosOptPLayout);
@@ -316,10 +404,32 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         catalogoL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         catalogoL.setForeground(new java.awt.Color(255, 255, 255));
         catalogoL.setText("Catalogo");
+        catalogoL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                catalogoLMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                catalogoLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                catalogoLMouseExited(evt);
+            }
+        });
 
         catalogoImgL.setMaximumSize(new java.awt.Dimension(30, 30));
         catalogoImgL.setMinimumSize(new java.awt.Dimension(30, 30));
         catalogoImgL.setPreferredSize(new java.awt.Dimension(30, 30));
+        catalogoImgL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                catalogoImgLMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                catalogoImgLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                catalogoImgLMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout catalogoOptPLayout = new javax.swing.GroupLayout(catalogoOptP);
         catalogoOptP.setLayout(catalogoOptPLayout);
@@ -568,12 +678,142 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_miembrosOptPMouseClicked
 
     private void catalogoOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoOptPMouseClicked
-        changeContent(new CatalogoContentP());
+        changeContent(new CatalogoContentP(biblio.getCatalogo().getListaLibros()));
     }//GEN-LAST:event_catalogoOptPMouseClicked
 
     private void logsOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsOptPMouseClicked
         changeContent(new Logs());
     }//GEN-LAST:event_logsOptPMouseClicked
+
+    private void principalLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalLMouseClicked
+        initContent();
+    }//GEN-LAST:event_principalLMouseClicked
+
+    private void principalImgLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalImgLMouseClicked
+        initContent();
+    }//GEN-LAST:event_principalImgLMouseClicked
+
+    private void prestamosLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosLMouseClicked
+       Prestamos prestamosP = new Prestamos();
+        prestamosP.setBiblio(biblio);
+        changeContent(prestamosP);
+    }//GEN-LAST:event_prestamosLMouseClicked
+
+    private void prestamosImgLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosImgLMouseClicked
+        Prestamos prestamosP = new Prestamos();
+        prestamosP.setBiblio(biblio);
+        changeContent(prestamosP);
+    }//GEN-LAST:event_prestamosImgLMouseClicked
+
+    private void devolucionesLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesLMouseClicked
+        Devoluciones d = new Devoluciones(biblio.getMiembroLista(), biblio.getCatalogo().getListaLibros());
+        changeContent(d);
+    }//GEN-LAST:event_devolucionesLMouseClicked
+
+    private void devolucionesImgLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesImgLMouseClicked
+        Devoluciones d = new Devoluciones(biblio.getMiembroLista(), biblio.getCatalogo().getListaLibros());
+        changeContent(d);
+    }//GEN-LAST:event_devolucionesImgLMouseClicked
+
+    private void miembrosLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosLMouseClicked
+        Miembros m = new Miembros(biblio);
+        m.setTable(biblio.getMiembroLista());
+        changeContent(m);
+    }//GEN-LAST:event_miembrosLMouseClicked
+
+    private void miembrosImgLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosImgLMouseClicked
+        Miembros m = new Miembros(biblio);
+        m.setTable(biblio.getMiembroLista());
+        changeContent(m);
+    }//GEN-LAST:event_miembrosImgLMouseClicked
+
+    private void catalogoLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoLMouseClicked
+        changeContent(new CatalogoContentP(biblio.getCatalogo().getListaLibros()));
+    }//GEN-LAST:event_catalogoLMouseClicked
+
+    private void catalogoImgLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoImgLMouseClicked
+        changeContent(new CatalogoContentP(biblio.getCatalogo().getListaLibros()));
+    }//GEN-LAST:event_catalogoImgLMouseClicked
+
+    private void catalogoLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoLMouseEntered
+        catalogoOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_catalogoLMouseEntered
+
+    private void catalogoImgLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoImgLMouseEntered
+        catalogoOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_catalogoImgLMouseEntered
+
+    private void principalLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalLMouseEntered
+        principalOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_principalLMouseEntered
+
+    private void principalImgLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalImgLMouseEntered
+        principalOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_principalImgLMouseEntered
+
+    private void prestamosLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosLMouseEntered
+        prestamosOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_prestamosLMouseEntered
+
+    private void prestamosImgLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosImgLMouseEntered
+        prestamosOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_prestamosImgLMouseEntered
+
+    private void devolucionesLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesLMouseEntered
+        devolucionesOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_devolucionesLMouseEntered
+
+    private void devolucionesImgLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesImgLMouseEntered
+        devolucionesOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_devolucionesImgLMouseEntered
+
+    private void miembrosLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosLMouseEntered
+        miembrosOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_miembrosLMouseEntered
+
+    private void miembrosImgLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosImgLMouseEntered
+        miembrosOptP.setBackground(new Color(153, 204, 255));
+    }//GEN-LAST:event_miembrosImgLMouseEntered
+
+    private void devolucionesLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesLMouseExited
+        devolucionesOptP.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_devolucionesLMouseExited
+
+    private void devolucionesImgLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesImgLMouseExited
+        devolucionesOptP.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_devolucionesImgLMouseExited
+
+    private void principalLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalLMouseExited
+        principalOptP.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_principalLMouseExited
+
+    private void principalImgLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalImgLMouseExited
+        principalOptP.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_principalImgLMouseExited
+
+    private void prestamosLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosLMouseExited
+        prestamosOptP.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_prestamosLMouseExited
+
+    private void prestamosImgLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prestamosImgLMouseExited
+        prestamosOptP.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_prestamosImgLMouseExited
+
+    private void miembrosLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosLMouseExited
+        miembrosOptP.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_miembrosLMouseExited
+
+    private void miembrosImgLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miembrosImgLMouseExited
+        miembrosOptP.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_miembrosImgLMouseExited
+
+    private void catalogoLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoLMouseExited
+        catalogoOptP.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_catalogoLMouseExited
+
+    private void catalogoImgLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_catalogoImgLMouseExited
+        catalogoOptP.setBackground(new Color(51,153,255));
+    }//GEN-LAST:event_catalogoImgLMouseExited
 
     private ImageIcon resizeImage(Image image, JLabel label){
         ImageIcon img = new ImageIcon(image.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH));
@@ -588,6 +828,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         catalogoL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         logsL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         textoL.putClientProperty( "FlatLaf.style", "font: large $medium.font" );
+        
     }
     
     private void initContent(){

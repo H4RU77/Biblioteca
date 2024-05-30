@@ -5,7 +5,9 @@
 package org.gui;
 
 import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import org.clases.Biblioteca;
 import org.clases.Libro;
 import org.clases.LibroDigital;
@@ -22,17 +24,11 @@ public class CatalogoContentP extends javax.swing.JPanel {
     /**
      * Creates new form CatalogoContentP
      */
-    private Biblioteca biblio;
-
-    public Biblioteca getBiblio() {
-        return biblio;
-    }
-
-    public void setBiblio(Biblioteca biblio) {
-        this.biblio = biblio;
-    }
-    public CatalogoContentP() {
+    
+    public CatalogoContentP(ListaSE<Libro> listaCatalogo) {
         initComponents();
+        this.listaCatalogo = listaCatalogo;
+        setTable(listaCatalogo);
         filtroBusqueda.add(tituloF);
         filtroBusqueda.add(autorF);
         filtroBusqueda.add(generoF);
@@ -41,15 +37,21 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private ListaSE<Libro> listaCatalogo;
     private ListaSE<Libro> filtered = new ListaSE();
 
-    public ListaSE<Libro> getListaMiembros() {
+    public ListaSE<Libro> getListaCatalogo() {
         return listaCatalogo;
     }
 
-    public void setListaMiembros(ListaSE<Miembro> listaMiembros) {
+    public void setListaCatalogo(ListaSE<Libro> listaCatalogo) {
         this.listaCatalogo = listaCatalogo;
     }
 
+    public ListaSE<Libro> getFiltered() {
+        return filtered;
+    }
 
+    public void setFiltered(ListaSE<Libro> filtered) {
+        this.filtered = filtered;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,9 +62,27 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private void initComponents() {
 
         filtroBusqueda = new javax.swing.ButtonGroup();
+        inspectP = new javax.swing.JPanel();
+        tituloL = new javax.swing.JLabel();
+        textoL = new javax.swing.JLabel();
+        autorL = new javax.swing.JLabel();
+        generoL = new javax.swing.JLabel();
+        idiomaL = new javax.swing.JLabel();
+        cantFormL = new javax.swing.JLabel();
+        descL = new javax.swing.JLabel();
+        tituloTF = new javax.swing.JTextField();
+        autorTF = new javax.swing.JTextField();
+        generoTF = new javax.swing.JTextField();
+        idiomaTF = new javax.swing.JTextField();
+        cantFormTF = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        descTA = new javax.swing.JTextArea();
+        isbnL = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         catalogoIP = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaCatalogo = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -75,6 +95,115 @@ public class CatalogoContentP extends javax.swing.JPanel {
         tituloF = new javax.swing.JRadioButton();
         autorF = new javax.swing.JRadioButton();
         generoF = new javax.swing.JRadioButton();
+        inspeccionarBtn = new javax.swing.JButton();
+
+        tituloL.setText("Titulo:");
+
+        textoL.setText("Inspección de Libro No.");
+
+        autorL.setText("Autor:");
+
+        generoL.setText("Genero:");
+
+        idiomaL.setText("Idioma:");
+
+        cantFormL.setText("Cantidad:");
+
+        descL.setText("Descripción:");
+
+        tituloTF.setEditable(false);
+
+        autorTF.setEditable(false);
+
+        generoTF.setEditable(false);
+
+        idiomaTF.setEditable(false);
+
+        cantFormTF.setEditable(false);
+
+        descTA.setColumns(20);
+        descTA.setRows(5);
+        jScrollPane2.setViewportView(descTA);
+
+        isbnL.setText("jLabel1");
+
+        javax.swing.GroupLayout inspectPLayout = new javax.swing.GroupLayout(inspectP);
+        inspectP.setLayout(inspectPLayout);
+        inspectPLayout.setHorizontalGroup(
+            inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inspectPLayout.createSequentialGroup()
+                .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inspectPLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(textoL)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(isbnL, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, inspectPLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inspectPLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tituloTF)
+                                    .addComponent(autorTF, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inspectPLayout.createSequentialGroup()
+                                .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cantFormL)
+                                    .addGroup(inspectPLayout.createSequentialGroup()
+                                        .addGap(1, 1, 1)
+                                        .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(autorL)
+                                            .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(idiomaL)
+                                                .addComponent(generoL))
+                                            .addComponent(tituloL))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cantFormTF, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(generoTF)
+                                    .addComponent(idiomaTF)))
+                            .addGroup(inspectPLayout.createSequentialGroup()
+                                .addComponent(descL)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(41, 41, 41))
+        );
+        inspectPLayout.setVerticalGroup(
+            inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inspectPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoL)
+                    .addComponent(isbnL))
+                .addGap(18, 18, 18)
+                .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tituloL)
+                    .addComponent(tituloTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(autorL)
+                    .addComponent(autorTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(generoL)
+                    .addComponent(generoTF, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idiomaL)
+                    .addComponent(idiomaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(inspectPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cantFormL)
+                    .addComponent(cantFormTF, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(descL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        jScrollPane3.setViewportView(jEditorPane1);
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(611, 362));
@@ -82,7 +211,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
         catalogoIP.setBackground(new java.awt.Color(255, 255, 255));
         catalogoIP.setPreferredSize(new java.awt.Dimension(611, 362));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCatalogo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -101,8 +230,8 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        tablaCatalogo.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tablaCatalogo);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +318,13 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        inspeccionarBtn.setText("Inspeccionar");
+        inspeccionarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inspeccionarBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout catalogoIPLayout = new javax.swing.GroupLayout(catalogoIP);
         catalogoIP.setLayout(catalogoIPLayout);
         catalogoIPLayout.setHorizontalGroup(
@@ -197,12 +333,13 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, catalogoIPLayout.createSequentialGroup()
-                        .addGap(325, 325, 325)
-                        .addComponent(Anadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(inspeccionarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(190, 190, 190)
+                        .addComponent(Anadir, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(Borrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Borrar, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(catalogoIPLayout.createSequentialGroup()
                         .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,11 +367,11 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Anadir, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Edit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Borrar, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                    .addComponent(Anadir, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                    .addComponent(inspeccionarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(17, 17, 17))
         );
 
@@ -251,7 +388,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnadirActionPerformed
-       changePanel(new LibroRegistro());
+       changePanel(new LibroRegistro(listaCatalogo));
     }//GEN-LAST:event_AnadirActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -265,6 +402,46 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void inspeccionarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inspeccionarBtnActionPerformed
+        try {
+            int row = tablaCatalogo.getSelectedRow();
+            if (row == -1){
+                JOptionPane.showMessageDialog(null, "Por favor seleccione una columna para inspeccionar");
+            } else {
+                String title = (String) tablaCatalogo.getValueAt(row, 0);
+                String autor = (String) tablaCatalogo.getValueAt(row, 1);
+                String tipo = (String) tablaCatalogo.getValueAt(row, 3);
+                if (tipo.equals("Libro Fisico") && buscarLibro(title, autor, tipo) != null){
+                    LibroFisico libro = (LibroFisico) buscarLibro(title, autor, tipo);
+                    tituloTF.setText(title);
+                    autorTF.setText(autor);
+                    generoTF.setText(libro.getGenero());
+                    idiomaTF.setText(libro.getIdioma());
+                    isbnL.setText(libro.getISBN());
+                    cantFormL.setText("Cantidad:");
+                    cantFormTF.setText(String.valueOf(libro.getCantidad()));
+                    descTA.setText(libro.getDesc());
+                    JOptionPane.showMessageDialog(null, inspectP);
+                } else if(buscarLibro(title, autor, tipo) != null && tipo.equals("Libro Digital")){
+                    LibroDigital libro = (LibroDigital) buscarLibro(title, autor, tipo);
+                    tituloTF.setText(title);
+                    autorTF.setText(autor);
+                    generoTF.setText(libro.getGenero());
+                    idiomaTF.setText(libro.getIdioma());
+                    isbnL.setText(libro.getISBN());
+                    cantFormL.setText("Formatos:");
+                    cantFormTF.setText(libro.getFormato());
+                    descTA.setText(libro.getDesc());
+                    JOptionPane.showMessageDialog(null, inspectP);
+                } else {
+                    JOptionPane.showMessageDialog(null, "El libro no esta guardado correctamente en el sistema :(");
+                }
+            }
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_inspeccionarBtnActionPerformed
     
     private void changePanel(JPanel p){
         p.setSize(this.getWidth(), this.getHeight());
@@ -275,23 +452,68 @@ public class CatalogoContentP extends javax.swing.JPanel {
         this.revalidate();
         this.repaint();
     }
-
+    
+    private Libro buscarLibro(String titulo, String autor, String tipo){
+        System.out.println(titulo);
+        System.out.println(autor);
+        System.out.println(tipo);
+        for(int i = 0; i<listaCatalogo.tamanio(); i++){
+            System.out.println(listaCatalogo.Obtener(i).mostrar());
+            if (listaCatalogo.Obtener(i).getTitulo().equals(titulo) && listaCatalogo.Obtener(i).getAutor().equals(autor)){
+                if (tipo.equals("Libro Fisico") && listaCatalogo.Obtener(i) instanceof LibroFisico){
+                    return listaCatalogo.Obtener(i);
+                } else if (tipo.equals("Libro Digital") && listaCatalogo.Obtener(i) instanceof LibroDigital){
+                    return listaCatalogo.Obtener(i);
+                }
+            }
+        }
+        return null;
+    }
+    private void setTable(ListaSE<Libro> l){
+        String[] tblH = {"Título", "Autor", "Genero", "Tipo"};
+        DefaultTableModel model = new DefaultTableModel(tblH, 0);
+        for (int i = 0; i < l.tamanio(); i++){
+            Libro libro =  l.Obtener(i);
+            Object[] row = {libro.getTitulo(), libro.getAutor(), libro.getGenero(), libro.getTipo()};
+            model.addRow(row);
+        }
+        tablaCatalogo.setModel(model);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Anadir;
     private javax.swing.JButton Borrar;
     private javax.swing.JButton Edit;
     private javax.swing.JRadioButton autorF;
+    private javax.swing.JLabel autorL;
+    private javax.swing.JTextField autorTF;
+    private javax.swing.JLabel cantFormL;
+    private javax.swing.JTextField cantFormTF;
     private javax.swing.JPanel catalogoIP;
+    private javax.swing.JLabel descL;
+    private javax.swing.JTextArea descTA;
     private javax.swing.ButtonGroup filtroBusqueda;
     private javax.swing.JRadioButton generoF;
+    private javax.swing.JLabel generoL;
+    private javax.swing.JTextField generoTF;
+    private javax.swing.JLabel idiomaL;
+    private javax.swing.JTextField idiomaTF;
+    private javax.swing.JButton inspeccionarBtn;
+    private javax.swing.JPanel inspectP;
+    private javax.swing.JLabel isbnL;
     private javax.swing.JButton jButton7;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tablaCatalogo;
+    private javax.swing.JLabel textoL;
     private javax.swing.JRadioButton tituloF;
+    private javax.swing.JLabel tituloL;
+    private javax.swing.JTextField tituloTF;
     // End of variables declaration//GEN-END:variables
 }

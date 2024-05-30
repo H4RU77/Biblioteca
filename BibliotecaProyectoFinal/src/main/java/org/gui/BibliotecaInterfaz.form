@@ -232,6 +232,11 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Principal"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="principalLMouseClicked"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="principalLMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="principalLMouseExited"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="principalImgL">
                           <Properties>
@@ -245,6 +250,11 @@
                               <Dimension value="[30, 30]"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="principalImgLMouseClicked"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="principalImgLMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="principalImgLMouseExited"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -307,6 +317,11 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Prestamos"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="prestamosLMouseClicked"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="prestamosLMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="prestamosLMouseExited"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="prestamosImgL">
                           <Properties>
@@ -320,6 +335,11 @@
                               <Dimension value="[30, 30]"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="prestamosImgLMouseClicked"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="prestamosImgLMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="prestamosImgLMouseExited"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -382,6 +402,11 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Devoluciones"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="devolucionesLMouseClicked"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="devolucionesLMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="devolucionesLMouseExited"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="devolucionesImgL">
                           <Properties>
@@ -395,6 +420,11 @@
                               <Dimension value="[30, 30]"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="devolucionesImgLMouseClicked"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="devolucionesImgLMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="devolucionesImgLMouseExited"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -457,6 +487,11 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Miembros"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="miembrosLMouseClicked"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="miembrosLMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="miembrosLMouseExited"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="miembrosImgL">
                           <Properties>
@@ -470,6 +505,11 @@
                               <Dimension value="[30, 30]"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="miembrosImgLMouseClicked"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="miembrosImgLMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="miembrosImgLMouseExited"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -532,6 +572,11 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Catalogo"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="catalogoLMouseClicked"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="catalogoLMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="catalogoLMouseExited"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="catalogoImgL">
                           <Properties>
@@ -545,6 +590,11 @@
                               <Dimension value="[30, 30]"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="catalogoImgLMouseClicked"/>
+                            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="catalogoImgLMouseEntered"/>
+                            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="catalogoImgLMouseExited"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
