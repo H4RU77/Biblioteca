@@ -4,7 +4,14 @@
  */
 package org.gui;
 
+import java.awt.BorderLayout;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import org.clases.Libro;
+import org.clases.LibroDigital;
+import org.clases.LibroFisico;
+import org.clases.ListaSE;
 
 /**
  *
@@ -15,10 +22,18 @@ public class LibroRegistro extends javax.swing.JPanel {
     /**
      * Creates new form LibroRegistro
      */
-    public LibroRegistro() {
+    private ListaSE<Libro> listaCatalogo;
+    private ListaSE<JCheckBox> formatos = new ListaSE();
+    public LibroRegistro(ListaSE<Libro> listaCatalogo) {
         initComponents();
+        this.listaCatalogo = listaCatalogo;
         grupo.add(fisico);
         grupo.add(digital);
+        formatos.Agregar(pdf);
+        formatos.Agregar(epub);
+        formatos.Agregar(mobi);
+        formatos.Agregar(rtf);
+        formatos.Agregar(swf);
     }
 
     /**
@@ -31,6 +46,13 @@ public class LibroRegistro extends javax.swing.JPanel {
     private void initComponents() {
 
         grupo = new javax.swing.ButtonGroup();
+        formatosP = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        pdf = new javax.swing.JCheckBox();
+        epub = new javax.swing.JCheckBox();
+        mobi = new javax.swing.JCheckBox();
+        rtf = new javax.swing.JCheckBox();
+        swf = new javax.swing.JCheckBox();
         jPanel1 = new javax.swing.JPanel();
         tituloTF = new javax.swing.JTextField();
         autorTF = new javax.swing.JTextField();
@@ -49,6 +71,61 @@ public class LibroRegistro extends javax.swing.JPanel {
         descTA = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+
+        jLabel8.setText("Selecciona los formatos disponibles:");
+
+        pdf.setText("PDF");
+
+        epub.setText("EPUB");
+        epub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                epubActionPerformed(evt);
+            }
+        });
+
+        mobi.setText("MOBI");
+
+        rtf.setText("RTF");
+
+        swf.setText("SWF");
+        swf.setActionCommand("SWF");
+
+        javax.swing.GroupLayout formatosPLayout = new javax.swing.GroupLayout(formatosP);
+        formatosP.setLayout(formatosPLayout);
+        formatosPLayout.setHorizontalGroup(
+            formatosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formatosPLayout.createSequentialGroup()
+                .addGroup(formatosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(formatosPLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8))
+                    .addGroup(formatosPLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(formatosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(epub)
+                            .addComponent(pdf)
+                            .addComponent(mobi)
+                            .addComponent(rtf)
+                            .addComponent(swf))))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        formatosPLayout.setVerticalGroup(
+            formatosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formatosPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pdf)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(epub)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mobi)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rtf)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(swf)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -71,8 +148,10 @@ public class LibroRegistro extends javax.swing.JPanel {
 
         fisico.setSelected(true);
         fisico.setText("Libro Físico");
+        fisico.setActionCommand("fisico");
 
         digital.setText("Libro Digital");
+        digital.setActionCommand("digital");
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -106,9 +185,7 @@ public class LibroRegistro extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(idiomaTF)
                         .addComponent(digital)
@@ -183,15 +260,60 @@ public class LibroRegistro extends javax.swing.JPanel {
             String desc = descTA.getText();
             String idioma = idiomaTF.getText();
             String tipo = grupo.getSelection().getActionCommand();
+            int n = (int) Math.floor(Math.random()*10000);
+            String ISBN = "L".concat(String.valueOf(n));
+            if (tipo.equals("fisico")){
+                try {
+                    int cant = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la cantidad de libros"));
+                    LibroFisico libro = new LibroFisico(titulo, autor, genero, idioma, desc, ISBN, cant);
+                    listaCatalogo.Agregar(libro);
+                    JOptionPane.showMessageDialog(null, "¡Catalogo Actualizado!");
+                } catch(Exception e){
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            } else {
+                try {
+                    int res = JOptionPane.showConfirmDialog(null, formatosP, "Selección de Formatos", JOptionPane.OK_CANCEL_OPTION);
+                    if (res == JOptionPane.OK_OPTION){
+                        String formats = "";
+                        for (int i = 0; i<formatos.tamanio(); i++){
+                            if (formatos.Obtener(i).isSelected()){
+                                formats += formatos.Obtener(i).getText();
+                            }
+                        }
+                        LibroDigital libro = new LibroDigital(titulo, autor, genero, idioma, desc, ISBN, formats);
+                        listaCatalogo.Agregar(libro);
+                        JOptionPane.showMessageDialog(null, "¡Catalogo Actualizado!");
+                    } 
+                } catch(Exception e){
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }
+            }
+            changePanel(new CatalogoContentP(listaCatalogo));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void epubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_epubActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_epubActionPerformed
+    
+    private void changePanel(JPanel p){
+        p.setSize(this.getWidth(), this.getHeight());
+        p.setLocation(0,0);
+        
+        this.removeAll();
+        this.add(p, BorderLayout.CENTER);
+        this.revalidate();
+        this.repaint();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField autorTF;
     private javax.swing.JTextArea descTA;
     private javax.swing.JRadioButton digital;
+    private javax.swing.JCheckBox epub;
     private javax.swing.JRadioButton fisico;
+    private javax.swing.JPanel formatosP;
     private javax.swing.JTextField generoTF;
     private javax.swing.ButtonGroup grupo;
     private javax.swing.JTextField idiomaTF;
@@ -203,9 +325,14 @@ public class LibroRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JCheckBox mobi;
+    private javax.swing.JCheckBox pdf;
+    private javax.swing.JCheckBox rtf;
+    private javax.swing.JCheckBox swf;
     private javax.swing.JTextField tituloTF;
     // End of variables declaration//GEN-END:variables
 }

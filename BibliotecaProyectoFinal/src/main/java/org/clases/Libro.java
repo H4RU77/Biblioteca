@@ -71,7 +71,8 @@ public abstract class Libro {
     public void setISBN(String ISBN) {
         this.ISBN = ISBN;
     }
-
+    
+    public abstract String getTipo();
    
 
     public abstract String mostrar();

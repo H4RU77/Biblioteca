@@ -121,7 +121,7 @@ public class ListaSE<T> implements IMetodos<T>{
         NodoSE<T> nodoActual = cabeza;
         String res = "";
         for (int i = 0; i<tamano; i++){
-            res = res.concat(nodoActual.getDato().toString()+"\n");
+            res = res.concat(nodoActual.getDato().toString()+", ");
         }
         return res;
     }

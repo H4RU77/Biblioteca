@@ -538,8 +538,6 @@ public class Miembros extends javax.swing.JPanel {
     }//GEN-LAST:event_nuevoBtnMouseClicked
 
     private void editarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarBtnMouseClicked
-        // getSelectedRow() | getSelectedColumn() --> returns index
-        // getValueAt(row, col) --> returns value 
         try {
             int row = tablaMiembros.getSelectedRow();
             if (row == -1){
@@ -687,7 +685,7 @@ public class Miembros extends javax.swing.JPanel {
         tablaMiembros.setModel(model);
     }
     
-    public void setHistorial(ListaSE<Prestamo> h){
+    private void setHistorial(ListaSE<Prestamo> h){
         String op = "";
         String[] tblH = {"Titulo", "ISBN", "Tiempo", "Sanción", "Operación"};
         DefaultTableModel model = new DefaultTableModel(tblH, 0);

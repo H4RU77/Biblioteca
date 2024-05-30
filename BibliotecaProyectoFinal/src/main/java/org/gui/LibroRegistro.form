@@ -4,6 +4,89 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="grupo">
     </Component>
+    <Container class="javax.swing.JPanel" name="formatosP">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="epub" min="-2" max="-2" attributes="0"/>
+                              <Component id="pdf" min="-2" max="-2" attributes="0"/>
+                              <Component id="mobi" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="rtf" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="swf" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="pdf" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="epub" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="mobi" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="rtf" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="swf" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel8">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Selecciona los formatos disponibles:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="pdf">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="PDF"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="epub">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="EPUB"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="epubActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="mobi">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="MOBI"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="rtf">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="RTF"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="swf">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SWF"/>
+            <Property name="actionCommand" type="java.lang.String" value="SWF"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -59,10 +142,7 @@
                   <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="157" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                           <Component id="idiomaTF" max="32767" attributes="0"/>
                           <Component id="digital" min="-2" max="-2" attributes="0"/>
@@ -172,11 +252,13 @@
           <Properties>
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Libro F&#xed;sico"/>
+            <Property name="actionCommand" type="java.lang.String" value="fisico"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="digital">
           <Properties>
             <Property name="text" type="java.lang.String" value="Libro Digital"/>
+            <Property name="actionCommand" type="java.lang.String" value="digital"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">

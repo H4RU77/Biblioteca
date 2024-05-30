@@ -16,6 +16,10 @@ public class LibroFisico extends Libro{
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+    
+    public String getTipo(){
+        return "Libro Fisico";
+    }
 
     public String mostrar(){
         return "Libro Fisico - [Titulo: "+getTitulo()+", Autor: "+getAutor()+", Genero: "+getGenero()+", Idioma: "+getIdioma()+", Cantidad: "+getCantidad()+"\n"+getDesc()+"]";
