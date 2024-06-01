@@ -212,6 +212,10 @@ public class Devoluciones extends javax.swing.JPanel {
         LocalDate limite = p.getDate();
         Devolucion dev = new Devolucion(p.getLibro(), hoy, calcularMonto(now, limite), p.getFolio());
         
+        //Mensaje de pago
+        if (calcularMonto(now, limite) > 0){
+            JOptionPane.showMessageDialog(null, "El miembro debe pagar la siguiente cantdidas debido a una entrega extemporanea: "+calcularMonto(now, limite));
+        }
         
         //Elimar prestamo
         Miembro miembro = p.getFolio();
