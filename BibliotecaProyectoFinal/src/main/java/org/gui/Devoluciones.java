@@ -5,6 +5,10 @@
 package org.gui;
 
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import org.clases.*;
 
@@ -15,6 +19,8 @@ import org.clases.*;
 public class Devoluciones extends javax.swing.JPanel {
  
     private ListaSE<Miembro> miembros;
+    private String hoy;
+    private LocalDate now = LocalDate.now();
 
     public ListaSE<Miembro> getMiembros() {
         return miembros;
@@ -42,9 +48,18 @@ public class Devoluciones extends javax.swing.JPanel {
         initComponents();
         this.miembros = miembros;
         this.libros = libros;
+        setHoy();
         initPrestamos();
     }
-
+    
+    private void setHoy(){
+        Locale spanishLocale = new Locale("es", "ES");
+        this.hoy = now.format(DateTimeFormatter.ofPattern("dd'/'MMMM'/'yyyy", spanishLocale));
+    }
+    
+    private String getHoy(){
+        return hoy;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -208,7 +223,8 @@ public class Devoluciones extends javax.swing.JPanel {
     private void realizarDevolucion(Prestamo p) {
         //Marcar devuelto
         p.setDevuelto(true);
-        Devolucion dev = new Devolucion(p.getLibro(), p.getTiempo(), p.getMonto(), p.getFolio());
+        LocalDate limite = p.getDate();
+        Devolucion dev = new Devolucion(p.getLibro(), hoy, calcularMonto(now, limite), p.getFolio());
         
         
         //Elimar prestamo
@@ -234,6 +250,16 @@ public class Devoluciones extends javax.swing.JPanel {
                 }
             }
         }
+    }
+    
+    private double calcularMonto(LocalDate now, LocalDate lim){
+        double monto = 0;
+        if (now.isAfter(lim)){
+            long dias = ChronoUnit.DAYS.between(lim, now);
+            System.out.println("Dias: "+dias);
+            monto = 100 + 12.5*dias;
+        }
+        return monto;
     }
     
     

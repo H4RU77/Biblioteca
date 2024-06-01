@@ -4,13 +4,19 @@
  */
 package org.gui;
 
+import java.time.LocalDate;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import org.clases.Biblioteca;
+import org.clases.EstadoCuenta;
+import static org.clases.EstadoCuenta.*;
 import org.clases.Libro;
 import org.clases.LibroDigital;
 import org.clases.LibroFisico;
 import org.clases.Miembro;
 import org.clases.Prestamo;
+import java.util.Locale;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -22,6 +28,8 @@ public class Prestamos extends javax.swing.JPanel {
      * Creates new form Prestamos
      */
     private Biblioteca biblio;
+    private String fecha;
+    private LocalDate now = LocalDate.now();
 
     public Biblioteca getBiblio() {
         return biblio;
@@ -32,8 +40,22 @@ public class Prestamos extends javax.swing.JPanel {
     }
     public Prestamos() {
         initComponents();
+        setDate();
     }
 
+    private void setDate(){
+        LocalDate nw = now.plusWeeks(1);
+        Locale spanishLocale = new Locale("es", "ES");
+        setFecha(nw.format(DateTimeFormatter.ofPattern("dd'/'MMMM'/'yyyy", spanishLocale)));
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -155,6 +177,7 @@ public class Prestamos extends javax.swing.JPanel {
                 for(int i=0;i<biblio.getMiembroLista().tamanio(); i++){
                     System.out.println("Id en la lista: "+biblio.getMiembroLista().Obtener(i).getID());
                     System.out.println("Id ingreaado: "+IDusuario);
+                    String m = "";
                     if(IDusuario.equals(biblio.getMiembroLista().Obtener(i).getID())){
                         usuarioActual=IDusuario;
                         indexMiembro = i;
@@ -175,13 +198,21 @@ public class Prestamos extends javax.swing.JPanel {
                         if(biblio.getCatalogo().getListaLibros().Obtener(indexLibro) instanceof LibroFisico){
                             //verificar disponibilidad
                             LibroFisico libro = (LibroFisico) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
+                            Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
                             if(libro.getCantidad()>0){
                                 //hacer prestamo libro fisico
-                                libro.setCantidad(libro.getCantidad()-1);
-                                Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
-                                miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
-                                miembro.getHistorialPrestamos().Agregar(new Prestamo(libro,0,0, miembro));
-                                JOptionPane.showMessageDialog(null, "¡Prestamo realizado satisfactoriamente!");
+                                if (miembro.getEstado().equals(ACTIVA)){
+                                    libro.setCantidad(libro.getCantidad()-1);
+                                    Prestamo p = new Prestamo(libro,fecha, miembro);
+                                    p.setDate(now);
+                                    miembro.getPrestamosActivos().Agregar(p);
+                                    miembro.getHistorialPrestamos().Agregar(p);
+                                    JOptionPane.showMessageDialog(null, "¡Prestamo realizado satisfactoriamente!");
+                                } else if(miembro.getEstado().equals(CONGELADA)){
+                                    JOptionPane.showMessageDialog(null, "La cuenta esta congelada, por favor realizar los pagos correspondientes para reactivarla");
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "La cuenta ha sido cerrada y será eliminada proximamente, si se desea recuperarla se deberán realizar los pagos correspondientes y una cuota extra");
+                                }
                             } else {
                                 JOptionPane.showMessageDialog(null, "Libro no disponible :(");
                             }
@@ -189,9 +220,17 @@ public class Prestamos extends javax.swing.JPanel {
                             //hacer préstamo libro digital
                             LibroDigital libro = (LibroDigital) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
                             Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
-                            miembro.getPrestamosActivos().Agregar(new Prestamo(libro,0,0, miembro));
-                            miembro.getHistorialPrestamos().Agregar(new Prestamo(libro,0,0, miembro));
-                            JOptionPane.showMessageDialog(null, "¡Prestamo realizado satisfactoriamente!");
+                            if (miembro.getEstado().equals(ACTIVA)){
+                                Prestamo p = new Prestamo(libro,fecha, miembro);
+                                p.setDate(now);
+                                miembro.getPrestamosActivos().Agregar(p);
+                                miembro.getHistorialPrestamos().Agregar(p);
+                                JOptionPane.showMessageDialog(null, "¡Prestamo realizado satisfactoriamente!");
+                            } else if(miembro.getEstado().equals(CONGELADA)){
+                                JOptionPane.showMessageDialog(null, "La cuenta esta congelada, por favor realizar los pagos correspondientes para reactivarla");
+                            } else {
+                                JOptionPane.showMessageDialog(null, "La cuenta ha sido cerrada, si se desea recuperarla se deberán realizar los pagos correspondientes y una cuota extra");
+                            }
                         }
                     }else{
                         JOptionPane.showMessageDialog(null,"Libro no encontardo, verifique que ingresó el ISBN correctamente");
@@ -212,7 +251,7 @@ public class Prestamos extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_usuarioActionPerformed
 
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField libro;
