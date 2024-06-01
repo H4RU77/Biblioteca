@@ -1,11 +1,13 @@
 package org.clases;
 public class Biblioteca {
-    protected Catalogo catalogo;
-    protected ListaSE<Miembro> miembroLista;
+    private Catalogo catalogo;
+    private ListaSE<Miembro> miembroLista;
+    private ListaSE<Operacion> operaciones;
     
-    public Biblioteca(Catalogo catalogo, ListaSE<Miembro> miembroLista){
+    public Biblioteca(Catalogo catalogo, ListaSE<Miembro> miembroLista, ListaSE<Operacion> operaciones){
         this.catalogo = catalogo;
         this.miembroLista = miembroLista;
+        this.operaciones = operaciones;
     }
 
     public ListaSE<Miembro> getMiembroLista() {
@@ -24,4 +26,11 @@ public class Biblioteca {
         this.catalogo = catalogo;
     }
 
+    public ListaSE<Operacion> getOperaciones() {
+        return operaciones;
+    }
+
+    public void setOperaciones(ListaSE<Operacion> operaciones) {
+        this.operaciones = operaciones;
+    }
 }

@@ -18,36 +18,22 @@ import org.clases.*;
  */
 public class Devoluciones extends javax.swing.JPanel {
  
-    private ListaSE<Miembro> miembros;
+    
     private String hoy;
     private LocalDate now = LocalDate.now();
 
-    public ListaSE<Miembro> getMiembros() {
-        return miembros;
-    }
-
-    public void setMiembros(ListaSE<Miembro> miembros) {
-        this.miembros = miembros;
-    }
-    private ListaSE<Libro> libros;
-
-    public ListaSE<Libro> getLibros() {
-        return libros;
-    }
-
-    public void setLibros(ListaSE<Libro> libros) {
-        this.libros = libros;
-    }
+    
+    
+    private Biblioteca biblio;
     
     private ListaSE<Prestamo> prestamos = new ListaSE<>();
 
     /**
      * Creates new form Devoluciones
      */
-    public Devoluciones(ListaSE<Miembro> miembros, ListaSE<Libro> libros) {
+    public Devoluciones(Biblioteca biblio) {
         initComponents();
-        this.miembros = miembros;
-        this.libros = libros;
+        this.biblio = biblio;
         setHoy();
         initPrestamos();
     }
@@ -188,8 +174,8 @@ public class Devoluciones extends javax.swing.JPanel {
 
     //Buscar miembro por su folio(ID)
     private Miembro buscarMiembro(String folio) {
-        for (int i = 0; i < miembros.tamanio(); i++) {
-            Miembro miembro = miembros.Obtener(i);
+        for (int i = 0; i < biblio.getMiembroLista().tamanio(); i++) {
+            Miembro miembro = biblio.getMiembroLista().Obtener(i);
             if (miembro.getID().equals(folio)) {
                 return miembro;
             }
@@ -199,8 +185,8 @@ public class Devoluciones extends javax.swing.JPanel {
     
     //Buscar libro por su ID
     private Libro buscarLibro(String libroID) {
-        for (int i = 0; i < libros.tamanio(); i++) {
-            Libro libro = libros.Obtener(i);
+        for (int i = 0; i < biblio.getCatalogo().getListaLibros().tamanio(); i++) {
+            Libro libro = biblio.getCatalogo().getListaLibros().Obtener(i);
             if (libro.getISBN().equals(libroID)) {
                 return libro;
             }
@@ -239,11 +225,12 @@ public class Devoluciones extends javax.swing.JPanel {
         
         //Agregar al historial
         miembro.getHistorialPrestamos().Agregar(dev);
+        biblio.getOperaciones().Agregar(dev);
     }
     
     private void initPrestamos(){
-        for (int i = 0; i < miembros.tamanio(); i++){
-            ListaSE<Prestamo> lista = miembros.Obtener(i).getPrestamosActivos();
+        for (int i = 0; i < biblio.getMiembroLista().tamanio(); i++){
+            ListaSE<Prestamo> lista = biblio.getMiembroLista().Obtener(i).getPrestamosActivos();
             if (lista.EsVacia() == false){
                 for (int j = 0; j < lista.tamanio(); j++){
                     prestamos.Agregar(lista.Obtener(j));

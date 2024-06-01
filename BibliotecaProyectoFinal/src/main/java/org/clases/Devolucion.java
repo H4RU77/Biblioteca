@@ -24,4 +24,8 @@ public class Devolucion extends Operacion{
     public void setMonto(double monto) {
         this.monto = monto;
     }
+    
+    public String mostrar() {
+        return "DEVOLUCIÓN: [Titulo: "+libro.getTitulo()+", ISBN: "+libro.getISBN()+", Fecha de entrega: "+fecha+", Id de Miembro: "+folio.getID()+"]";
+    }
 }
