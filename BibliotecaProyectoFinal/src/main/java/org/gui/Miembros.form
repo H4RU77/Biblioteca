@@ -192,7 +192,7 @@
                   <Table columnCount="5" rowCount="4">
                     <Column editable="true" title="Titulo" type="java.lang.String"/>
                     <Column editable="true" title="ISBN" type="java.lang.String"/>
-                    <Column editable="true" title="Tiempo" type="java.lang.Integer"/>
+                    <Column editable="true" title="Tiempo" type="java.lang.String"/>
                     <Column editable="true" title="Sanci&#xf3;n" type="java.lang.Double"/>
                     <Column editable="true" title="Operaci&#xf3;n" type="java.lang.String"/>
                   </Table>

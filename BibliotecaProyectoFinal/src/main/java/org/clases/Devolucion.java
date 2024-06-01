@@ -4,15 +4,24 @@
  */
 package org.clases;
 
+
 /**
  *
  * @author Keloc
  */
 public class Devolucion extends Operacion{
+    private double monto;
 
-    public Devolucion(Libro libro, int tiempo, double monto, Miembro folio) {
-        super(libro, tiempo, monto, folio);
+    public Devolucion(Libro libro, String fecha, double monto, Miembro folio) {
+        super(libro, fecha, folio);
+        this.monto = monto;
     }
-    
-    
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
+    }
 }

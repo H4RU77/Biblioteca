@@ -8,10 +8,14 @@ import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Image;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.temporal.ChronoUnit;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import org.clases.*;
+import static org.clases.EstadoCuenta.*;
 
 /**
  *
@@ -35,6 +39,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         this.biblio = biblio;
         initStyles();
         initContent();
+        validarCuentas(biblio.getMiembroLista());
         principalImgL.setIcon(resizeImage(principalImage, principalImgL));
         prestamosImgL.setIcon(resizeImage(prestamoImage, prestamosImgL));
         devolucionesImgL.setIcon(resizeImage(devolucionImage, devolucionesImgL));
@@ -844,6 +849,26 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         contentP.repaint();
     }
     
+    private void validarCuentas(ListaSE<Miembro> ms){
+        LocalDate now = LocalDate.now();
+        for (int i = 0; i<ms.tamanio(); i++){
+            Miembro m = ms.Obtener(i);
+            ListaSE<Prestamo> ps = m.getPrestamosActivos();
+            for (int j = 0; j<ps.tamanio(); j++){
+                Prestamo p = ps.Obtener(j);
+                LocalDate pd = p.getDate();
+                long dias = ChronoUnit.DAYS.between(pd, now);
+                System.out.println("Dias: "+dias);
+                if (pd.isBefore(now) && dias <= 7){
+                    m.setEstado(CONGELADA);
+                } else if (pd.isBefore(now) && dias > 7 && dias <= 14){
+                    m.setEstado(CERRADA);
+                } else if (pd.isBefore(now) && dias > 14){
+                    //BORRAR LA CUENTA
+                }
+            }
+        }
+    }
     
     /**
      * @param args the command line arguments
@@ -859,14 +884,17 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         LibroFisico otro = new LibroFisico("Proyectos para estudiantes", "Ramon SF", "No Ficción", "Español", "Un libro con trabajos para alumnos, en los cuales moriran entre terribles sufrimientos", "2", 1);
         listaLibros.Agregar(otro);
         listaLibros.Agregar(libro);
+        LocalDate date = LocalDate.of(2024, 5, 27);
         ListaSE<Miembro> listaMiembros = new ListaSE<Miembro>();
         ListaSE<Operacion> historial = new ListaSE();
         ListaSE<Prestamo> activos = new ListaSE();
         Miembro miembro = new Miembro("M0001", "Angel Rogelio", "Camacho Romero", "kelo.camachoromero@gmail.com", activos, historial, EstadoCuenta.ACTIVA);
+        Prestamo prestamo = new Prestamo(libro, "27/05/2024", miembro);
+        prestamo.setDate(date);
+        miembro.getHistorialPrestamos().Agregar(prestamo);
+        miembro.getPrestamosActivos().Agregar(prestamo);
         listaMiembros.Agregar(miembro);
-        System.out.println(listaMiembros.Obtener(0).toString());
         Catalogo catalogo = new Catalogo(listaLibros);
-        System.out.println(catalogo.getListaLibros().Obtener(0).toString());
         Biblioteca biblio = new Biblioteca(catalogo, listaMiembros);
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

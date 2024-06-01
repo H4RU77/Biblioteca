@@ -5,16 +5,15 @@
 package org.clases;
 
 
+
 public abstract class Operacion {
     protected Libro libro;
-    protected int tiempo;
-    protected double monto;
+    protected String fecha;
     protected Miembro folio;
     
-    public Operacion(Libro libro, int tiempo, double monto, Miembro folio){
+    public Operacion(Libro libro, String fecha, Miembro folio){
         this.libro = libro;
-        this.tiempo = tiempo;
-        this.monto = monto;
+        this.fecha = fecha;
         this.folio = folio;
     }
 
@@ -26,20 +25,12 @@ public abstract class Operacion {
         this.libro = libro;
     }
 
-    public int getTiempo() {
-        return tiempo;
+    public String getTiempo() {
+        return fecha;
     }
 
-    public void setTiempo(int tiempo) {
-        this.tiempo = tiempo;
-    }
-
-    public double getMonto() {
-        return monto;
-    }
-
-    public void setMonto(double monto) {
-        this.monto = monto;
+    public void setTiempo(String tiempo) {
+        this.fecha = tiempo;
     }
 
     public Miembro getFolio() {
