@@ -25,4 +25,8 @@ public class Prestamo extends Operacion{
     public void setDate(LocalDate date) {
         this.date = date;
     }
+    
+    public String mostrar() {
+        return "PRESTAMO: [Titulo: "+libro.getTitulo()+", ISBN: "+libro.getISBN()+", Fecha límite de devolución: "+fecha+", Id de Miembro: "+folio.getID()+"]";
+    }
 }

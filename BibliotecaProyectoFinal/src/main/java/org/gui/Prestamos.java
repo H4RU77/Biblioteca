@@ -207,6 +207,7 @@ public class Prestamos extends javax.swing.JPanel {
                                     p.setDate(now);
                                     miembro.getPrestamosActivos().Agregar(p);
                                     miembro.getHistorialPrestamos().Agregar(p);
+                                    biblio.getOperaciones().Agregar(p);
                                     JOptionPane.showMessageDialog(null, "¡Prestamo realizado satisfactoriamente!");
                                 } else if(miembro.getEstado().equals(CONGELADA)){
                                     JOptionPane.showMessageDialog(null, "La cuenta esta congelada, por favor realizar los pagos correspondientes para reactivarla");
@@ -225,6 +226,7 @@ public class Prestamos extends javax.swing.JPanel {
                                 p.setDate(now);
                                 miembro.getPrestamosActivos().Agregar(p);
                                 miembro.getHistorialPrestamos().Agregar(p);
+                                biblio.getOperaciones().Agregar(p);
                                 JOptionPane.showMessageDialog(null, "¡Prestamo realizado satisfactoriamente!");
                             } else if(miembro.getEstado().equals(CONGELADA)){
                                 JOptionPane.showMessageDialog(null, "La cuenta esta congelada, por favor realizar los pagos correspondientes para reactivarla");

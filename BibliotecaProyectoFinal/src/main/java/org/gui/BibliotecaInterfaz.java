@@ -672,7 +672,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_prestamosOptPMouseClicked
 
     private void devolucionesOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesOptPMouseClicked
-        Devoluciones d = new Devoluciones(biblio.getMiembroLista(), biblio.getCatalogo().getListaLibros());
+        Devoluciones d = new Devoluciones(biblio);
         changeContent(d);
     }//GEN-LAST:event_devolucionesOptPMouseClicked
 
@@ -687,7 +687,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_catalogoOptPMouseClicked
 
     private void logsOptPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsOptPMouseClicked
-        changeContent(new Logs());
+        changeContent(new Logs(biblio.getOperaciones()));
     }//GEN-LAST:event_logsOptPMouseClicked
 
     private void principalLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_principalLMouseClicked
@@ -711,12 +711,12 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_prestamosImgLMouseClicked
 
     private void devolucionesLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesLMouseClicked
-        Devoluciones d = new Devoluciones(biblio.getMiembroLista(), biblio.getCatalogo().getListaLibros());
+        Devoluciones d = new Devoluciones(biblio);
         changeContent(d);
     }//GEN-LAST:event_devolucionesLMouseClicked
 
     private void devolucionesImgLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_devolucionesImgLMouseClicked
-        Devoluciones d = new Devoluciones(biblio.getMiembroLista(), biblio.getCatalogo().getListaLibros());
+        Devoluciones d = new Devoluciones(biblio);
         changeContent(d);
     }//GEN-LAST:event_devolucionesImgLMouseClicked
 
@@ -864,7 +864,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
                 } else if (pd.isBefore(now) && dias > 7 && dias <= 14){
                     m.setEstado(CERRADA);
                 } else if (pd.isBefore(now) && dias > 14){
-                    //BORRAR LA CUENTA
+                    ms.Eliminar(i);
                 }
             }
         }
@@ -884,18 +884,14 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         LibroFisico otro = new LibroFisico("Proyectos para estudiantes", "Ramon SF", "No Ficción", "Español", "Un libro con trabajos para alumnos, en los cuales moriran entre terribles sufrimientos", "2", 1);
         listaLibros.Agregar(otro);
         listaLibros.Agregar(libro);
-        LocalDate date = LocalDate.of(2024, 5, 27);
         ListaSE<Miembro> listaMiembros = new ListaSE<Miembro>();
         ListaSE<Operacion> historial = new ListaSE();
         ListaSE<Prestamo> activos = new ListaSE();
         Miembro miembro = new Miembro("M0001", "Angel Rogelio", "Camacho Romero", "kelo.camachoromero@gmail.com", activos, historial, EstadoCuenta.ACTIVA);
-        Prestamo prestamo = new Prestamo(libro, "27/05/2024", miembro);
-        prestamo.setDate(date);
-        miembro.getHistorialPrestamos().Agregar(prestamo);
-        miembro.getPrestamosActivos().Agregar(prestamo);
         listaMiembros.Agregar(miembro);
+        ListaSE<Operacion> operaciones = new ListaSE();
         Catalogo catalogo = new Catalogo(listaLibros);
-        Biblioteca biblio = new Biblioteca(catalogo, listaMiembros);
+        Biblioteca biblio = new Biblioteca(catalogo, listaMiembros, operaciones);
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

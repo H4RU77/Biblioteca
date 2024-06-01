@@ -4,6 +4,9 @@
  */
 package org.gui;
 
+import org.clases.ListaSE;
+import org.clases.Operacion;
+
 /**
  *
  * @author Keloc
@@ -13,8 +16,11 @@ public class Logs extends javax.swing.JPanel {
     /**
      * Creates new form Logs
      */
-    public Logs() {
+    private ListaSE<Operacion> operaciones;
+    public Logs(ListaSE<Operacion> operaciones) {
         initComponents();
+        this.operaciones = operaciones;
+        initOp();
     }
 
     /**
@@ -28,6 +34,8 @@ public class Logs extends javax.swing.JPanel {
 
         logsIP = new javax.swing.JPanel();
         logsTextL = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        logsTP = new javax.swing.JTextPane();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(611, 362));
@@ -36,23 +44,33 @@ public class Logs extends javax.swing.JPanel {
         logsIP.setMinimumSize(new java.awt.Dimension(611, 362));
         logsIP.setPreferredSize(new java.awt.Dimension(611, 362));
 
-        logsTextL.setText("LOGS ");
+        logsTextL.setForeground(new java.awt.Color(0, 0, 0));
+        logsTextL.setText("Logs de Operaciones");
+
+        logsTP.setEditable(false);
+        jScrollPane1.setViewportView(logsTP);
 
         javax.swing.GroupLayout logsIPLayout = new javax.swing.GroupLayout(logsIP);
         logsIP.setLayout(logsIPLayout);
         logsIPLayout.setHorizontalGroup(
             logsIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(logsIPLayout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(logsTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(365, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(logsTextL, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addGap(472, 472, 472))
+            .addGroup(logsIPLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         logsIPLayout.setVerticalGroup(
             logsIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(logsIPLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
+                .addContainerGap()
                 .addComponent(logsTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -66,10 +84,19 @@ public class Logs extends javax.swing.JPanel {
             .addComponent(logsIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void initOp(){
+        String res = "";
+        for (int i = 0; i<operaciones.tamanio(); i++){
+            res = res.concat(operaciones.Obtener(i).mostrar()+"\n");
+        }
+        logsTP.setText(res);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel logsIP;
+    private javax.swing.JTextPane logsTP;
     private javax.swing.JLabel logsTextL;
     // End of variables declaration//GEN-END:variables
 }

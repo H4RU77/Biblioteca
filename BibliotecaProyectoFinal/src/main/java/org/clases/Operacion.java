@@ -41,5 +41,5 @@ public abstract class Operacion {
         this.folio = folio;
     }
     
-    
+    public abstract String mostrar();
 }
