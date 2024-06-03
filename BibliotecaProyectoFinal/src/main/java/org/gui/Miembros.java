@@ -105,6 +105,11 @@ public class Miembros extends javax.swing.JPanel {
         });
 
         editEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVA", "CONGELADA", "CERRADA" }));
+        editEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editEstadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout editPLayout = new javax.swing.GroupLayout(editP);
         editP.setLayout(editPLayout);
@@ -653,6 +658,10 @@ public class Miembros extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_buscadorTFFocusLost
+
+    private void editEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editEstadoActionPerformed
     
     private void changePanel(JPanel p){
         p.setSize(this.getWidth(), this.getHeight());
