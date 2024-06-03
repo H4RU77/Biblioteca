@@ -1,6 +1,7 @@
 package org.clases;
+import java.io.Serializable;
 import java.time.LocalDate;
-public class Prestamo extends Operacion{
+public class Prestamo extends Operacion implements Serializable{
 
     private boolean devuelto = false;
     private LocalDate date;

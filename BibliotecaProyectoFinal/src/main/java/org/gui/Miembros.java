@@ -6,6 +6,9 @@ package org.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -105,11 +108,6 @@ public class Miembros extends javax.swing.JPanel {
         });
 
         editEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVA", "CONGELADA", "CERRADA" }));
-        editEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editEstadoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout editPLayout = new javax.swing.GroupLayout(editP);
         editP.setLayout(editPLayout);
@@ -544,6 +542,9 @@ public class Miembros extends javax.swing.JPanel {
 
     private void editarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarBtnMouseClicked
         try {
+            File miembros = new File("src/main/java/org/persistencia/miembros");
+            FileOutputStream mOut = new FileOutputStream(miembros);
+            ObjectOutputStream miemOut = new ObjectOutputStream(mOut);
             int row = tablaMiembros.getSelectedRow();
             if (row == -1){
                 JOptionPane.showMessageDialog(null, "Selecciona una fila para editar");
@@ -566,6 +567,7 @@ public class Miembros extends javax.swing.JPanel {
                     Miembro anterior = listaMiembros.Obtener(pos);
                     Miembro editado = new Miembro(id, nom, ape, email, anterior.getPrestamosActivos(), anterior.getHistorialPrestamos(), estado);
                     listaMiembros.editar(editado, pos);
+                    miemOut.writeObject(listaMiembros);
                     setTable(listaMiembros);
                 }
             }
@@ -580,6 +582,9 @@ public class Miembros extends javax.swing.JPanel {
 
     private void borrarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarBtnMouseClicked
         try {
+            File miembros = new File("src/main/java/org/persistencia/miembros");
+            FileOutputStream mOut = new FileOutputStream(miembros);
+            ObjectOutputStream miemOut = new ObjectOutputStream(mOut);
             int row = tablaMiembros.getSelectedRow();
             if (row == -1){
                 JOptionPane.showMessageDialog(null, "Selecciona una fila para borrar");
@@ -589,6 +594,7 @@ public class Miembros extends javax.swing.JPanel {
                 int res = JOptionPane.showConfirmDialog(null, "Esta acción eliminará al miembro seleccionado, ¿Desea continuar?", "Advertencia", JOptionPane.OK_CANCEL_OPTION);
                 if (res == JOptionPane.OK_OPTION){
                     listaMiembros.Eliminar(pos);
+                    miemOut.writeObject(listaMiembros);
                     JOptionPane.showMessageDialog(null, "Miembro eliminado satisfactoriamente");
                     setTable(listaMiembros);
                 }
@@ -658,10 +664,6 @@ public class Miembros extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_buscadorTFFocusLost
-
-    private void editEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editEstadoActionPerformed
     
     private void changePanel(JPanel p){
         p.setSize(this.getWidth(), this.getHeight());

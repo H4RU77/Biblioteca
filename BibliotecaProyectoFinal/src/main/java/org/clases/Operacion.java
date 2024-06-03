@@ -4,9 +4,11 @@
  */
 package org.clases;
 
+import java.io.Serializable;
 
 
-public abstract class Operacion {
+
+public abstract class Operacion implements Serializable{
     protected Libro libro;
     protected String fecha;
     protected Miembro folio;

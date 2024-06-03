@@ -5,6 +5,12 @@
 package org.gui;
 
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -207,29 +213,45 @@ public class Devoluciones extends javax.swing.JPanel {
     
     //Realizar devolucion
     private void realizarDevolucion(Prestamo p) {
-        //Marcar devuelto
-        p.setDevuelto(true);
-        LocalDate limite = p.getDate();
-        Devolucion dev = new Devolucion(p.getLibro(), hoy, calcularMonto(now, limite), p.getFolio());
-        
-        //Mensaje de pago
-        if (calcularMonto(now, limite) > 0){
-            JOptionPane.showMessageDialog(null, "El miembro debe pagar la siguiente cantdidas debido a una entrega extemporanea: "+calcularMonto(now, limite));
-        }
-        
-        //Elimar prestamo
-        Miembro miembro = p.getFolio();
-        if (p.getLibro() instanceof LibroFisico){
-            LibroFisico lib = (LibroFisico) p.getLibro();
-            lib.setCantidad(lib.getCantidad()+1);
-        }
-        ListaSE<Prestamo> prestamoActivo = miembro.getPrestamosActivos();
-        System.out.println(prestamoActivo.indiceDe(p));
-        prestamoActivo.Eliminar(prestamoActivo.indiceDe(p));
-        
-        //Agregar al historial
-        miembro.getHistorialPrestamos().Agregar(dev);
-        biblio.getOperaciones().Agregar(dev);
+        try {
+            //Ficheros
+            File logs = new File("src/main/java/org/persistencia/logs");
+            File logsP = new File("src/main/java/org/persistencia/logsP");
+            FileOutputStream lOut= new FileOutputStream(logsP);
+            ObjectOutputStream logsOut = new ObjectOutputStream(lOut);
+            FileWriter fw = new FileWriter(logs, true);
+            PrintWriter pw = new PrintWriter(fw, true);
+            
+            //Marcar devuelto
+            p.setDevuelto(true);
+            LocalDate limite = p.getDate();
+            Devolucion dev = new Devolucion(p.getLibro(), hoy, calcularMonto(now, limite), p.getFolio());
+
+            //Mensaje de pago
+            if (calcularMonto(now, limite) > 0){
+                JOptionPane.showMessageDialog(null, "El miembro debe pagar la siguiente cantdidas debido a una entrega extemporanea: "+calcularMonto(now, limite));
+            }
+
+            //Elimar prestamo
+            Miembro miembro = p.getFolio();
+            if (p.getLibro() instanceof LibroFisico){
+                LibroFisico lib = (LibroFisico) p.getLibro();
+                lib.setCantidad(lib.getCantidad()+1);
+            }
+            ListaSE<Prestamo> prestamoActivo = miembro.getPrestamosActivos();
+            System.out.println(prestamoActivo.indiceDe(p));
+            prestamoActivo.Eliminar(prestamoActivo.indiceDe(p));
+
+            //Agregar al historial
+            miembro.getHistorialPrestamos().Agregar(dev);
+            biblio.getOperaciones().Agregar(dev);
+            pw.print(dev.mostrar());
+            logsOut.writeObject(biblio.getOperaciones());
+        } catch(IOException io){
+            JOptionPane.showMessageDialog(null, io.getMessage());
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } 
     }
     
     private void initPrestamos(){

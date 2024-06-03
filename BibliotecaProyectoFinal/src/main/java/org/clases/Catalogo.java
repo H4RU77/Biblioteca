@@ -1,10 +1,12 @@
 package org.clases;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Keloc
  */
-public class Catalogo {
+public class Catalogo implements Serializable{
     public ListaSE<Libro> listaLibros;
 
     public Catalogo(ListaSE<Libro> listaLibros) {

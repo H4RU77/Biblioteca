@@ -1,7 +1,9 @@
 
 package org.clases;
 
-public class LibroDigital extends Libro{
+import java.io.Serializable;
+
+public class LibroDigital extends Libro implements Serializable{
     private final String formato;
 
     public LibroDigital(String titulo, String autor, String genero,

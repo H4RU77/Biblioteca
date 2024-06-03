@@ -5,6 +5,11 @@
 package org.gui;
 
 import java.awt.Color;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import org.clases.EstadoCuenta;
 import org.clases.ListaSE;
@@ -21,7 +26,7 @@ public class Registro extends javax.swing.JPanel {
     /**
      * Creates new form Registro
      */
-    ListaSE<Miembro> listaM;
+    private ListaSE<Miembro> listaM;
     public Registro(ListaSE<Miembro> listaM) {
         initComponents();
         initStyles();
@@ -176,6 +181,9 @@ public class Registro extends javax.swing.JPanel {
 
     private void registroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroBtnMouseClicked
         try {
+            File miembros = new File("src/main/java/org/persistencia/miembros");
+            FileOutputStream mOut = new FileOutputStream(miembros);
+            ObjectOutputStream miemOut = new ObjectOutputStream(mOut);
             int n = (int) Math.floor(Math.random()*10000);
             String id = "M".concat(String.valueOf(n));
             String nombre = nombreTF.getText();
@@ -185,6 +193,7 @@ public class Registro extends javax.swing.JPanel {
             ListaSE<Prestamo> prestamosA = new ListaSE();
             Miembro m = new Miembro(id, nombre, apellidos, email, prestamosA, historial, EstadoCuenta.ACTIVA);
             listaM.Agregar(m);
+            miemOut.writeObject(listaM);
             JOptionPane.showMessageDialog(null, "¡Miembro agregado satisfactoriamente!");
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());

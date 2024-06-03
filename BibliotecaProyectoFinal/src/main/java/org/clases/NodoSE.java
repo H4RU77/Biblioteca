@@ -1,6 +1,8 @@
 package org.clases;
 
-public class NodoSE<T> {
+import java.io.Serializable;
+
+public class NodoSE<T> implements Serializable{
     private T dato;
 
     private NodoSE<T> siguiente;

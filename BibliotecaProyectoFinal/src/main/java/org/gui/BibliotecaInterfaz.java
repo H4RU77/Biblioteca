@@ -8,11 +8,22 @@ import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Image;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.clases.*;
 import static org.clases.EstadoCuenta.*;
@@ -850,23 +861,31 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }
     
     private void validarCuentas(ListaSE<Miembro> ms){
-        LocalDate now = LocalDate.now();
-        for (int i = 0; i<ms.tamanio(); i++){
-            Miembro m = ms.Obtener(i);
-            ListaSE<Prestamo> ps = m.getPrestamosActivos();
-            for (int j = 0; j<ps.tamanio(); j++){
-                Prestamo p = ps.Obtener(j);
-                LocalDate pd = p.getDate();
-                long dias = ChronoUnit.DAYS.between(pd, now);
-                System.out.println("Dias: "+dias);
-                if (pd.isBefore(now) && dias <= 7){
-                    m.setEstado(CONGELADA);
-                } else if (pd.isBefore(now) && dias > 7 && dias <= 14){
-                    m.setEstado(CERRADA);
-                } else if (pd.isBefore(now) && dias > 14){
-                    ms.Eliminar(i);
+        File mem = new File("src/main/java/org/persistencia/miembros");
+        try {
+            FileOutputStream lOut= new FileOutputStream(mem);
+            ObjectOutputStream logsOut = new ObjectOutputStream(lOut);
+            LocalDate now = LocalDate.now();
+            for (int i = 0; i<ms.tamanio(); i++){
+                Miembro m = ms.Obtener(i);
+                ListaSE<Prestamo> ps = m.getPrestamosActivos();
+                for (int j = 0; j<ps.tamanio(); j++){
+                    Prestamo p = ps.Obtener(j);
+                    LocalDate pd = p.getDate();
+                    long dias = ChronoUnit.DAYS.between(pd, now);
+                    System.out.println("Dias: "+dias);
+                    if (pd.isBefore(now) && dias <= 7){
+                        m.setEstado(CONGELADA);
+                    } else if (pd.isBefore(now) && dias > 7 && dias <= 14){
+                        m.setEstado(CERRADA);
+                    } else if (pd.isBefore(now) && dias > 14){
+                        ms.Eliminar(i);
+                    }
                 }
             }
+            logsOut.writeObject(ms);
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
     
@@ -880,16 +899,45 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         ListaSE<Libro> listaLibros = new ListaSE<Libro>();
-        LibroFisico libro = new LibroFisico("Librito", "Rogelio Camacho", "Fantasia", "Español", "Un librito muy entretenido", "1", 1);
-        LibroFisico otro = new LibroFisico("Proyectos para estudiantes", "Ramon SF", "No Ficción", "Español", "Un libro con trabajos para alumnos, en los cuales moriran entre terribles sufrimientos", "2", 1);
-        listaLibros.Agregar(otro);
-        listaLibros.Agregar(libro);
         ListaSE<Miembro> listaMiembros = new ListaSE<Miembro>();
-        ListaSE<Operacion> historial = new ListaSE();
-        ListaSE<Prestamo> activos = new ListaSE();
-        Miembro miembro = new Miembro("M0001", "Angel Rogelio", "Camacho Romero", "kelo.camachoromero@gmail.com", activos, historial, EstadoCuenta.ACTIVA);
-        listaMiembros.Agregar(miembro);
         ListaSE<Operacion> operaciones = new ListaSE();
+        
+        //Ficheros
+        File logs = new File("src/main/java/org/persistencia/logs");
+        File logsP = new File("src/main/java/org/persistencia/logsP");
+        File miembros = new File("src/main/java/org/persistencia/miembros");
+        File cat = new File("src/main/java/org/persistencia/catalogo");
+        try {
+            if (!logs.exists()){
+                logs.createNewFile();
+            }
+            if (!logsP.exists()){
+                logsP.createNewFile();
+            }
+            if (!miembros.exists()){
+                miembros.createNewFile();
+            }
+            if (!cat.exists()){
+                cat.createNewFile();
+            }
+            
+            FileInputStream lIn= new FileInputStream(logsP);
+            ObjectInputStream logsIn = new ObjectInputStream(lIn);
+            FileInputStream mIn = new FileInputStream(miembros);
+            ObjectInputStream miemIn = new ObjectInputStream(mIn);
+            FileInputStream cIn= new FileInputStream(cat);
+            ObjectInputStream catIn = new ObjectInputStream(cIn);
+            
+            operaciones = (ListaSE<Operacion>) logsIn.readObject();
+            listaMiembros = (ListaSE<Miembro>) miemIn.readObject();
+            listaLibros = (ListaSE<Libro>) catIn.readObject();
+        }catch(IOException e){
+            e.printStackTrace();
+            e.getMessage();
+        } catch(ClassNotFoundException nf){
+            nf.printStackTrace();
+            nf.getMessage();
+        }
         Catalogo catalogo = new Catalogo(listaLibros);
         Biblioteca biblio = new Biblioteca(catalogo, listaMiembros, operaciones);
         try {
