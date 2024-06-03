@@ -63,8 +63,6 @@ public class CatalogoContentP extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         descTA = new javax.swing.JTextArea();
         isbnL = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jEditorPane1 = new javax.swing.JEditorPane();
         EditarLibro = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -72,18 +70,15 @@ public class CatalogoContentP extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         editTitu = new javax.swing.JTextField();
         editAuto = new javax.swing.JTextField();
         editIdio = new javax.swing.JTextField();
         editGene = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
         editIsbn = new javax.swing.JTextField();
         editDesc = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        editCantForm = new javax.swing.JTextField();
+        CantForm = new javax.swing.JLabel();
         catalogoIP = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCatalogo = new javax.swing.JTable();
@@ -217,8 +212,6 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        jScrollPane3.setViewportView(jEditorPane1);
-
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -237,14 +230,8 @@ public class CatalogoContentP extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Idioma");
 
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Formato");
-
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Descripcion");
-
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Cantidad");
 
         editTitu.setText("jTextField2");
 
@@ -254,20 +241,14 @@ public class CatalogoContentP extends javax.swing.JPanel {
 
         editGene.setText("jTextField2");
 
-        jTextField6.setText("jTextField2");
-
         editIsbn.setText("jTextField2");
 
         editDesc.setText("jTextField2");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
+        editCantForm.setText("jTextField2");
 
-        jButton1.setText("Ok!");
+        CantForm.setForeground(new java.awt.Color(51, 51, 51));
+        CantForm.setText("Cantidad");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -276,6 +257,10 @@ public class CatalogoContentP extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(CantForm, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(editCantForm))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(67, 67, 67)
@@ -295,20 +280,11 @@ public class CatalogoContentP extends javax.swing.JPanel {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                                    .addComponent(editIsbn)
-                                    .addComponent(editDesc)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(editIsbn)
+                            .addComponent(editDesc))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -334,24 +310,20 @@ public class CatalogoContentP extends javax.swing.JPanel {
                         .addComponent(editIdio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CantForm, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(3, 3, 3)
+                        .addComponent(editCantForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(editDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addGap(3, 3, 3)
+                        .addComponent(editDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -622,38 +594,45 @@ public class CatalogoContentP extends javax.swing.JPanel {
             if (row == -1) {
                 JOptionPane.showMessageDialog(null, "Selecciona una fila para editar");
             } else {
-                String titu = (String) tablaCatalogo.getValueAt(row, 0);
-                String auto = (String) tablaCatalogo.getValueAt(row, 1);
-                String gen = (String) tablaCatalogo.getValueAt(row, 2);
-                String idio = (String) tablaCatalogo.getValueAt(row, 3);
-                String isbn = (String) tablaCatalogo.getValueAt(row, 4);
-                String desc = (String) tablaCatalogo.getValueAt(row, 7);
-                editTitu.setText(titu);
-                editAuto.setText(auto);
-                editGene.setText(gen);
-                editIdio.setText(idio);
-                editIsbn.setText(isbn);
-                editDesc.setText(desc);
-                int res = JOptionPane.showConfirmDialog(null, EditarLibro, "Edición de datos de un Libro", JOptionPane.OK_CANCEL_OPTION);
+                String title = (String) tablaCatalogo.getValueAt(row, 0);
+                String autor = (String) tablaCatalogo.getValueAt(row, 1);
+                String tipo = (String) tablaCatalogo.getValueAt(row, 3);
+                if (tipo.equals("Libro Fisico") && buscarLibro(title, autor, tipo) != null) {                 
+                    LibroFisico libro = (LibroFisico) buscarLibro(title, autor, tipo); 
+                    CantForm.setText("Cantidad: ");
+                    editTitu.setText(title);
+                    editAuto.setText(autor);
+                    editCantForm.setText(String.valueOf(libro.getCantidad()));                    
+                    editIdio.setText(libro.getIdioma());
+                    editGene.setText(libro.getGenero());
+                    editIsbn.setText(libro.getISBN());
+                    editDesc.setText(libro.getDesc());
+                    JOptionPane.showMessageDialog(null, EditarLibro);
+                }
+                else if (buscarLibro(title, autor, tipo) != null && tipo.equals("Libro Digital")) {
+                    LibroDigital libro = (LibroDigital) buscarLibro(title, autor, tipo); 
+                    CantForm.setText("Formatos: ");
+                    editTitu.setText(title);
+                    editAuto.setText(autor);
+                    editCantForm.setText(libro.getFormato());
+                    editGene.setText(libro.getGenero());
+                    editIdio.setText(libro.getIdioma());
+                    editDesc.setText(libro.getDesc());
+                    editIsbn.setText(libro.getISBN());
+                JOptionPane.showMessageDialog(null, EditarLibro);}
+                else {
+                    JOptionPane.showMessageDialog(null, "El libro no esta guardado correctamente en el sistema :(");
+                }
+                int res = JOptionPane.showConfirmDialog(null, EditarLibro, "Edición de datos de un Miembro", JOptionPane.OK_CANCEL_OPTION);
                 if (res == JOptionPane.OK_OPTION) {
-                    titu = editTitu.getText();
-                    auto = editAuto.getText();
-                    gen = editGene.getText();
-                    int pos = buscarLibro(titu,auto, );
-                    libro anterior = listaLibros.Obtener(pos);
-                    Miembro editado = new Miembro(id, nom, ape, email, anterior.getPrestamosActivos(), anterior.getHistorialPrestamos(), estado);
-                    listaMiembros.editar(editado, pos);
-                    setTable(listaMiembros);
-                
-            }
+                    title = editTitu.getText();
+                    autor = editAuto.getText();
+                }
+            }        
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_EditActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void idiomaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idiomaTFActionPerformed
         // TODO add your handling code here:
@@ -687,8 +666,8 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 }
             }
         }
-        return null;
-    }
+        return null;    }
+
     private void setTable(ListaSE<Libro> l){
         String[] tblH = {"Título", "Autor", "Genero", "Tipo"};
         DefaultTableModel model = new DefaultTableModel(tblH, 0);
@@ -702,6 +681,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Anadir;
     private javax.swing.JButton Borrar;
+    private javax.swing.JLabel CantForm;
     private javax.swing.JButton Edit;
     private javax.swing.JPanel EditarLibro;
     private javax.swing.JRadioButton autorF;
@@ -713,6 +693,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JLabel descL;
     private javax.swing.JTextArea descTA;
     private javax.swing.JTextField editAuto;
+    private javax.swing.JTextField editCantForm;
     private javax.swing.JTextField editDesc;
     private javax.swing.JTextField editGene;
     private javax.swing.JTextField editIdio;
@@ -727,28 +708,21 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JButton inspeccionarBtn;
     private javax.swing.JPanel inspectP;
     private javax.swing.JLabel isbnL;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton7;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTable tablaCatalogo;
     private javax.swing.JLabel textoL;
     private javax.swing.JRadioButton tituloF;
