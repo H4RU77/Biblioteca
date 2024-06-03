@@ -69,8 +69,22 @@ public class CatalogoContentP extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         descTA = new javax.swing.JTextArea();
         isbnL = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jEditorPane1 = new javax.swing.JEditorPane();
+        EditarLibro = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        editTitu = new javax.swing.JTextField();
+        editAuto = new javax.swing.JTextField();
+        editIdio = new javax.swing.JTextField();
+        editGene = new javax.swing.JTextField();
+        editIsbn = new javax.swing.JTextField();
+        editDesc = new javax.swing.JTextField();
+        editCantForm = new javax.swing.JTextField();
+        CantForm = new javax.swing.JLabel();
         catalogoIP = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCatalogo = new javax.swing.JTable();
@@ -194,7 +208,137 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        jScrollPane3.setViewportView(jEditorPane1);
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Autor");
+
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Titulo");
+
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Genero");
+
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("ISBN");
+
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("Idioma");
+
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7.setText("Descripcion");
+
+        editTitu.setText("jTextField2");
+
+        editAuto.setText("jTextField2");
+
+        editIdio.setText("jTextField2");
+
+        editGene.setText("jTextField2");
+
+        editIsbn.setText("jTextField2");
+
+        editDesc.setText("jTextField2");
+
+        editCantForm.setText("jTextField2");
+
+        CantForm.setForeground(new java.awt.Color(51, 51, 51));
+        CantForm.setText("Cantidad");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(CantForm, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(editCantForm))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(editTitu))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(editAuto, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editGene)
+                            .addComponent(editIdio, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(67, 67, 67)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editIsbn)
+                            .addComponent(editDesc))))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editTitu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editAuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(editGene, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(editIdio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CantForm, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(editCantForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(editDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout EditarLibroLayout = new javax.swing.GroupLayout(EditarLibro);
+        EditarLibro.setLayout(EditarLibroLayout);
+        EditarLibroLayout.setHorizontalGroup(
+            EditarLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EditarLibroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        EditarLibroLayout.setVerticalGroup(
+            EditarLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EditarLibroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(611, 362));
@@ -431,8 +575,63 @@ public class CatalogoContentP extends javax.swing.JPanel {
             }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }   
-    }    
+        }
+    }//GEN-LAST:event_inspeccionarBtnActionPerformed
+
+    private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
+        // TODO add your handling code here:
+        try {
+            int row = tablaCatalogo.getSelectedRow();
+            if (row == -1) {
+                JOptionPane.showMessageDialog(null, "Selecciona una fila para editar");
+            } else {
+                String title = (String) tablaCatalogo.getValueAt(row, 0);
+                String autor = (String) tablaCatalogo.getValueAt(row, 1);
+                String tipo = (String) tablaCatalogo.getValueAt(row, 3);
+                if (tipo.equals("Libro Fisico") && buscarLibro(title, autor, tipo) != null) {                 
+                    LibroFisico libro = (LibroFisico) buscarLibro(title, autor, tipo); 
+                    CantForm.setText("Cantidad: ");
+                    editTitu.setText(title);
+                    editAuto.setText(autor);
+                    editCantForm.setText(String.valueOf(libro.getCantidad()));                    
+                    editIdio.setText(libro.getIdioma());
+                    editGene.setText(libro.getGenero());
+                    editIsbn.setText(libro.getISBN());
+                    editDesc.setText(libro.getDesc());
+                    JOptionPane.showMessageDialog(null, EditarLibro);
+                }
+                else if (buscarLibro(title, autor, tipo) != null && tipo.equals("Libro Digital")) {
+                    LibroDigital libro = (LibroDigital) buscarLibro(title, autor, tipo); 
+                    CantForm.setText("Formatos: ");
+                    editTitu.setText(title);
+                    editAuto.setText(autor);
+                    editCantForm.setText(libro.getFormato());
+                    editGene.setText(libro.getGenero());
+                    editIdio.setText(libro.getIdioma());
+                    editDesc.setText(libro.getDesc());
+                    editIsbn.setText(libro.getISBN());
+                JOptionPane.showMessageDialog(null, EditarLibro);}
+                else {
+                    JOptionPane.showMessageDialog(null, "El libro no esta guardado correctamente en el sistema :(");
+                }
+                int res = JOptionPane.showConfirmDialog(null, EditarLibro, "Edición de datos de un Miembro", JOptionPane.OK_CANCEL_OPTION);
+                if (res == JOptionPane.OK_OPTION) {
+                    title = editTitu.getText();
+                    autor = editAuto.getText();
+                }
+            }        
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_EditActionPerformed
+
+    private void idiomaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idiomaTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idiomaTFActionPerformed
+
+    private void cantFormTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantFormTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cantFormTFActionPerformed
     
     private void changePanel(JPanel p){
         p.setSize(this.getWidth(), this.getHeight());
@@ -458,8 +657,8 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 }
             }
         }
-        return null;
-    }
+        return null;    }
+
     private void setTable(ListaSE<Libro> l){
         String[] tblH = {"Título", "Autor", "Genero", "Tipo"};
         DefaultTableModel model = new DefaultTableModel(tblH, 0);
@@ -473,6 +672,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Anadir;
     private javax.swing.JButton Borrar;
+    private javax.swing.JLabel CantForm;
     private javax.swing.JButton Edit;
     private javax.swing.JRadioButton autorF;
     private javax.swing.JLabel autorL;
@@ -482,6 +682,13 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JPanel catalogoIP;
     private javax.swing.JLabel descL;
     private javax.swing.JTextArea descTA;
+    private javax.swing.JTextField editAuto;
+    private javax.swing.JTextField editCantForm;
+    private javax.swing.JTextField editDesc;
+    private javax.swing.JTextField editGene;
+    private javax.swing.JTextField editIdio;
+    private javax.swing.JTextField editIsbn;
+    private javax.swing.JTextField editTitu;
     private javax.swing.ButtonGroup filtroBusqueda;
     private javax.swing.JRadioButton generoF;
     private javax.swing.JLabel generoL;
@@ -494,12 +701,17 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JButton jButton7;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tablaCatalogo;
     private javax.swing.JLabel textoL;
