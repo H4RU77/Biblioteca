@@ -5,7 +5,7 @@ package org.clases;
  * @author Keloc
  */
 public class Catalogo {
-    protected ListaSE<Libro> listaLibros;
+    public ListaSE<Libro> listaLibros;
 
     public Catalogo(ListaSE<Libro> listaLibros) {
         this.listaLibros = listaLibros;
