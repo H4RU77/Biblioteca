@@ -25,16 +25,29 @@ public class CatalogoContentP extends javax.swing.JPanel {
     /**
      * Creates new form CatalogoContentP
      */
+//<<<<<<< Upstream, based on 669a244721f622f0f3340c6f66500310118edaea
+//=======
+    
+    public CatalogoContentP(ListaSE<Libro> listaLibros) {
+        initComponents();
+        this.listaLibros = listaLibros;
+        setTable(listaLibros);
+        filtroBusqueda.add(tituloF);
+        filtroBusqueda.add(autorF);
+        filtroBusqueda.add(generoF);
+        
+    }
+//>>>>>>> 1e87e65 algo del catalogo
     private ListaSE<Libro> listaLibros;
     public Catalogo cat = new Catalogo(listaLibros);
-    public CatalogoContentP(ListaSE<Libro> listaLibros) {
+   /* public CatalogoContentP(ListaSE<Libro> listaLibros) {
         initComponents();
         this.listaLibros = listaLibros;
         setTable(listaLibros);
         filtroBusqueda.add(tituloF);
         filtroBusqueda.add(autorF); 
         filtroBusqueda.add(generoF);
-    }
+    } */
 
     
     /**
@@ -639,12 +652,12 @@ public class CatalogoContentP extends javax.swing.JPanel {
                     titu = editTitu.getText();
                     auto = editAuto.getText();
                     gen = editGene.getText();
-                    int pos = buscarLibro(titu,auto, );
-                    libro anterior = listaLibros.Obtener(pos);
+                    /* int pos = buscarLibro(titu,auto, gen);
+                    Libro anterior = listaLibros.Obtener(pos);
                     Miembro editado = new Miembro(id, nom, ape, email, anterior.getPrestamosActivos(), anterior.getHistorialPrestamos(), estado);
                     listaMiembros.editar(editado, pos);
-                    setTable(listaMiembros);
-                
+                    setTable(listaMiembros); */
+                }
             }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
