@@ -71,6 +71,16 @@ public class CatalogoContentP extends javax.swing.JPanel {
         isbnL = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
+        EditarLibro = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        editTitu = new javax.swing.JTextField();
+        editAuto = new javax.swing.JTextField();
+        editCantForm = new javax.swing.JTextField();
+        editIdio = new javax.swing.JTextField();
+        editGene = new javax.swing.JTextField();
+        editIsbn = new javax.swing.JTextField();
+        editDesc = new javax.swing.JTextField();
+        CantForm = new javax.swing.JLabel();
         catalogoIP = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCatalogo = new javax.swing.JTable();
@@ -196,6 +206,81 @@ public class CatalogoContentP extends javax.swing.JPanel {
 
         jScrollPane3.setViewportView(jEditorPane1);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        editTitu.setText("jTextField2");
+
+        editAuto.setText("jTextField2");
+
+        editCantForm.setText("jTextField2");
+
+        editIdio.setText("jTextField2");
+
+        editGene.setText("jTextField2");
+
+        editIsbn.setText("jTextField2");
+
+        editDesc.setText("jTextField2");
+
+        CantForm.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(CantForm)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editGene, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editIdio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editCantForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editAuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editTitu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(80, 80, 80))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(editTitu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(editAuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editCantForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CantForm))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(editIdio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(editGene, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(editIsbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(editDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout EditarLibroLayout = new javax.swing.GroupLayout(EditarLibro);
+        EditarLibro.setLayout(EditarLibroLayout);
+        EditarLibroLayout.setHorizontalGroup(
+            EditarLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EditarLibroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        EditarLibroLayout.setVerticalGroup(
+            EditarLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EditarLibroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(611, 362));
 
@@ -258,6 +343,11 @@ public class CatalogoContentP extends javax.swing.JPanel {
         Borrar.setText("Borrar");
 
         Edit.setText("Editar");
+        Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditActionPerformed(evt);
+            }
+        });
 
         Anadir.setText("Añadir");
         Anadir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -431,8 +521,63 @@ public class CatalogoContentP extends javax.swing.JPanel {
             }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }   
-    }    
+        }
+    }                                               
+
+    private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
+        // TODO add your handling code here:
+        try {
+            int row = tablaCatalogo.getSelectedRow();
+            if (row == -1) {
+                JOptionPane.showMessageDialog(null, "Selecciona una fila para editar");
+            } else {
+                String title = (String) tablaCatalogo.getValueAt(row, 0);
+                String autor = (String) tablaCatalogo.getValueAt(row, 1);
+                String tipo = (String) tablaCatalogo.getValueAt(row, 3);
+                if (tipo.equals("Libro Fisico") && buscarLibro(title, autor, tipo) != null) {                 
+                    LibroFisico libro = (LibroFisico) buscarLibro(title, autor, tipo); 
+                    CantForm.setText("Cantidad: ");
+                    editTitu.setText(title);
+                    editAuto.setText(autor);
+                    editCantForm.setText(String.valueOf(libro.getCantidad()));                    
+                    editIdio.setText(libro.getIdioma());
+                    editGene.setText(libro.getGenero());
+                    editIsbn.setText(libro.getISBN());
+                    editDesc.setText(libro.getDesc());
+                    JOptionPane.showMessageDialog(null, EditarLibro);
+                }
+                else if (buscarLibro(title, autor, tipo) != null && tipo.equals("Libro Digital")) {
+                    LibroDigital libro = (LibroDigital) buscarLibro(title, autor, tipo); 
+                    CantForm.setText("Formatos: ");
+                    editTitu.setText(title);
+                    editAuto.setText(autor);
+                    editCantForm.setText(libro.getFormato());
+                    editGene.setText(libro.getGenero());
+                    editIdio.setText(libro.getIdioma());
+                    editDesc.setText(libro.getDesc());
+                    editIsbn.setText(libro.getISBN());
+                JOptionPane.showMessageDialog(null, EditarLibro);}
+                else {
+                    JOptionPane.showMessageDialog(null, "El libro no esta guardado correctamente en el sistema :(");
+                }
+                int res = JOptionPane.showConfirmDialog(null, EditarLibro, "Edición de datos de un Miembro", JOptionPane.OK_CANCEL_OPTION);
+                if (res == JOptionPane.OK_OPTION) {
+                    title = editTitu.getText();
+                    autor = editAuto.getText();
+                }
+            }        
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_EditActionPerformed
+
+    private void idiomaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idiomaTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idiomaTFActionPerformed
+
+    private void cantFormTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantFormTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cantFormTFActionPerformed
     
     private void changePanel(JPanel p){
         p.setSize(this.getWidth(), this.getHeight());
@@ -458,8 +603,8 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 }
             }
         }
-        return null;
-    }
+        return null;    }
+
     private void setTable(ListaSE<Libro> l){
         String[] tblH = {"Título", "Autor", "Genero", "Tipo"};
         DefaultTableModel model = new DefaultTableModel(tblH, 0);
@@ -473,7 +618,9 @@ public class CatalogoContentP extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Anadir;
     private javax.swing.JButton Borrar;
+    private javax.swing.JLabel CantForm;
     private javax.swing.JButton Edit;
+    private javax.swing.JPanel EditarLibro;
     private javax.swing.JRadioButton autorF;
     private javax.swing.JLabel autorL;
     private javax.swing.JTextField autorTF;
@@ -482,6 +629,13 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JPanel catalogoIP;
     private javax.swing.JLabel descL;
     private javax.swing.JTextArea descTA;
+    private javax.swing.JTextField editAuto;
+    private javax.swing.JTextField editCantForm;
+    private javax.swing.JTextField editDesc;
+    private javax.swing.JTextField editGene;
+    private javax.swing.JTextField editIdio;
+    private javax.swing.JTextField editIsbn;
+    private javax.swing.JTextField editTitu;
     private javax.swing.ButtonGroup filtroBusqueda;
     private javax.swing.JRadioButton generoF;
     private javax.swing.JLabel generoL;
@@ -497,6 +651,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
