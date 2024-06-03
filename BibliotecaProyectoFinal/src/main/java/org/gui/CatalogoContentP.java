@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import org.clases.Catalogo;
 import org.clases.Biblioteca;
 import org.clases.Libro;
 import org.clases.LibroDigital;
@@ -25,33 +26,17 @@ public class CatalogoContentP extends javax.swing.JPanel {
      * Creates new form CatalogoContentP
      */
     
-    public CatalogoContentP(ListaSE<Libro> listaCatalogo) {
+    public CatalogoContentP(ListaSE<Libro> listaLibros) {
         initComponents();
-        this.listaCatalogo = listaCatalogo;
-        setTable(listaCatalogo);
+        setTable(listaLibros);
         filtroBusqueda.add(tituloF);
         filtroBusqueda.add(autorF);
         filtroBusqueda.add(generoF);
         
     }
-    private ListaSE<Libro> listaCatalogo;
-    private ListaSE<Libro> filtered = new ListaSE();
-
-    public ListaSE<Libro> getListaCatalogo() {
-        return listaCatalogo;
-    }
-
-    public void setListaCatalogo(ListaSE<Libro> listaCatalogo) {
-        this.listaCatalogo = listaCatalogo;
-    }
-
-    public ListaSE<Libro> getFiltered() {
-        return filtered;
-    }
-
-    public void setFiltered(ListaSE<Libro> filtered) {
-        this.filtered = filtered;
-    }
+    private ListaSE<Libro> listaLibros;
+    public Catalogo cat = new Catalogo(listaLibros);
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -388,7 +373,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnadirActionPerformed
-       changePanel(new LibroRegistro(listaCatalogo));
+       changePanel(new LibroRegistro(listaLibros));
     }//GEN-LAST:event_AnadirActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -457,13 +442,13 @@ public class CatalogoContentP extends javax.swing.JPanel {
         System.out.println(titulo);
         System.out.println(autor);
         System.out.println(tipo);
-        for(int i = 0; i<listaCatalogo.tamanio(); i++){
-            System.out.println(listaCatalogo.Obtener(i).mostrar());
-            if (listaCatalogo.Obtener(i).getTitulo().equals(titulo) && listaCatalogo.Obtener(i).getAutor().equals(autor)){
-                if (tipo.equals("Libro Fisico") && listaCatalogo.Obtener(i) instanceof LibroFisico){
-                    return listaCatalogo.Obtener(i);
-                } else if (tipo.equals("Libro Digital") && listaCatalogo.Obtener(i) instanceof LibroDigital){
-                    return listaCatalogo.Obtener(i);
+        for(int i = 0; i<listaLibros.tamanio(); i++){
+            System.out.println(listaLibros.Obtener(i).mostrar());
+            if (listaLibros.Obtener(i).getTitulo().equals(titulo) && listaLibros.Obtener(i).getAutor().equals(autor)){
+                if (tipo.equals("Libro Fisico") && listaLibros.Obtener(i) instanceof LibroFisico){
+                    return listaLibros.Obtener(i);
+                } else if (tipo.equals("Libro Digital") && listaLibros.Obtener(i) instanceof LibroDigital){
+                    return listaLibros.Obtener(i);
                 }
             }
         }
@@ -516,4 +501,12 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JLabel tituloL;
     private javax.swing.JTextField tituloTF;
     // End of variables declaration//GEN-END:variables
+
+    public ListaSE<Libro> getListaLibros() {
+        return listaLibros;
+    }
+
+    public void setListaLibros(ListaSE<Libro> listaLibros) {
+        this.listaLibros = listaLibros;
+    }
 }
