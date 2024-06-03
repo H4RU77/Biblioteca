@@ -1,6 +1,8 @@
 package org.clases;
 
-public class LibroFisico extends Libro{
+import java.io.Serializable;
+
+public class LibroFisico extends Libro implements Serializable{
     private int cantidad;
 
     public LibroFisico(String titulo, String autor, String genero,

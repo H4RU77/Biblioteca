@@ -4,6 +4,11 @@
  */
 package org.gui;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -194,7 +199,9 @@ public class Prestamos extends javax.swing.JPanel {
                         }
                     }
                     if(ISBNactual!=""){
-
+                        File logsP = new File("src/main/java/org/persistencia/logsP");
+                        FileOutputStream lOut= new FileOutputStream(logsP);
+                        ObjectOutputStream logsOut = new ObjectOutputStream(lOut);
                         if(biblio.getCatalogo().getListaLibros().Obtener(indexLibro) instanceof LibroFisico){
                             //verificar disponibilidad
                             LibroFisico libro = (LibroFisico) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
@@ -202,12 +209,17 @@ public class Prestamos extends javax.swing.JPanel {
                             if(libro.getCantidad()>0){
                                 //hacer prestamo libro fisico
                                 if (miembro.getEstado().equals(ACTIVA)){
+                                    File logs = new File("src/main/java/org/persistencia/logs");
+                                    FileWriter fw = new FileWriter(logs, true);
+                                    PrintWriter pw = new PrintWriter(fw, true);
                                     libro.setCantidad(libro.getCantidad()-1);
                                     Prestamo p = new Prestamo(libro,fecha, miembro);
                                     p.setDate(now);
                                     miembro.getPrestamosActivos().Agregar(p);
                                     miembro.getHistorialPrestamos().Agregar(p);
                                     biblio.getOperaciones().Agregar(p);
+                                    pw.print(p.mostrar());
+                                    logsOut.writeObject(biblio.getOperaciones());
                                     JOptionPane.showMessageDialog(null, "¡Prestamo realizado satisfactoriamente!");
                                 } else if(miembro.getEstado().equals(CONGELADA)){
                                     JOptionPane.showMessageDialog(null, "La cuenta esta congelada, por favor realizar los pagos correspondientes para reactivarla");
@@ -222,11 +234,16 @@ public class Prestamos extends javax.swing.JPanel {
                             LibroDigital libro = (LibroDigital) biblio.getCatalogo().getListaLibros().Obtener(indexLibro);
                             Miembro miembro = biblio.getMiembroLista().Obtener(indexMiembro);
                             if (miembro.getEstado().equals(ACTIVA)){
+                                File logs = new File("src/main/java/org/persistencia/logs");
+                                FileWriter fw = new FileWriter(logs, true);
+                                PrintWriter pw = new PrintWriter(fw, true);
                                 Prestamo p = new Prestamo(libro,fecha, miembro);
                                 p.setDate(now);
                                 miembro.getPrestamosActivos().Agregar(p);
                                 miembro.getHistorialPrestamos().Agregar(p);
                                 biblio.getOperaciones().Agregar(p);
+                                pw.print(p.mostrar());
+                                logsOut.writeObject(biblio.getOperaciones());
                                 JOptionPane.showMessageDialog(null, "¡Prestamo realizado satisfactoriamente!");
                             } else if(miembro.getEstado().equals(CONGELADA)){
                                 JOptionPane.showMessageDialog(null, "La cuenta esta congelada, por favor realizar los pagos correspondientes para reactivarla");

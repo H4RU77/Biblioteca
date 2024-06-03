@@ -1,5 +1,8 @@
 package org.clases;
-public class ListaSE<T> implements IMetodos<T>{
+
+import java.io.Serializable;
+
+public class ListaSE<T> implements IMetodos<T>, Serializable{
     private NodoSE<T> cabeza;
     private int tamano;
 

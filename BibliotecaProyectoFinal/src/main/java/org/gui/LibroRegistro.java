@@ -5,6 +5,9 @@
 package org.gui;
 
 import java.awt.BorderLayout;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -254,6 +257,7 @@ public class LibroRegistro extends javax.swing.JPanel {
         if (tituloTF.getText().isBlank() || autorTF.getText().isBlank() || generoTF.getText().isBlank() || descTA.getText().isBlank() || idiomaTF.getText().isBlank()){
             JOptionPane.showMessageDialog(null, "Por Favor llena todos los campos");
         } else {
+            File cat = new File("src/main/java/org/persistencia/catalogo");
             String titulo = tituloTF.getText();
             String autor = autorTF.getText();
             String genero = generoTF.getText();
@@ -264,15 +268,20 @@ public class LibroRegistro extends javax.swing.JPanel {
             String ISBN = "L".concat(String.valueOf(n));
             if (tipo.equals("fisico")){
                 try {
+                    FileOutputStream cOut= new FileOutputStream(cat);
+                    ObjectOutputStream catOut = new ObjectOutputStream(cOut);
                     int cant = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la cantidad de libros"));
                     LibroFisico libro = new LibroFisico(titulo, autor, genero, idioma, desc, ISBN, cant);
                     listaCatalogo.Agregar(libro);
+                    catOut.writeObject(listaCatalogo);
                     JOptionPane.showMessageDialog(null, "¡Catalogo Actualizado!");
                 } catch(Exception e){
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             } else {
                 try {
+                    FileOutputStream cOut= new FileOutputStream(cat);
+                    ObjectOutputStream catOut = new ObjectOutputStream(cOut);
                     int res = JOptionPane.showConfirmDialog(null, formatosP, "Selección de Formatos", JOptionPane.OK_CANCEL_OPTION);
                     if (res == JOptionPane.OK_OPTION){
                         String formats = "";
@@ -283,6 +292,7 @@ public class LibroRegistro extends javax.swing.JPanel {
                         }
                         LibroDigital libro = new LibroDigital(titulo, autor, genero, idioma, desc, ISBN, formats);
                         listaCatalogo.Agregar(libro);
+                        catOut.writeObject(listaCatalogo);
                         JOptionPane.showMessageDialog(null, "¡Catalogo Actualizado!");
                     } 
                 } catch(Exception e){

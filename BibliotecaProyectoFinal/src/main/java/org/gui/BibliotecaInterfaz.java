@@ -8,11 +8,20 @@ import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Image;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.clases.*;
 import static org.clases.EstadoCuenta.*;
@@ -850,23 +859,31 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }
     
     private void validarCuentas(ListaSE<Miembro> ms){
-        LocalDate now = LocalDate.now();
-        for (int i = 0; i<ms.tamanio(); i++){
-            Miembro m = ms.Obtener(i);
-            ListaSE<Prestamo> ps = m.getPrestamosActivos();
-            for (int j = 0; j<ps.tamanio(); j++){
-                Prestamo p = ps.Obtener(j);
-                LocalDate pd = p.getDate();
-                long dias = ChronoUnit.DAYS.between(pd, now);
-                System.out.println("Dias: "+dias);
-                if (pd.isBefore(now) && dias <= 7){
-                    m.setEstado(CONGELADA);
-                } else if (pd.isBefore(now) && dias > 7 && dias <= 14){
-                    m.setEstado(CERRADA);
-                } else if (pd.isBefore(now) && dias > 14){
-                    ms.Eliminar(i);
+        File mem = new File("src/main/java/org/persistencia/miembros");
+        try {
+            FileOutputStream lOut= new FileOutputStream(mem);
+            ObjectOutputStream logsOut = new ObjectOutputStream(lOut);
+            LocalDate now = LocalDate.now();
+            for (int i = 0; i<ms.tamanio(); i++){
+                Miembro m = ms.Obtener(i);
+                ListaSE<Prestamo> ps = m.getPrestamosActivos();
+                for (int j = 0; j<ps.tamanio(); j++){
+                    Prestamo p = ps.Obtener(j);
+                    LocalDate pd = p.getDate();
+                    long dias = ChronoUnit.DAYS.between(pd, now);
+                    System.out.println("Dias: "+dias);
+                    if (pd.isBefore(now) && dias <= 7){
+                        m.setEstado(CONGELADA);
+                    } else if (pd.isBefore(now) && dias > 7 && dias <= 14){
+                        m.setEstado(CERRADA);
+                    } else if (pd.isBefore(now) && dias > 14){
+                        ms.Eliminar(i);
+                    }
                 }
             }
+            logsOut.writeObject(ms);
+        } catch (IOException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
     
@@ -892,6 +909,25 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         ListaSE<Operacion> operaciones = new ListaSE();
         Catalogo catalogo = new Catalogo(listaLibros);
         Biblioteca biblio = new Biblioteca(catalogo, listaMiembros, operaciones);
+        
+        //Ficheros
+        File logsP = new File("src/main/java/org/persistencia/logsP");
+        File miembros = new File("src/main/java/org/persistencia/miembros");
+        File cat = new File("src/main/java/org/persistencia/catalogo");
+        try {
+            if (!logsP.exists()){
+                logsP.createNewFile();
+            }
+            FileOutputStream lOut= new FileOutputStream(logsP);
+            ObjectOutputStream logsOut = new ObjectOutputStream(lOut);
+            FileOutputStream mOut = new FileOutputStream(miembros);
+            ObjectOutputStream miemOut = new ObjectOutputStream(mOut);
+            FileOutputStream cOut= new FileOutputStream(cat);
+            ObjectOutputStream catOut = new ObjectOutputStream(cOut);
+            
+        }catch(IOException e){
+            e.printStackTrace();
+        }
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

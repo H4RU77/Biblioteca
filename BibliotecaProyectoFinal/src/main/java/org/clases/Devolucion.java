@@ -4,12 +4,14 @@
  */
 package org.clases;
 
+import java.io.Serializable;
+
 
 /**
  *
  * @author Keloc
  */
-public class Devolucion extends Operacion{
+public class Devolucion extends Operacion implements Serializable{
     private double monto;
 
     public Devolucion(Libro libro, String fecha, double monto, Miembro folio) {

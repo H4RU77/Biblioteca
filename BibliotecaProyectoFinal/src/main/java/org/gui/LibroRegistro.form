@@ -82,7 +82,6 @@
         <Component class="javax.swing.JCheckBox" name="swf">
           <Properties>
             <Property name="text" type="java.lang.String" value="SWF"/>
-            <Property name="actionCommand" type="java.lang.String" value="SWF"/>
           </Properties>
         </Component>
       </SubComponents>

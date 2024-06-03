@@ -1,5 +1,8 @@
 package org.clases;
-public class  Miembro{
+
+import java.io.Serializable;
+
+public class  Miembro implements Serializable{
     private String ID;
     private String nombre;
     private String apellidos;

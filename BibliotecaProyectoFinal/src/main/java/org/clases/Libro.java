@@ -1,6 +1,8 @@
 package org.clases;
 
-public abstract class Libro {
+import java.io.Serializable;
+
+public abstract class Libro implements Serializable{
     protected String titulo;
     protected String autor;
     protected String genero;
