@@ -27,10 +27,16 @@ public class Principal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         bg = new javax.swing.JPanel();
         bienvenidoL = new javax.swing.JLabel();
         ayudaL = new javax.swing.JLabel();
         descL = new javax.swing.JLabel();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         setMinimumSize(new java.awt.Dimension(607, 347));
         setPreferredSize(new java.awt.Dimension(607, 347));
@@ -44,7 +50,7 @@ public class Principal extends javax.swing.JPanel {
 
         ayudaL.setText("<html>\nOperaciones:\n<ul>\n<li>Préstamos</li>\n<li>Devoluciones</li>\n<li>Registro y Edición de Miembros</li>\n<li>Registro y Edición de Libros</li>\n<li>Eliminar todo tipo de Registros</li>\n<li>Registrar y Consultar logs</li>\n</ul>\n</html>");
 
-        descL.setText("<html> Biblioteca {nombreBiblio} presenta sus sistema de gestion, que facilita el proceso de prestamo <br></br> y devolución de libros y su registro en una base de datos. <br></br> <br></br> Este Sistema permite el manejo del catalogo en una manera óptima y sencilla,  con una interfaz <br></br> llamativa y amigable con el usuario. </html>");
+        descL.setText("<html> Biblioteca \"Biblioteca de Alejandría\" presenta sus sistema de gestion, que facilita el proceso de prestamo <br></br> y devolución de libros y su registro en una base de datos. <br></br> <br></br> Este Sistema permite el manejo del catalogo en una manera óptima y sencilla,  con una interfaz <br></br> llamativa y amigable con el usuario. </html>");
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
@@ -97,5 +103,7 @@ private void initStyles(){
     private javax.swing.JPanel bg;
     private javax.swing.JLabel bienvenidoL;
     private javax.swing.JLabel descL;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
