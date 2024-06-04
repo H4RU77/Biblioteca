@@ -636,7 +636,7 @@ public class Miembros extends javax.swing.JPanel {
     private void buscarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarBtnMouseClicked
         try {
             if (buscadorTF.getText().isEmpty() || buscadorTF.getText().equals("Ingrese un dato de búsqueda...")){
-                
+                setTable(biblio.getMiembroLista());
             } else {
                 String filter = buscadorTF.getText().toUpperCase();
                 for(int i = 0; i < biblio.getMiembroLista().tamanio(); i++){
