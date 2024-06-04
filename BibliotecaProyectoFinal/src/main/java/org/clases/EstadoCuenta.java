@@ -1,5 +1,8 @@
 package org.clases;
-public enum EstadoCuenta {
+
+import java.io.Serializable;
+
+public enum EstadoCuenta implements Serializable{
     ACTIVA,
     CONGELADA,
     CERRADA

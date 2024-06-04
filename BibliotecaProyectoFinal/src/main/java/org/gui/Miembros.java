@@ -31,19 +31,15 @@ public class Miembros extends javax.swing.JPanel {
     /**
      * Creates new form Miembros
      */
-    private ListaSE<Miembro> listaMiembros;
+   
     private ListaSE<Miembro> filtered = new ListaSE();
 
-    public ListaSE<Miembro> getListaMiembros() {
-        return listaMiembros;
-    }
-
-    public void setListaMiembros(ListaSE<Miembro> listaMiembros) {
-        this.listaMiembros = listaMiembros;
-    }
+    
+    
+    private Biblioteca biblio;
     
     public Miembros(Biblioteca biblio) {
-        listaMiembros = biblio.getMiembroLista();
+        this.biblio = biblio;
         initComponents();
         initStyles();
     }
@@ -537,12 +533,15 @@ public class Miembros extends javax.swing.JPanel {
     }//GEN-LAST:event_buscadorTFActionPerformed
 
     private void nuevoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nuevoBtnMouseClicked
-        changePanel(new Registro(listaMiembros));
+        changePanel(new Registro(biblio.getMiembroLista()));
     }//GEN-LAST:event_nuevoBtnMouseClicked
 
     private void editarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editarBtnMouseClicked
         try {
-            File miembros = new File("src/main/java/org/persistencia/miembros");
+            File miembros = new File("src/main/java/org/persistencia/miembros.ser");
+            File prestamosActivos = new File("src/main/java/org/persistencia/prestamosActivos.ser");
+            FileOutputStream preActOut = new FileOutputStream(prestamosActivos);
+            ObjectOutputStream paOut = new ObjectOutputStream(preActOut);
             FileOutputStream mOut = new FileOutputStream(miembros);
             ObjectOutputStream miemOut = new ObjectOutputStream(mOut);
             int row = tablaMiembros.getSelectedRow();
@@ -564,11 +563,11 @@ public class Miembros extends javax.swing.JPanel {
                     email = editEmail.getText();
                     EstadoCuenta estado = EstadoCuenta.valueOf(editEstado.getSelectedItem().toString());
                     int pos = buscarPorId(id);
-                    Miembro anterior = listaMiembros.Obtener(pos);
+                    Miembro anterior = biblio.getMiembroLista().Obtener(pos);
                     Miembro editado = new Miembro(id, nom, ape, email, anterior.getPrestamosActivos(), anterior.getHistorialPrestamos(), estado);
-                    listaMiembros.editar(editado, pos);
-                    miemOut.writeObject(listaMiembros);
-                    setTable(listaMiembros);
+                    biblio.getMiembroLista().editar(editado, pos);
+                    miemOut.writeObject(biblio.getMiembroLista());
+                    setTable(biblio.getMiembroLista());
                 }
             }
         } catch(Exception e){
@@ -582,7 +581,7 @@ public class Miembros extends javax.swing.JPanel {
 
     private void borrarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarBtnMouseClicked
         try {
-            File miembros = new File("src/main/java/org/persistencia/miembros");
+            File miembros = new File("src/main/java/org/persistencia/miembros.ser");
             FileOutputStream mOut = new FileOutputStream(miembros);
             ObjectOutputStream miemOut = new ObjectOutputStream(mOut);
             int row = tablaMiembros.getSelectedRow();
@@ -593,10 +592,10 @@ public class Miembros extends javax.swing.JPanel {
                 int pos = buscarPorId(id);
                 int res = JOptionPane.showConfirmDialog(null, "Esta acción eliminará al miembro seleccionado, ¿Desea continuar?", "Advertencia", JOptionPane.OK_CANCEL_OPTION);
                 if (res == JOptionPane.OK_OPTION){
-                    listaMiembros.Eliminar(pos);
-                    miemOut.writeObject(listaMiembros);
+                    biblio.getMiembroLista().Eliminar(pos);
+                    miemOut.writeObject(biblio.getMiembroLista());
                     JOptionPane.showMessageDialog(null, "Miembro eliminado satisfactoriamente");
-                    setTable(listaMiembros);
+                    setTable(biblio.getMiembroLista());
                 }
             }
         } catch(Exception e){
@@ -612,11 +611,10 @@ public class Miembros extends javax.swing.JPanel {
             } else {
                 String id = (String) tablaMiembros.getValueAt(row, 0);
                 int pos = buscarPorId(id);
-                String nom = listaMiembros.Obtener(pos).getNombre();
-                String ape = listaMiembros.Obtener(pos).getApellidos();
+                String nom = biblio.getMiembroLista().Obtener(pos).getNombre();
+                String ape = biblio.getMiembroLista().Obtener(pos).getApellidos();
                 String fullNom = nom.concat(" "+ape);
-                ListaSE prestamos = listaMiembros.Obtener(pos).getPrestamosActivos();
-                ListaSE historial = listaMiembros.Obtener(pos).getHistorialPrestamos();
+                ListaSE<Operacion> historial = biblio.getMiembroLista().Obtener(pos).getHistorialPrestamos();
                 miembroL.setText(fullNom);
                 setHistorial(historial);
                 JOptionPane.showMessageDialog(null, inspectP);
@@ -641,8 +639,8 @@ public class Miembros extends javax.swing.JPanel {
                 
             } else {
                 String filter = buscadorTF.getText().toUpperCase();
-                for(int i = 0; i < listaMiembros.tamanio(); i++){
-                    Miembro m = listaMiembros.Obtener(i);
+                for(int i = 0; i < biblio.getMiembroLista().tamanio(); i++){
+                    Miembro m = biblio.getMiembroLista().Obtener(i);
                     if (m.getNombre().toUpperCase().contains(filter) || m.getApellidos().toUpperCase().contains(filter) || m.getID().toUpperCase().contains(filter) || m.getEmail().toUpperCase().contains(filter)){
                         filtered.Agregar(m);
                     }
@@ -696,7 +694,7 @@ public class Miembros extends javax.swing.JPanel {
         tablaMiembros.setModel(model);
     }
     
-    private void setHistorial(ListaSE<Prestamo> h){
+    private void setHistorial(ListaSE<Operacion> h){
         String op = "";
         String[] tblH = {"Titulo", "ISBN", "Fecha Límite/Entrega", "Sanción", "Operación"};
         DefaultTableModel model = new DefaultTableModel(tblH, 0);
@@ -716,13 +714,23 @@ public class Miembros extends javax.swing.JPanel {
     }
     
     public int buscarPorId(String id){
-        for (int i = 0; i < listaMiembros.tamanio(); i++){
-            if (listaMiembros.Obtener(i).getID() == id){
+        for (int i = 0; i < biblio.getMiembroLista().tamanio(); i++){
+            if (biblio.getMiembroLista().Obtener(i).getID() == id){
                 System.out.println(i);
                 return i;
             }
         }
         return -1;
+    }
+    
+    private ListaSE<Prestamo> buscarEnActivos(Miembro m){
+        ListaSE<Prestamo> filter = new ListaSE();
+        for (int i = 0; i<biblio.getActivos().tamanio(); i++){
+            if (biblio.getActivos().Obtener(i).getFolio().getID().equals(m.getID())){
+                filter.Agregar(biblio.getActivos().Obtener(i));
+            }
+        }
+        return filter;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel borrarBtn;
