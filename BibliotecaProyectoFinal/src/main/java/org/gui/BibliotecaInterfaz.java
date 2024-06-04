@@ -48,6 +48,8 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     public BibliotecaInterfaz(Biblioteca biblio) {
         initComponents();
         this.biblio = biblio;
+        initActivos(biblio);
+        initMiembros(biblio.getMiembroLista());
         initStyles();
         initContent();
         validarCuentas(biblio.getMiembroLista());
@@ -861,7 +863,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
     }
     
     private void validarCuentas(ListaSE<Miembro> ms){
-        File mem = new File("src/main/java/org/persistencia/miembros");
+        File mem = new File("src/main/java/org/persistencia/miembros.ser");
         try {
             FileOutputStream lOut= new FileOutputStream(mem);
             ObjectOutputStream logsOut = new ObjectOutputStream(lOut);
@@ -880,12 +882,60 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
                         m.setEstado(CERRADA);
                     } else if (pd.isBefore(now) && dias > 14){
                         ms.Eliminar(i);
+                        FileOutputStream memOut = new FileOutputStream(mem);
+                        ObjectOutputStream mOut = new ObjectOutputStream(memOut);
+                        mOut.writeObject(ms);
                     }
                 }
             }
             logsOut.writeObject(ms);
         } catch (IOException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+    
+    private void initActivos(Biblioteca b){
+        File prestamosActivos = new File("src/main/java/org/persistencia/prestamosActivos.ser");
+        for (int i = 0; i<b.getOperaciones().tamanio(); i++){
+            if (b.getOperaciones().Obtener(i) instanceof Prestamo && !((Prestamo) b.getOperaciones().Obtener(i)).isDevuelto()){
+                b.getActivos().Agregar((Prestamo) b.getOperaciones().Obtener(i));
+            }
+        }
+        try {
+            FileOutputStream preActOut = new FileOutputStream(prestamosActivos);
+            ObjectOutputStream paOut = new ObjectOutputStream(preActOut);
+            paOut.writeObject(b.getActivos());
+        } catch(IOException e){
+            e.getMessage();
+            e.printStackTrace();
+        }
+    }
+    
+    private ListaSE<Prestamo> buscarEnActivos(Miembro m){
+        ListaSE<Prestamo> filter = new ListaSE();
+        for (int i = 0; i<biblio.getActivos().tamanio(); i++){
+            if (biblio.getActivos().Obtener(i).getFolio().getID().equals(m.getID())){
+                filter.Agregar(biblio.getActivos().Obtener(i));
+            }
+        }
+        return filter;
+    }
+    
+    private ListaSE<Operacion> buscarEnHistorial(Miembro m){
+        ListaSE<Operacion> filter = new ListaSE();
+        for (int i = 0; i<biblio.getOperaciones().tamanio(); i++){
+            if (biblio.getOperaciones().Obtener(i).getFolio().getID().equals(m.getID())){
+                filter.Agregar(biblio.getOperaciones().Obtener(i));
+            }
+        }
+        return filter;
+    }
+    
+    private void initMiembros(ListaSE<Miembro> mList){
+        for (int i = 0; i<mList.tamanio(); i++){
+            Miembro m = mList.Obtener(i);
+            m.setPrestamosActivos(buscarEnActivos(m));
+            m.setHistorialPrestamos(buscarEnHistorial(m));
         }
     }
     
@@ -903,10 +953,11 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         ListaSE<Operacion> operaciones = new ListaSE();
         
         //Ficheros
-        File logs = new File("src/main/java/org/persistencia/logs");
-        File logsP = new File("src/main/java/org/persistencia/logsP");
-        File miembros = new File("src/main/java/org/persistencia/miembros");
-        File cat = new File("src/main/java/org/persistencia/catalogo");
+        File logs = new File("src/main/java/org/persistencia/logs.txt");
+        File logsP = new File("src/main/java/org/persistencia/logsP.ser");
+        File miembros = new File("src/main/java/org/persistencia/miembros.ser");
+        File cat = new File("src/main/java/org/persistencia/catalogo.ser");
+        File prestamosActivos = new File("src/main/java/org/persistencia/prestamosActivos.ser");
         try {
             if (!logs.exists()){
                 logs.createNewFile();
@@ -920,7 +971,11 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             if (!cat.exists()){
                 cat.createNewFile();
             }
-            
+            if (!prestamosActivos.exists()){
+                prestamosActivos.createNewFile();
+            }
+            FileWriter fw = new FileWriter(logs);
+            PrintWriter pw = new PrintWriter(fw);
             FileInputStream lIn= new FileInputStream(logsP);
             ObjectInputStream logsIn = new ObjectInputStream(lIn);
             FileInputStream mIn = new FileInputStream(miembros);
@@ -931,6 +986,10 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
             operaciones = (ListaSE<Operacion>) logsIn.readObject();
             listaMiembros = (ListaSE<Miembro>) miemIn.readObject();
             listaLibros = (ListaSE<Libro>) catIn.readObject();
+            for (int i = 0; i< operaciones.tamanio(); i++){
+                pw.print(operaciones.Obtener(i).mostrar()+"\n");
+            }
+            
         }catch(IOException e){
             e.printStackTrace();
             e.getMessage();

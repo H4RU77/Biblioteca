@@ -41,7 +41,7 @@ public class Devoluciones extends javax.swing.JPanel {
         initComponents();
         this.biblio = biblio;
         setHoy();
-        initPrestamos();
+        prestamos = biblio.getActivos();
     }
     
     private void setHoy(){
@@ -204,7 +204,7 @@ public class Devoluciones extends javax.swing.JPanel {
     private Prestamo buscarPrestamo (Miembro miembro, Libro libro) {
         for (int i = 0; i < prestamos.tamanio(); i++) {
             Prestamo prestamo = prestamos.Obtener(i);
-            if (prestamo.getFolio().equals(miembro) && prestamo.getLibro().equals(libro)) {
+            if (prestamo.getFolio().getID().equals(miembro.getID()) && prestamo.getLibro().getISBN().equals(libro.getISBN())) {
                 return prestamo;
             }
         }
@@ -215,8 +215,11 @@ public class Devoluciones extends javax.swing.JPanel {
     private void realizarDevolucion(Prestamo p) {
         try {
             //Ficheros
-            File logs = new File("src/main/java/org/persistencia/logs");
-            File logsP = new File("src/main/java/org/persistencia/logsP");
+            File logs = new File("src/main/java/org/persistencia/logs.txt");
+            File logsP = new File("src/main/java/org/persistencia/logsP.ser");
+            File prestamosActivos = new File("src/main/java/org/persistencia/prestamosActivos.ser");
+            FileOutputStream preActOut = new FileOutputStream(prestamosActivos);
+            ObjectOutputStream paOut = new ObjectOutputStream(preActOut);
             FileOutputStream lOut= new FileOutputStream(logsP);
             ObjectOutputStream logsOut = new ObjectOutputStream(lOut);
             FileWriter fw = new FileWriter(logs, true);
@@ -239,30 +242,20 @@ public class Devoluciones extends javax.swing.JPanel {
                 lib.setCantidad(lib.getCantidad()+1);
             }
             ListaSE<Prestamo> prestamoActivo = miembro.getPrestamosActivos();
-            System.out.println(prestamoActivo.indiceDe(p));
             prestamoActivo.Eliminar(prestamoActivo.indiceDe(p));
+            biblio.getActivos().Eliminar(biblio.getActivos().indiceDe(p));
 
             //Agregar al historial
             miembro.getHistorialPrestamos().Agregar(dev);
             biblio.getOperaciones().Agregar(dev);
-            pw.print(dev.mostrar());
+            pw.print(dev.mostrar()+"\n");
             logsOut.writeObject(biblio.getOperaciones());
+            paOut.writeObject(biblio.getActivos());
         } catch(IOException io){
             JOptionPane.showMessageDialog(null, io.getMessage());
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         } 
-    }
-    
-    private void initPrestamos(){
-        for (int i = 0; i < biblio.getMiembroLista().tamanio(); i++){
-            ListaSE<Prestamo> lista = biblio.getMiembroLista().Obtener(i).getPrestamosActivos();
-            if (lista.EsVacia() == false){
-                for (int j = 0; j < lista.tamanio(); j++){
-                    prestamos.Agregar(lista.Obtener(j));
-                }
-            }
-        }
     }
     
     private double calcularMonto(LocalDate now, LocalDate lim){

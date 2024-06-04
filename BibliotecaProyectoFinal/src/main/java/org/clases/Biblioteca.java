@@ -3,6 +3,7 @@ public class Biblioteca {
     private Catalogo catalogo;
     private ListaSE<Miembro> miembroLista;
     private ListaSE<Operacion> operaciones;
+    private ListaSE<Prestamo> activos = new ListaSE();
     
     public Biblioteca(Catalogo catalogo, ListaSE<Miembro> miembroLista, ListaSE<Operacion> operaciones){
         this.catalogo = catalogo;
@@ -33,4 +34,13 @@ public class Biblioteca {
     public void setOperaciones(ListaSE<Operacion> operaciones) {
         this.operaciones = operaciones;
     }
+
+    public ListaSE<Prestamo> getActivos() {
+        return activos;
+    }
+
+    public void setActivos(ListaSE<Prestamo> activos) {
+        this.activos = activos;
+    }
+    
 }

@@ -181,7 +181,7 @@ public class Registro extends javax.swing.JPanel {
 
     private void registroBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registroBtnMouseClicked
         try {
-            File miembros = new File("src/main/java/org/persistencia/miembros");
+            File miembros = new File("src/main/java/org/persistencia/miembros.ser");
             FileOutputStream mOut = new FileOutputStream(miembros);
             ObjectOutputStream miemOut = new ObjectOutputStream(mOut);
             int n = (int) Math.floor(Math.random()*10000);

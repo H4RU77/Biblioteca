@@ -257,7 +257,7 @@ public class LibroRegistro extends javax.swing.JPanel {
         if (tituloTF.getText().isBlank() || autorTF.getText().isBlank() || generoTF.getText().isBlank() || descTA.getText().isBlank() || idiomaTF.getText().isBlank()){
             JOptionPane.showMessageDialog(null, "Por Favor llena todos los campos");
         } else {
-            File cat = new File("src/main/java/org/persistencia/catalogo");
+            File cat = new File("src/main/java/org/persistencia/catalogo.ser");
             String titulo = tituloTF.getText();
             String autor = autorTF.getText();
             String genero = generoTF.getText();
