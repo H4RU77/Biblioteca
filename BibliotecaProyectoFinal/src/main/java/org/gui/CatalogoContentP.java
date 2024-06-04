@@ -804,19 +804,19 @@ public class CatalogoContentP extends javax.swing.JPanel {
         ListaSE<Libro> filtered = new ListaSE();
         if (filtroBusqueda.getSelection().getActionCommand().equals("TITULO")){
             for (int i = 0; i<cat.getListaLibros().tamanio(); i++){
-                if (cat.getListaLibros().Obtener(i).getTitulo().contains(s)){
+                if (cat.getListaLibros().Obtener(i).getTitulo().toUpperCase().contains(s.toUpperCase())){
                     filtered.Agregar(cat.getListaLibros().Obtener(i));
                 }
             }
         } else if (filtroBusqueda.getSelection().getActionCommand().equals("AUTOR")){
             for (int i = 0; i<cat.getListaLibros().tamanio(); i++){
-                if (cat.getListaLibros().Obtener(i).getAutor().contains(s)){
+                if (cat.getListaLibros().Obtener(i).getAutor().toUpperCase().contains(s.toUpperCase())){
                     filtered.Agregar(cat.getListaLibros().Obtener(i));
                 }
             }
         } else{
             for (int i = 0; i<cat.getListaLibros().tamanio(); i++){
-                if (cat.getListaLibros().Obtener(i).getGenero().contains(s)){
+                if (cat.getListaLibros().Obtener(i).getGenero().toUpperCase().contains(s.toUpperCase())){
                     filtered.Agregar(cat.getListaLibros().Obtener(i));
                 }
             }
