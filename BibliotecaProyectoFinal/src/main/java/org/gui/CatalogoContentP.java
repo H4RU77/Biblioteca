@@ -26,7 +26,7 @@ import org.clases.ListaSE;
 public class CatalogoContentP extends javax.swing.JPanel {
 
     private ListaSE<Libro> listaLibros;
-    public Catalogo cat = new Catalogo(listaLibros);
+    public Catalogo cat;
 
     /**
      * Creates new form CatalogoContentP
@@ -34,7 +34,8 @@ public class CatalogoContentP extends javax.swing.JPanel {
     
     public CatalogoContentP(ListaSE<Libro> listaLibros) {
         initComponents();
-        this.listaLibros = listaLibros;    
+        this.listaLibros = listaLibros;  
+        cat = new Catalogo(listaLibros);
         setTable(listaLibros);
         filtroBusqueda.add(tituloF);
         filtroBusqueda.add(autorF);
@@ -95,14 +96,14 @@ public class CatalogoContentP extends javax.swing.JPanel {
         catalogoIP = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCatalogo = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        buscador = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        fisicoOpt = new javax.swing.JCheckBox();
+        digitalOpt = new javax.swing.JCheckBox();
         Borrar = new javax.swing.JButton();
         Edit = new javax.swing.JButton();
         Anadir = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        buscarBtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         tituloF = new javax.swing.JRadioButton();
         autorF = new javax.swing.JRadioButton();
@@ -384,15 +385,15 @@ public class CatalogoContentP extends javax.swing.JPanel {
         tablaCatalogo.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tablaCatalogo);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        buscador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                buscadorActionPerformed(evt);
             }
         });
 
-        jCheckBox1.setText("Fisico");
+        fisicoOpt.setText("Fisico");
 
-        jCheckBox2.setText("Digital");
+        digitalOpt.setText("Digital");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -401,17 +402,17 @@ public class CatalogoContentP extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(fisicoOpt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(digitalOpt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(6, 6, 6))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCheckBox1)
+                .addComponent(fisicoOpt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCheckBox2)
+                .addComponent(digitalOpt)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -441,19 +442,22 @@ public class CatalogoContentP extends javax.swing.JPanel {
             }
         });
 
-        jButton7.setText("Buscar");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        buscarBtn.setText("Buscar");
+        buscarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                buscarBtnActionPerformed(evt);
             }
         });
 
         tituloF.setSelected(true);
         tituloF.setText("Titulo");
+        tituloF.setActionCommand("TITULO");
 
         autorF.setText("Autor");
+        autorF.setActionCommand("AUTOR");
 
         generoF.setText("Genero");
+        generoF.setActionCommand("GENERO");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -504,12 +508,12 @@ public class CatalogoContentP extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(catalogoIPLayout.createSequentialGroup()
                         .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1)
+                            .addComponent(buscador)
                             .addGroup(catalogoIPLayout.createSequentialGroup()
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(30, 30, 30)))
                         .addGap(23, 23, 23)
-                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buscarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(4, 4, 4)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(16, 16, 16))
@@ -520,9 +524,9 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(catalogoIPLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12)
@@ -552,17 +556,28 @@ public class CatalogoContentP extends javax.swing.JPanel {
        changePanel(new LibroRegistro(listaLibros));
     }//GEN-LAST:event_AnadirActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
+        String search = buscador.getText();
+        if (search.isBlank()){
+            setTable(listaLibros);
+        } else{
+            ListaSE<Libro> filtered = obtenerLibros(search);
+            if (filtered == null){
+                JOptionPane.showMessageDialog(null, "Selecciona un tipo de libro para buscar");
+            } else {
+                setTable(filtered);
+                filtered.borrarTodo();
+            }
+        }
+    }//GEN-LAST:event_buscarBtnActionPerformed
 
     private void AnadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AnadirMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_AnadirMouseClicked
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void buscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_buscadorActionPerformed
 
     private void inspeccionarBtnActionPerformed(java.awt.event.ActionEvent evt) {                                                
         try {
@@ -726,7 +741,6 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private void changePanel(JPanel p){
         p.setSize(this.getWidth(), this.getHeight());
         p.setLocation(0,0);
-        
         this.removeAll();
         this.add(p, BorderLayout.CENTER);
         this.revalidate();
@@ -747,7 +761,58 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 }
             }
         }
-        return null;    }
+        return null;    
+    }
+    
+    private ListaSE<Libro> obtenerLibros(String s){
+        ListaSE<Libro> filtered;
+        if (fisicoOpt.isSelected() && digitalOpt.isSelected()){
+            filtered = buscarLibros(s);
+        } else if(fisicoOpt.isSelected()){
+            ListaSE<Libro> temp = buscarLibros(s);
+            filtered = new ListaSE();
+            for (int i = 0; i<temp.tamanio(); i++){
+                if (temp.Obtener(i) instanceof LibroFisico){
+                    filtered.Agregar(temp.Obtener(i));
+                }
+            }
+        } else if(digitalOpt.isSelected()){
+            ListaSE<Libro> temp = buscarLibros(s);
+            filtered = new ListaSE();
+            for (int i = 0; i<temp.tamanio(); i++){
+                if (temp.Obtener(i) instanceof LibroDigital){
+                    filtered.Agregar(temp.Obtener(i));
+                }
+            }
+        } else {
+            filtered = null;
+        }
+        return filtered;
+    }
+    
+    private ListaSE<Libro> buscarLibros(String s){
+        ListaSE<Libro> filtered = new ListaSE();
+        if (filtroBusqueda.getSelection().equals("TITULO")){
+            for (int i = 0; i<listaLibros.tamanio(); i++){
+                if (listaLibros.Obtener(i).getTitulo().contains(s)){
+                    filtered.Agregar(listaLibros.Obtener(i));
+                }
+            }
+        } else if (filtroBusqueda.getSelection().equals("AUTOR")){
+            for (int i = 0; i<listaLibros.tamanio(); i++){
+                if (listaLibros.Obtener(i).getAutor().contains(s)){
+                    filtered.Agregar(listaLibros.Obtener(i));
+                }
+            }
+        } else{
+            for (int i = 0; i<listaLibros.tamanio(); i++){
+                if (listaLibros.Obtener(i).getGenero().contains(s)){
+                    filtered.Agregar(listaLibros.Obtener(i));
+                }
+            }
+        }
+        return filtered;
+    }
 
     private void setTable(ListaSE<Libro> l){
         String[] tblH = {"Título", "Autor", "Genero", "Tipo"};
@@ -769,11 +834,14 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JRadioButton autorF;
     private javax.swing.JLabel autorL;
     private javax.swing.JTextField autorTF;
+    private javax.swing.JTextField buscador;
+    private javax.swing.JButton buscarBtn;
     private javax.swing.JLabel cantFormL;
     private javax.swing.JTextField cantFormTF;
     private javax.swing.JPanel catalogoIP;
     private javax.swing.JLabel descL;
     private javax.swing.JTextArea descTA;
+    private javax.swing.JCheckBox digitalOpt;
     private javax.swing.JTextField editAuto;
     private javax.swing.JTextField editCantForm;
     private javax.swing.JTextField editDesc;
@@ -782,6 +850,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JTextField editIsbn;
     private javax.swing.JTextField editTitu;
     private javax.swing.ButtonGroup filtroBusqueda;
+    private javax.swing.JCheckBox fisicoOpt;
     private javax.swing.JRadioButton generoF;
     private javax.swing.JLabel generoL;
     private javax.swing.JTextField generoTF;
@@ -790,9 +859,6 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JButton inspeccionarBtn;
     private javax.swing.JPanel inspectP;
     private javax.swing.JLabel isbnL;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -807,7 +873,6 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tablaCatalogo;
     private javax.swing.JLabel textoL;
     private javax.swing.JRadioButton tituloF;
