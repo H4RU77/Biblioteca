@@ -40,7 +40,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
         filtroBusqueda.add(tituloF);
         filtroBusqueda.add(autorF);
         filtroBusqueda.add(generoF);
-        
+        initStyles();
     }
 //
    /* public CatalogoContentP(ListaSE<Libro> listaLibros) {
@@ -109,6 +109,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
         autorF = new javax.swing.JRadioButton();
         generoF = new javax.swing.JRadioButton();
         inspeccionarBtn = new javax.swing.JButton();
+        catL = new javax.swing.JLabel();
 
         tituloL.setText("Titulo:");
 
@@ -404,7 +405,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fisicoOpt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(digitalOpt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(6, 6, 6))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -470,7 +471,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 .addComponent(autorF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(generoF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(90, 90, 90))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -490,6 +491,10 @@ public class CatalogoContentP extends javax.swing.JPanel {
             }
         });
 
+        catL.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        catL.setForeground(new java.awt.Color(0, 0, 0));
+        catL.setText("Catálogo");
+
         javax.swing.GroupLayout catalogoIPLayout = new javax.swing.GroupLayout(catalogoIP);
         catalogoIP.setLayout(catalogoIPLayout);
         catalogoIPLayout.setHorizontalGroup(
@@ -497,41 +502,46 @@ public class CatalogoContentP extends javax.swing.JPanel {
             .addGroup(catalogoIPLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, catalogoIPLayout.createSequentialGroup()
-                        .addComponent(inspeccionarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(190, 190, 190)
-                        .addComponent(Anadir, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Borrar, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(catalogoIPLayout.createSequentialGroup()
                         .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buscador)
-                            .addGroup(catalogoIPLayout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(30, 30, 30)))
-                        .addGap(23, 23, 23)
-                        .addComponent(buscarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(4, 4, 4)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, catalogoIPLayout.createSequentialGroup()
+                                .addComponent(inspeccionarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(190, 190, 190)
+                                .addComponent(Anadir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(Borrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, catalogoIPLayout.createSequentialGroup()
+                                .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(buscador))
+                                .addGap(37, 37, 37)
+                                .addComponent(buscarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(16, 16, 16))
+                    .addGroup(catalogoIPLayout.createSequentialGroup()
+                        .addComponent(catL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(528, 528, 528))))
         );
         catalogoIPLayout.setVerticalGroup(
             catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(catalogoIPLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(catalogoIPLayout.createSequentialGroup()
-                        .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
+                .addComponent(catL)
                 .addGap(18, 18, 18)
+                .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, catalogoIPLayout.createSequentialGroup()
+                        .addComponent(buscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buscarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(catalogoIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Edit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Borrar, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
@@ -559,7 +569,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private void buscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBtnActionPerformed
         String search = buscador.getText();
         if (search.isBlank()){
-            setTable(listaLibros);
+            setTable(cat.getListaLibros());
         } else{
             ListaSE<Libro> filtered = obtenerLibros(search);
             if (filtered == null){
@@ -729,7 +739,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 if (res == JOptionPane.OK_OPTION) {
                     cat.eliminarLibro(libroFuera);
                     libOut.writeObject(cat.getListaLibros());
-                    JOptionPane.showMessageDialog(null, "Miembro eliminado satisfactoriamente");
+                    JOptionPane.showMessageDialog(null, "Libro eliminado satisfactoriamente");
                     setTable(cat.getListaLibros());
             }
             }
@@ -793,21 +803,21 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private ListaSE<Libro> buscarLibros(String s){
         ListaSE<Libro> filtered = new ListaSE();
         if (filtroBusqueda.getSelection().equals("TITULO")){
-            for (int i = 0; i<listaLibros.tamanio(); i++){
-                if (listaLibros.Obtener(i).getTitulo().contains(s)){
-                    filtered.Agregar(listaLibros.Obtener(i));
+            for (int i = 0; i<cat.getListaLibros().tamanio(); i++){
+                if (cat.getListaLibros().Obtener(i).getTitulo().contains(s)){
+                    filtered.Agregar(cat.getListaLibros().Obtener(i));
                 }
             }
         } else if (filtroBusqueda.getSelection().equals("AUTOR")){
-            for (int i = 0; i<listaLibros.tamanio(); i++){
-                if (listaLibros.Obtener(i).getAutor().contains(s)){
-                    filtered.Agregar(listaLibros.Obtener(i));
+            for (int i = 0; i<cat.getListaLibros().tamanio(); i++){
+                if (cat.getListaLibros().Obtener(i).getAutor().contains(s)){
+                    filtered.Agregar(cat.getListaLibros().Obtener(i));
                 }
             }
         } else{
-            for (int i = 0; i<listaLibros.tamanio(); i++){
-                if (listaLibros.Obtener(i).getGenero().contains(s)){
-                    filtered.Agregar(listaLibros.Obtener(i));
+            for (int i = 0; i<cat.getListaLibros().tamanio(); i++){
+                if (cat.getListaLibros().Obtener(i).getGenero().contains(s)){
+                    filtered.Agregar(cat.getListaLibros().Obtener(i));
                 }
             }
         }
@@ -824,6 +834,14 @@ public class CatalogoContentP extends javax.swing.JPanel {
         }
         tablaCatalogo.setModel(model);
     }
+    
+    private void initStyles(){
+        inspeccionarBtn.putClientProperty( "FlatLaf.style", "font: large $large.font" );
+        Anadir.putClientProperty( "FlatLaf.style", "font: large $large.font" );
+        Edit.putClientProperty( "FlatLaf.style", "font: large $large.font" );
+        Borrar.putClientProperty( "FlatLaf.style", "font: large $large.font" );
+        catL.putClientProperty( "FlatLaf.style", "font: h1 $h1.font" );
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Anadir;
     private javax.swing.JButton Borrar;
@@ -838,6 +856,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JButton buscarBtn;
     private javax.swing.JLabel cantFormL;
     private javax.swing.JTextField cantFormTF;
+    private javax.swing.JLabel catL;
     private javax.swing.JPanel catalogoIP;
     private javax.swing.JLabel descL;
     private javax.swing.JTextArea descTA;

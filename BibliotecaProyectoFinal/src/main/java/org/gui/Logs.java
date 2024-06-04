@@ -21,6 +21,7 @@ public class Logs extends javax.swing.JPanel {
         initComponents();
         this.operaciones = operaciones;
         initOp();
+        initStyles();
     }
 
     /**
@@ -56,21 +57,22 @@ public class Logs extends javax.swing.JPanel {
             logsIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(logsIPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(logsTextL, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                .addGap(472, 472, 472))
-            .addGroup(logsIPLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(logsIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(logsIPLayout.createSequentialGroup()
+                        .addComponent(logsTextL, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                        .addGap(472, 472, 472))
+                    .addGroup(logsIPLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         logsIPLayout.setVerticalGroup(
             logsIPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(logsIPLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(logsTextL, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                .addGap(29, 29, 29))
+                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -91,6 +93,10 @@ public class Logs extends javax.swing.JPanel {
             res = res.concat(operaciones.Obtener(i).mostrar()+"\n");
         }
         logsTP.setText(res);
+    }
+    
+    private void initStyles(){
+        logsTextL.putClientProperty("FlatLaf.style", "font: h1 $h1.font");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

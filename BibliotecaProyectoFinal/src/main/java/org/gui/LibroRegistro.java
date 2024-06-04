@@ -287,7 +287,7 @@ public class LibroRegistro extends javax.swing.JPanel {
                         String formats = "";
                         for (int i = 0; i<formatos.tamanio(); i++){
                             if (formatos.Obtener(i).isSelected()){
-                                formats += formatos.Obtener(i).getText();
+                                formats += " - "+formatos.Obtener(i).getText();
                             }
                         }
                         LibroDigital libro = new LibroDigital(titulo, autor, genero, idioma, desc, ISBN, formats);

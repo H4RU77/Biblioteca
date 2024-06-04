@@ -7,6 +7,7 @@ package org.gui;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.File;
@@ -208,7 +209,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
 
         prestamosL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         prestamosL.setForeground(new java.awt.Color(255, 255, 255));
-        prestamosL.setText("Prestamos");
+        prestamosL.setText("Préstamos");
         prestamosL.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 prestamosLMouseClicked(evt);
@@ -421,7 +422,7 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
 
         catalogoL.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         catalogoL.setForeground(new java.awt.Color(255, 255, 255));
-        catalogoL.setText("Catalogo");
+        catalogoL.setText("Catálogo");
         catalogoL.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 catalogoLMouseClicked(evt);
@@ -845,8 +846,8 @@ public class BibliotecaInterfaz extends javax.swing.JFrame {
         miembrosL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         catalogoL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
         logsL.putClientProperty( "FlatLaf.style", "font: large $large.font" );
-        textoL.putClientProperty( "FlatLaf.style", "font: large $medium.font" );
-        
+        textoL.putClientProperty( "FlatLaf.styleClass",  "h4");
+        textoL.setFont(textoL.getFont().deriveFont(Font.ITALIC));
     }
     
     private void initContent(){
