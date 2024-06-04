@@ -4,6 +4,7 @@
  */
 package org.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,6 +17,9 @@ import org.clases.ListaSE;
 import org.clases.Miembro;
 import org.clases.Operacion;
 import org.clases.Prestamo;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import javax.swing.JPanel;
 
 /**
  *
@@ -27,6 +31,8 @@ public class Registro extends javax.swing.JPanel {
      * Creates new form Registro
      */
     private ListaSE<Miembro> listaM;
+    private static final String EMAIL_PATTERN = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+    private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN);
     public Registro(ListaSE<Miembro> listaM) {
         initComponents();
         initStyles();
@@ -189,12 +195,16 @@ public class Registro extends javax.swing.JPanel {
             String nombre = nombreTF.getText();
             String apellidos = apeP.getText().concat(" "+apeM.getText());
             String email = emailTF.getText();
-            ListaSE<Operacion> historial = new ListaSE();
-            ListaSE<Prestamo> prestamosA = new ListaSE();
-            Miembro m = new Miembro(id, nombre, apellidos, email, prestamosA, historial, EstadoCuenta.ACTIVA);
-            listaM.Agregar(m);
-            miemOut.writeObject(listaM);
-            JOptionPane.showMessageDialog(null, "¡Miembro agregado satisfactoriamente!");
+            if (isValid(email)){
+                ListaSE<Operacion> historial = new ListaSE();
+                ListaSE<Prestamo> prestamosA = new ListaSE();
+                Miembro m = new Miembro(id, nombre, apellidos, email, prestamosA, historial, EstadoCuenta.ACTIVA);
+                listaM.Agregar(m);
+                miemOut.writeObject(listaM);
+                JOptionPane.showMessageDialog(null, "¡Miembro agregado satisfactoriamente!");
+            } else{
+                JOptionPane.showMessageDialog(null, "Ingresa un email valido");
+            }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -216,7 +226,16 @@ public class Registro extends javax.swing.JPanel {
         apeML.putClientProperty( "FlatLaf.style", "font: medium $medium.font" );
         emailL.putClientProperty( "FlatLaf.style", "font: medium $medium.font" );
     }
-
+    
+    public static boolean isValid(String email){
+        if (email == null) {
+            return false;
+        }
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apeM;
     private javax.swing.JLabel apeML;
