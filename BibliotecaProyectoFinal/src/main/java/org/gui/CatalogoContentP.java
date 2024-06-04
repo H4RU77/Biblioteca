@@ -5,6 +5,9 @@
 package org.gui;
 
 import java.awt.BorderLayout;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -527,6 +530,12 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
         // TODO add your handling code here:
         try {
+            File librosCat = new File("src/main/java/org/persistencia/catalogo.ser");
+            File prestamosActivos = new File("src/main/java/org/persistencia/prestamosActivos.ser");
+            FileOutputStream preActOut = new FileOutputStream(prestamosActivos);
+            ObjectOutputStream paOut = new ObjectOutputStream(preActOut);
+            FileOutputStream Libros = new FileOutputStream(librosCat);
+            ObjectOutputStream libroOut = new ObjectOutputStream(Libros);
             int row = tablaCatalogo.getSelectedRow();
             if (row == -1) {
                 JOptionPane.showMessageDialog(null, "Selecciona una fila para editar");
@@ -544,7 +553,22 @@ public class CatalogoContentP extends javax.swing.JPanel {
                     editGene.setText(libro.getGenero());
                     editIsbn.setText(libro.getISBN());
                     editDesc.setText(libro.getDesc());
-                    JOptionPane.showMessageDialog(null, EditarLibro);              
+                    int res = JOptionPane.showConfirmDialog(null, EditarLibro, "Edición de datos de un Libro", JOptionPane.OK_CANCEL_OPTION);
+                    if (res == JOptionPane.OK_OPTION) {
+                        String titu = editTitu.getText();     
+                        String auto = editAuto.getText();
+                        String canti = editCantForm.getText();
+                        String idio = editIdio.getText();
+                        String gene = editGene.getText();
+                        String isbn = editIsbn.getText();
+                        String desc = editDesc.getText();
+                        int posicion = row;
+                        Libro Anterior = libro;
+                        Libro Siguiente = new LibroFisico(titu,auto,gene,idio,desc,isbn,Integer.valueOf(canti));
+                        cat.getListaLibros().editar(Siguiente,posicion);
+                        libroOut.writeObject(cat.getListaLibros());
+                        setTable(cat.getListaLibros());
+                    }
                 }
                 else if (buscarLibro(title, autor, tipo) != null && tipo.equals("Libro Digital")) {
                     LibroDigital libro = (LibroDigital) buscarLibro(title, autor, tipo); 
