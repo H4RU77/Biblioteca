@@ -1,0 +1,5 @@
+PRESTAMO: [Titulo: Librito, ISBN: L6486, Fecha límite de devolución: 10/junio/2024, Id de Miembro: M8826]
+DEVOLUCIÓN: [Titulo: Librito, ISBN: L6486, Fecha de entrega: 03/junio/2024, Id de Miembro: M8826]
+PRESTAMO: [Titulo: Librito, ISBN: L6486, Fecha límite de devolución: 10/junio/2024, Id de Miembro: M8826]
+PRESTAMO: [Titulo: Libro, ISBN: L2999, Fecha límite de devolución: 10/junio/2024, Id de Miembro: M3279]
+PRESTAMO: [Titulo: Libro, ISBN: L2999, Fecha límite de devolución: 10/junio/2024, Id de M

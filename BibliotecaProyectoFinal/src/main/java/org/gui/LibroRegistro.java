@@ -299,7 +299,6 @@ public class LibroRegistro extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }
             }
-            changePanel(new CatalogoContentP(listaCatalogo));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -307,15 +306,7 @@ public class LibroRegistro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_epubActionPerformed
     
-    private void changePanel(JPanel p){
-        p.setSize(this.getWidth(), this.getHeight());
-        p.setLocation(0,0);
-        
-        this.removeAll();
-        this.add(p, BorderLayout.CENTER);
-        this.revalidate();
-        this.repaint();
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField autorTF;
