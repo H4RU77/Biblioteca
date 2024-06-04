@@ -22,13 +22,16 @@ import org.clases.ListaSE;
  */
 public class CatalogoContentP extends javax.swing.JPanel {
 
+    private ListaSE<Libro> listaLibros;
+    public Catalogo cat = new Catalogo(listaLibros);
+
     /**
      * Creates new form CatalogoContentP
      */
     
     public CatalogoContentP(ListaSE<Libro> listaLibros) {
         initComponents();
-        this.listaLibros = listaLibros;
+        this.listaLibros = listaLibros;    
         setTable(listaLibros);
         filtroBusqueda.add(tituloF);
         filtroBusqueda.add(autorF);
@@ -36,9 +39,6 @@ public class CatalogoContentP extends javax.swing.JPanel {
         
     }
 //
-
-    private ListaSE<Libro> listaLibros;
-    public Catalogo cat = new Catalogo(listaLibros);
    /* public CatalogoContentP(ListaSE<Libro> listaLibros) {
 =======
         filtroBusqueda.add(generoF);
@@ -544,7 +544,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
                     editGene.setText(libro.getGenero());
                     editIsbn.setText(libro.getISBN());
                     editDesc.setText(libro.getDesc());
-                    JOptionPane.showMessageDialog(null, EditarLibro);
+                    JOptionPane.showMessageDialog(null, EditarLibro);              
                 }
                 else if (buscarLibro(title, autor, tipo) != null && tipo.equals("Libro Digital")) {
                     LibroDigital libro = (LibroDigital) buscarLibro(title, autor, tipo); 
@@ -559,11 +559,6 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, EditarLibro);}
                 else {
                     JOptionPane.showMessageDialog(null, "El libro no esta guardado correctamente en el sistema :(");
-                }
-                int res = JOptionPane.showConfirmDialog(null, EditarLibro, "Edición de datos de un Miembro", JOptionPane.OK_CANCEL_OPTION);
-                if (res == JOptionPane.OK_OPTION) {
-                    title = editTitu.getText();
-                    autor = editAuto.getText();
                 }
             }        
         } catch(Exception e){
