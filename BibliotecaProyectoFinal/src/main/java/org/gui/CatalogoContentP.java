@@ -86,11 +86,12 @@ public class CatalogoContentP extends javax.swing.JPanel {
         CantForm = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        BorrarLibro = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         catalogoIP = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCatalogo = new javax.swing.JTable();
@@ -238,8 +239,6 @@ public class CatalogoContentP extends javax.swing.JPanel {
 
         jLabel2.setText("Autor:");
 
-        jLabel3.setText("Formatos:");
-
         jLabel4.setText("Idioma:");
 
         jLabel5.setText("Genero:");
@@ -253,23 +252,18 @@ public class CatalogoContentP extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(89, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(CantForm)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                        .addComponent(jLabel3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addComponent(CantForm)
+                                .addComponent(jLabel4))))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(editDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -295,8 +289,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editCantForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CantForm)
-                    .addComponent(jLabel3))
+                    .addComponent(CantForm))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editIdio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -330,6 +323,36 @@ public class CatalogoContentP extends javax.swing.JPanel {
             .addGroup(EditarLibroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 332, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 272, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout BorrarLibroLayout = new javax.swing.GroupLayout(BorrarLibro);
+        BorrarLibro.setLayout(BorrarLibroLayout);
+        BorrarLibroLayout.setHorizontalGroup(
+            BorrarLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BorrarLibroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        BorrarLibroLayout.setVerticalGroup(
+            BorrarLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BorrarLibroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -393,6 +416,11 @@ public class CatalogoContentP extends javax.swing.JPanel {
         );
 
         Borrar.setText("Borrar");
+        Borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrarActionPerformed(evt);
+            }
+        });
 
         Edit.setText("Editar");
         Edit.addActionListener(new java.awt.event.ActionListener() {
@@ -614,9 +642,13 @@ public class CatalogoContentP extends javax.swing.JPanel {
                         int posicion = row;
                         Libro Anterior = libro;
                         Libro Siguiente = new LibroFisico(titu,auto,gene,idio,desc,isbn,Integer.valueOf(canti));
-                        cat.getListaLibros().editar(Siguiente,posicion);
+                        try{
+                        cat.getListaLibros().editar(Siguiente, posicion);
                         libroOut.writeObject(cat.getListaLibros());
                         setTable(cat.getListaLibros());
+                        } catch(Exception e){
+                           JOptionPane.showMessageDialog(null, e.getMessage());
+                        }
                     }
                 }
                 else if (buscarLibro(title, autor, tipo) != null && tipo.equals("Libro Digital")) {
@@ -629,11 +661,28 @@ public class CatalogoContentP extends javax.swing.JPanel {
                     editIdio.setText(libro.getIdioma());
                     editDesc.setText(libro.getDesc());
                     editIsbn.setText(libro.getISBN());
-                JOptionPane.showMessageDialog(null, EditarLibro);}
-                else {
-                    JOptionPane.showMessageDialog(null, "El libro no esta guardado correctamente en el sistema :(");
-                }
-            }        
+                    int res = JOptionPane.showConfirmDialog(null, EditarLibro, "Edición de datos de un Libro", JOptionPane.OK_CANCEL_OPTION);
+                    if (res == JOptionPane.OK_OPTION) {
+                        String titu = editTitu.getText();
+                        String auto = editAuto.getText();
+                        String canti = editCantForm.getText();
+                        String idio = editIdio.getText();
+                        String gene = editGene.getText();
+                        String isbn = editIsbn.getText();
+                        String desc = editDesc.getText();
+                        int posicion = row;
+                        Libro Anterior = libro;
+                        Libro Siguiente = new LibroDigital(titu, auto, gene, idio, desc, isbn, canti);
+                        try{
+                        cat.getListaLibros().editar(Siguiente, posicion);
+                        libroOut.writeObject(cat.getListaLibros());
+                        setTable(cat.getListaLibros());
+                        } catch(Exception e){
+                           JOptionPane.showMessageDialog(null, e.getMessage());
+                        }
+                    }
+            }      
+            }
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -646,6 +695,33 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private void cantFormTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantFormTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cantFormTFActionPerformed
+
+    private void BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarActionPerformed
+        // TODO add your handling code here:
+        try {
+            File libros = new File("src/main/java/org/persistencia/catalogo.ser");
+            FileOutputStream lOut = new FileOutputStream(libros);
+            ObjectOutputStream libOut = new ObjectOutputStream(lOut);
+            int row = tablaCatalogo.getSelectedRow();
+            if (row == -1) {
+                JOptionPane.showMessageDialog(null, "Por favor seleccione una columna para inspeccionar");
+            } else {
+                String title = (String) tablaCatalogo.getValueAt(row, 0);
+                String autor = (String) tablaCatalogo.getValueAt(row, 1);
+                String tipo = (String) tablaCatalogo.getValueAt(row, 3);
+                Libro libroFuera = buscarLibro(title,autor,tipo);
+                int res = JOptionPane.showConfirmDialog(null, "Esta acción eliminará al libro seleccionado, ¿Desea continuar?", "Advertencia", JOptionPane.OK_CANCEL_OPTION);
+                if (res == JOptionPane.OK_OPTION) {
+                    cat.eliminarLibro(libroFuera);
+                    libOut.writeObject(cat.getListaLibros());
+                    JOptionPane.showMessageDialog(null, "Miembro eliminado satisfactoriamente");
+                    setTable(cat.getListaLibros());
+            }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_BorrarActionPerformed
     
     private void changePanel(JPanel p){
         p.setSize(this.getWidth(), this.getHeight());
@@ -686,6 +762,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Anadir;
     private javax.swing.JButton Borrar;
+    private javax.swing.JPanel BorrarLibro;
     private javax.swing.JLabel CantForm;
     private javax.swing.JButton Edit;
     private javax.swing.JPanel EditarLibro;
@@ -719,7 +796,6 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -727,6 +803,7 @@ public class CatalogoContentP extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
